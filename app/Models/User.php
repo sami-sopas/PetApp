@@ -60,4 +60,12 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    //Relacion de uno a muchos 
+    public function pet()
+    {
+        return $this->hasMany(Pet::class);
+    }
+
+
 }
