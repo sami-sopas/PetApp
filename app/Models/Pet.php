@@ -18,7 +18,7 @@ class Pet extends Model
     //Una categoria le pertenece
     public function category()
     {
-        return $this->belongsTo(Cateogory::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function type()

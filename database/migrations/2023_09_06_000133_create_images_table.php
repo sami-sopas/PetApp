@@ -17,7 +17,7 @@ return new class extends Migration
 
             //Relacion polimorfica
             $table->unsignedBigInteger('imageable_id');
-            $table->unsignedBigInteger('imageable_type');
+            $table->string('imageable_type');
             $table->timestamps();
         });
     }
