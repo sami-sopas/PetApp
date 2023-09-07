@@ -17,11 +17,11 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="bg-gray-100">
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+            @livewire('navbar')
 
             <!-- Page Heading -->
             @if (isset($header))
