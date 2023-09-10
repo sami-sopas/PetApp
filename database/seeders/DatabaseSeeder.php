@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Storage::deleteDirectory('public/pets'); //Eliminar carpeta
-        Storage::makeDirectory('public/pets'); //Volverla a creer, creando nuevas imgs
+        Storage::deleteDirectory('pets'); //Eliminar carpeta
+        Storage::makeDirectory('pets'); //Volverla a creer, creando nuevas imgs
 
         //Aqui generamos los datos falsos, mediante un seeder
 
@@ -35,9 +35,6 @@ class DatabaseSeeder extends Seeder
 
         //Generar tags
         Tag::factory(5)->create();
-
-        //Generar pets
-        Pet::factory(10)->create();
 
         //LLamar al pet seeder
         $this->call(PetSeeder::class);

@@ -18,7 +18,7 @@ class ImageFactory extends Factory
     {
         return [
             //Concatenar con la palabra pets para guardarlos como /pets/img.png
-            'url' => 'pets/' . $this->faker->image('public/storage/public/pets','640px','480px',null,false),
+            'url' => 'pets/' . $this->faker->image('public/storage/pets','640px','480px',null,false),
         ];
     }
 }
