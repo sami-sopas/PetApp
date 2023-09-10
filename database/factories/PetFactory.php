@@ -21,7 +21,7 @@ class PetFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->unique->sentence(),
+            'name' => $this->faker->unique->word(10),
             'color' => $this->faker->unique->word(10),
             'size' => $this->faker->unique->word(20),
             'sex' => $this->faker->unique->word(10),
