@@ -18,4 +18,11 @@ class PetController extends Controller
         //Le pasamos esos registros a la vista
         return view('pets.index',compact('pets'));
     }
+
+    //Recibimos un pet en la funcion como parametro
+    public function show(Pet $pet)
+    {
+        //Mostramos esa vista-detalle, enviandole el obj pet
+        return view('pets.show',compact('pet'));
+    }
 }
