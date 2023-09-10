@@ -16,7 +16,7 @@
                 <span>Sexo: {{ $pet->sex}}</span> <br>
                 <span>Tamaño: {{$pet->size}}</span> <br>
                 <span>Color: {{$pet->color}}</span> <br> 
-                <span>Edad: </span> <br>
+                <span>Edad: {{$pet->age}}</span> <br>
                 <span>Ubicacion: {{$pet->user->state}}</span> <br>
             </div>
         </div>
