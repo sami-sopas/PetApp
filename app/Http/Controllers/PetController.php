@@ -22,7 +22,15 @@ class PetController extends Controller
     //Recibimos un pet en la funcion como parametro
     public function show(Pet $pet)
     {
-        //Mostramos esa vista-detalle, enviandole el obj pet
-        return view('pets.show',compact('pet'));
+        //Mostramos pets similares en base a su categoria, su estatus
+        $similars = Pet::where('category_id',$pet->category_id)
+        ->where('status',1) //los que estan perdidos
+        ->where('id','!=',$pet->id)//mostrar relacionados distintos, al que tenemos actualmente
+        ->latest('id') //traer los ultimos mediante segun su id
+        ->take(4) //solo traer otras 4 opciones
+        ->get();
+
+        //Mostramos esa vista-detalle, enviandole el obj pet al que dio click y otros similares
+        return view('pets.show',compact('pet','similars'));
     }
 }
