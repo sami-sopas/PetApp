@@ -16,7 +16,7 @@ class PetController extends Controller
         $pets = Pet::where('status',1)->latest('id')->paginate(8);
         
         //Le pasamos esos registros a la vista
-        return view('pets.index',compact('pets'));
+        return view('avistamientos.index',compact('pets'));
     }
 
     //Recibimos un pet en la funcion como parametro
@@ -31,6 +31,6 @@ class PetController extends Controller
         ->get();
 
         //Mostramos esa vista-detalle, enviandole el obj pet al que dio click y otros similares
-        return view('pets.show',compact('pet','similars'));
+        return view('avistamientos.show',compact('pet','similars'));
     }
 }

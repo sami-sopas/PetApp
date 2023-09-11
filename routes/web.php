@@ -14,17 +14,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[PetController::class,'index'])->name('pets.index');
 
-//Rutas para mostrar detalles de un pet
-Route::get('pets/{pet}',[PetController::class,'show'])->name('pets.show');
+//Vista del inicio
+Route::get('/', function () {
+    return view('home');
+});
+
+//Vista del inicio
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
+
+//Mostrar mascotas perdidas
+Route::get('avistamientos',[PetController::class,'index'])->name('avistamientos.index');
+
+//Mostrar mostrar detalles de una mascota perdida
+Route::get('avistamientos/mascota/{pet}',[PetController::class,'show'])->name('avistamientos.show');
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/home', function () {
+        return view('home');
+    })->name('home');
 });
