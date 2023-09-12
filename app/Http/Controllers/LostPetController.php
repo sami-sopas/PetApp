@@ -11,12 +11,12 @@ class LostPetController extends Controller
     //Aqui controlaremos las publicaciones
     public function index()
     {
-        //Recuperar registros de mascotas perdidos,
+        //Recuperar registros de mascotas perdidos(1),
         //Hacemos que se muestren los ultimos con latest, y hacemos paginacion
         $pets = Pet::where('status',1)->latest('id')->paginate(8);
         
         //Le pasamos esos registros a la vista
-        return view('avistamientos.index',compact('pets'));
+        return view('lost.index',compact('pets'));
     }
 
     //Recibimos un pet en la funcion como parametro
@@ -31,6 +31,6 @@ class LostPetController extends Controller
         ->get();
 
         //Mostramos esa vista-detalle, enviandole el obj pet al que dio click y otros similares
-        return view('avistamientos.show',compact('pet','similars'));
+        return view('lost.show',compact('pet','similars'));
     }
 }
