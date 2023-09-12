@@ -24,11 +24,9 @@ return new class extends Migration
 
             //LLaves foraneas
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('type_id');
 
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete('cascade');
-            $table->foreign('category_id')->references('id')->on('categories')->cascadeOnDelete('cascade');
             $table->foreign('type_id')->references('id')->on('types')->cascadeOnDelete('cascade');
 
         });

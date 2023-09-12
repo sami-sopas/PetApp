@@ -22,9 +22,8 @@ class LostPetController extends Controller
     //Recibimos un pet en la funcion como parametro
     public function show(Pet $pet)
     {
-        //Mostramos pets similares en base a su categoria, su estatus
-        $similars = Pet::where('category_id',$pet->category_id)
-        ->where('status',1) //los que estan perdidos
+        //Mostramos pets similares en base a su estatus
+        $similars = Pet::where('status',$pet->status) //lo que estan perdidos
         ->where('id','!=',$pet->id)//mostrar relacionados distintos, al que tenemos actualmente
         ->latest('id') //traer los ultimos mediante segun su id
         ->take(4) //solo traer otras 4 opciones

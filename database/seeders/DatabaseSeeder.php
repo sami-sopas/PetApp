@@ -5,7 +5,6 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Type;
-use App\Models\Category;
 use App\Models\Pet;
 use App\Models\Tag;
 use Illuminate\Database\Seeder;
@@ -26,9 +25,6 @@ class DatabaseSeeder extends Seeder
 
         //LLamamos al user seeder
         $this->call(UserSeeder::class);
-
-        //Generar categorias
-        Category::factory(4)->create();
 
         //Gemerar tipos
         Type::factory(4)->create();

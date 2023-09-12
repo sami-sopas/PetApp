@@ -4,8 +4,6 @@ namespace Database\Factories;
 
 use App\Models\Type;
 use App\Models\User;
-use App\Models\Category;
-use App\Models\Cateogory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -28,8 +26,8 @@ class PetFactory extends Factory
             'description' => $this->faker->text(50),
             'age' => $this->faker->word(10),
             'status' => $this->faker->randomElement(['Perdido','En Adopcion','Encontrado','Adoptado']),
+
             //traernos los id de otro modelo para llenar las columnas foraneas sin errores
-            'category_id' => Category::all()->random()->id,
             'user_id' => User::all()->random()->id,
             'type_id' => Type::all()->random()->id,
 
