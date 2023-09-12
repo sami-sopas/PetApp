@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PetController;
+use App\Http\Controllers\LostPetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,10 +26,10 @@ Route::get('/home', function () {
 })->name('home');
 
 //Mostrar mascotas perdidas
-Route::get('avistamientos',[PetController::class,'index'])->name('avistamientos.index');
+Route::get('avistamientos',[LostPetController::class,'index'])->name('avistamientos.index');
 
 //Mostrar mostrar detalles de una mascota perdida
-Route::get('avistamientos/mascota/{pet}',[PetController::class,'show'])->name('avistamientos.show');
+Route::get('avistamientos/mascota/{pet}',[LostPetController::class,'show'])->name('avistamientos.show');
 
 Route::middleware([
     'auth:sanctum',

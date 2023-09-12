@@ -6,7 +6,7 @@ use App\Models\Pet;
 use Illuminate\Http\Request;
 
 
-class PetController extends Controller
+class LostPetController extends Controller
 {
     //Aqui controlaremos las publicaciones
     public function index()
