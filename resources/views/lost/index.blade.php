@@ -1,4 +1,5 @@
 <x-app-layout>
+    <h1>Mostrar mascotas perdidas</h1>
     <div class="container bg-red-500 mx-auto py-8">
         {{-- Los pets son enviados desde el pet Controller --}}
     
