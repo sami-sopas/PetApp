@@ -17,7 +17,7 @@ class Pet extends Model
 
     public function type()
     {
-        return $this->belongsTo(Type::class);
+        return $this->belongsTo(Category::class);
     }
 
     //Relacion muchos a muchos con tags

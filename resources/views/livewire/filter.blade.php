@@ -10,8 +10,8 @@
             <!-- Categorias: perro o gato -->
             <div class="mt-2">
                 Categoria <br>
-                @foreach ($types as $type)
-                    <input type="radio" name="type" value="{{ $type->name }}">{{ $type->name }} <br>
+                @foreach ($categories as $category)
+                    <input type="radio" name="type" value="{{ $category->name }}">{{ $type->name }} <br>
                 @endforeach
             </div>
 

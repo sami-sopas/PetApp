@@ -2,8 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Models\Category;
 use App\Models\Pet;
-use App\Models\Type;
 use Livewire\Component;
 
 class Filter extends Component
@@ -13,7 +13,7 @@ class Filter extends Component
         //Traer datos para poder filtrar...
 
         //Categorias: perro o gato
-        $types = Type::select('name')->get();
+        $categories = Category::select('name')->get();
 
         //Tamaño
         $petSizes = Pet::select('size')->distinct()->get();
@@ -25,7 +25,7 @@ class Filter extends Component
 
 
         return view('livewire.filter',compact(
-            'types','petSizes','petSex'
+            'categories','petSizes','petSex'
         ));
     }
 }
