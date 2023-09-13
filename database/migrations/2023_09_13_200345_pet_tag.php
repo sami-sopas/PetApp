@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('pet_tag', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
+            $table->unsignedBigInteger('pet_id');
+            $table->unsignedBigInteger('tag_id');
 
-            //Relacion polimorfica
-            $table->unsignedBigInteger('imageable_id');
-            $table->string('imageable_type');
+            $table->foreign('pet_id')->references('id')->on('pets')->cascadeOnDelete('cascade');
+            $table->foreign('tag_id')->references('id')->on('tags')->cascadeOnDelete('cascade');
+            
             $table->timestamps();
         });
     }
@@ -27,6 +28,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('pet_tag');
+
     }
 };

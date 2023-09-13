@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pets', function (Blueprint $table) {
             $table->id();
             $table->string('name'); //Juanito
-            $table->string('color'); //Negro
+            //$table->string('color'); //Negro
             $table->string('size'); //Mediano
             $table->string('sex'); //Macho
             $table->longText('description'); //Perro bastardo
@@ -25,9 +25,11 @@ return new class extends Migration
             //LLaves foraneas
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('color_id');
 
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->cascadeOnDelete('cascade');
+            $table->foreign('color_id')->references('id')->on('colors')->cascadeOnDelete('cascade');
 
         });
     }
@@ -38,5 +40,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('pets');
+
     }
 };

@@ -15,9 +15,16 @@ class Pet extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function type()
+    //Una categoria, le pertenece a una mascota
+    public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    //Un color, le pertenece a una mascota
+    public function color()
+    {
+        return $this->belongsTo(Color::class);
     }
 
     //Relacion muchos a muchos con tags
