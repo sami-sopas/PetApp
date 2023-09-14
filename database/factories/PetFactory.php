@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
-use App\Models\Type;
 use App\Models\User;
+use App\Models\Color;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,7 +21,6 @@ class PetFactory extends Factory
     {
         return [
             'name' => $this->faker->unique->word(10),
-            'color' => $this->faker->unique->word(10),
             'size' => $this->faker->unique->word(20),
             'sex' => $this->faker->unique->word(10),
             'description' => $this->faker->text(50),
@@ -31,6 +30,7 @@ class PetFactory extends Factory
             //traernos los id de otro modelo para llenar las columnas foraneas sin errores
             'user_id' => User::all()->random()->id,
             'category_id' => Category::all()->random()->id,
+            'color_id' => Color::all()->random()->id,
 
 
             

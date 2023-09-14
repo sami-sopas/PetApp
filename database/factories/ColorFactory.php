@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Type>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Color>
  */
-class CategoryFactory extends Factory
+class ColorFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->unique->word(5)
+            'name' => $this->faker->unique->word(10)
         ];
     }
 }

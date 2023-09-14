@@ -17,7 +17,7 @@ class TagFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->word(15),
+            'name' => $this->faker->word(8),
         ];
     }
 }
