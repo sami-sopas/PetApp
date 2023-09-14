@@ -22,7 +22,7 @@ class PetFactory extends Factory
         return [
             'name' => $this->faker->unique->word(10),
             'size' => $this->faker->randomElement(['Pequeño','Mediano','Grande']),
-            'sex' => $this->faker->randomElement(['Perdido','En Adopcion']),
+            'sex' => $this->faker->randomElement(['Macho','Hembra']),
             'description' => $this->faker->text(50),
             'age' => $this->faker->randomElement(['cachorro','joven','adulto','mayor']),
             'status' => $this->faker->randomElement(['Perdido','En Adopcion','Encontrado','Adoptado']),
