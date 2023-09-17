@@ -24,7 +24,7 @@ class PetFactory extends Factory
             'size' => $this->faker->randomElement(['Pequeño','Mediano','Grande']),
             'sex' => $this->faker->randomElement(['Macho','Hembra']),
             'description' => $this->faker->text(50),
-            'age' => $this->faker->randomElement(['cachorro','joven','adulto','mayor']),
+            'age' => $this->faker->randomElement(['Cachorro','Joven','Adulto','Adulto Mayor']),
             'status' => $this->faker->randomElement(['Perdido','En Adopcion','Encontrado','Adoptado']),
 
             //traernos los id de otro modelo para llenar las columnas foraneas sin errores
