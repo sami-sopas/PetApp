@@ -1,7 +1,7 @@
 <x-app-layout>
     <h1>Mostrar mascotas en adopcion</h1>
     <div class="container bg-red-500 mx-auto py-8">
-        {{-- Los pets son enviados desde el pet Controller --}}
+        {{-- Los pets son enviados desde el AdoptController (index) --}}
     
         <!-- Grid -->
         <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -25,7 +25,7 @@
                                 {{ $pet->user->state }}
                             </p>
                             {{-- Aquí le enviamos como parámetro, la mascota actual --}}
-                            <a href="{{ route('avistamientos.show',$pet) }}"
+                            <a href="{{ route('adoptar.show',$pet) }}"
                                 class="inline-flex items-center px-2 py-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Ver perfil
                                 <svg class="w-3 h-3 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"

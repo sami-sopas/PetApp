@@ -7,12 +7,17 @@
             {{-- Las variables vienen de Livewire/filter.php --}}
         </span>
 
-        <form action="" method="post">
+        <form action="{{ route('adoptar.search') }}" method="GET">
+
             <!-- Categorias: perro o gato -->
             <div class="mt-2">
-                Categoria <br>
+                <label for="category">Categoria</label> <br>
+                <input type="radio" name="category" value="all" {{ request('category') === 'all' ? 'checked' : '' }}
+                    checked> Todos <br>
                 @foreach ($categories as $category)
-                    <input type="radio" name="type" value="{{ $category->name }}">{{ $category->name }} <br>
+                    <input type="radio" name="category" value="{{ $category->id }}">
+                    {{ $category->name }} <br>
+                    </input>
                 @endforeach
             </div>
 
@@ -20,8 +25,9 @@
             <div class="mt-2">
                 <label for="size">Tamaño</label> <br>
                 <select name="size">
+                    <option value="all">Todos</option>
                     @foreach ($petSizes as $pet)
-                        <option value="{{ $pet->size }}">
+                        <option value="{{ $pet->size }}" {{ request('size') == $pet->size ? 'selected' : '' }}>
                             {{ $pet->size }}
                         </option>
                     @endforeach
@@ -30,10 +36,11 @@
 
             <!-- Sexo -->
             <div class="mt-2">
-                <label for="size">Sexo</label> <br>
-                <select name="size">
+                <label for="sex">Sexo</label> <br>
+                <select name="sex">
+                    <option value="all">Todos</option>
                     @foreach ($petSex as $pet)
-                        <option value="{{ $pet->sex }}"">
+                        <option value="{{ $pet->sex }}" {{ request('sex') == $pet->sex ? 'selected' : '' }}>
                             {{ $pet->sex }}
                         </option>
                     @endforeach
@@ -42,42 +49,60 @@
 
             <!-- Edad -->
             <div class="mt-2">
-                <label for="size">Edad</label> <br>
-                <select name="size">
+                <label for="age">Edad</label> <br>
+                <select name="age">
+                    <option value="all">Todos</option>
                     @foreach ($petAges as $pet)
-                        <option value="{{ $pet->age }}"">
+                        <option value="{{ $pet->age }}" {{ request('age') == $pet->age ? 'selected' : '' }}>
                             {{ $pet->age }}
                         </option>
                     @endforeach
                 </select>
             </div>
 
-            <!-- Ubicacion -->
+   
+            <!-- Ubicación -->
             <div class="mt-2">
-                <label for="size">Ubicacion</label> <br>
-                <select name="size">
+                <label for="state">Ubicación</label> <br>
+                <select name="state">
+                    <option value="all">Todos</option>
                     @foreach ($states as $state)
-                        <option value="{{ $state->state }}"">
-                            {{ $state->state }}
-                        </option>
+                        <option value="{{ $state->state }}">{{ $state->state }}</option>
                     @endforeach
                 </select>
             </div>
 
-            <!-- Personalidad -->
+
+            <!-- Personalidad / Tags -->
             <div class="mt-2">
-                <label for="size">Personalidad</label> <br>
-                <select name="size">
-                    @foreach ($petTags as $tag)
-                        <option value="{{ $tag->name }}"">
-                            {{ $tag->name }}
+                <label for="tags">Etiquetas</label> <br>
+                @foreach ($petTags as $tag)
+                    <input type="checkbox" name="tags[]" value="{{ $tag->id }}">
+                    {{ $tag->name }} <br>
+                    </input>
+                @endforeach
+            </div>
+
+
+            <!-- Color -->
+            <div class="mt-2">
+                <label for="color">Color</label> <br>
+                <select name="color">
+                    <option value="all" {{ request('color') === 'all' ? 'selected' : '' }}>Todos</option>
+                    @foreach ($colors as $color)
+                        <option value="{{ $color->id }}" {{ request('color') == $color->id ? 'selected' : '' }}>
+                            {{ $color->name }}
                         </option>
                     @endforeach
                 </select>
             </div>
 
-            <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" 
-            type="submit">Buscar</button>
+
+
+            <button
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                type="submit">Buscar
+            </button>
 
         </form>
 

@@ -3,10 +3,11 @@
 namespace App\Livewire;
 
 use App\Models\Pet;
+use App\Models\Tag;
 use App\Models\User;
+use App\Models\Color;
 use Livewire\Component;
 use App\Models\Category;
-use App\Models\Tag;
 
 class Filter extends Component
 {
@@ -15,7 +16,7 @@ class Filter extends Component
         //Traer datos para poder filtrar...
 
         //Categorias: perro o gato
-        $categories = Category::select('name')->get();
+        $categories = Category::get();
 
         //Tamaño (con distinct, hacemos que no muestre repetidos)
         $petSizes = Pet::select('size')->distinct()->get();
@@ -27,16 +28,19 @@ class Filter extends Component
         $petAges = Pet::select('age')->distinct()->get();
 
         //Ubicacion
-        $states = User::select('state')->distinct()->get();
+        $states = User::get();
 
         //Tags/personalidad
-        $petTags = Tag::select('name')->distinct()->get();
+        $petTags = Tag::get();
+
+        //Colroes
+        $colors = Color::get();
 
 
 
 
         return view('livewire.filter',compact(
-            'categories','petSizes','petSex','petAges','states','petTags'
+            'categories','petSizes','petSex','petAges','states','petTags','colors'
         ));
     }
 }

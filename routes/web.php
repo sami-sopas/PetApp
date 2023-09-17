@@ -39,6 +39,14 @@ Route::get('avistamientos/mascota/{pet}',[LostPetController::class,'show'])->nam
 //Mostrar mascotas en adopcion
 Route::get('adoptar',[AdoptPetController::class,'index'])->name('adoptar.index');
 
+//Mostrar mostrar detalles de una mascota para adoptar
+Route::get('adoptar/mascota/{pet}',[AdoptPetController::class,'show'])->name('adoptar.show');
+
+//Buscar mascota segun los parametros que de el usuario
+Route::get('adoptar/buscar',[AdoptPetController::class,'search'])->name('adoptar.search');
+
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
