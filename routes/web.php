@@ -21,11 +21,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-//Vista del inicio
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
-
 // RUTAS PARA AVISTAMIENTOS---------------------------------------------------------
 
 //Mostrar mascotas perdidas

@@ -24,7 +24,7 @@
                             <p class="mb-1 font-light text-sm text-gray-700 dark:text-gray-400">
                                 {{ $pet->user->state }}
                             </p>
-                            {{-- Aquí le enviamos como parámetro, la mascota actual --}}
+                            {{-- Aquí le enviamos como parámetro, la mascota actual a la que de click --}}
                             <a href="{{ route('adoptar.show',$pet) }}"
                                 class="inline-flex items-center px-2 py-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Ver perfil
