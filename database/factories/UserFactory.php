@@ -32,6 +32,7 @@ class UserFactory extends Factory
             'current_team_id' => null,
             'phone' => $this->faker->numerify('##-##-##-##-##'),
             'state' => $this->faker->word(15),
+            'role' => 'user',
         ];
     }
 
