@@ -1,1 +1,1 @@
-<h1>pruebaa</h1>
+<h1>INDEX ADMIN</h1>
