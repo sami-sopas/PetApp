@@ -1,0 +1,28 @@
+* [33mf4857de[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m before trying to do admin dashboard
+* [33m9b61144[m add role column to users table
+* [33m6364217[m Routing for admin
+* [33m480add6[m Update pet factory
+* [33m6ed030a[m FILTER NOW WORKING OMG
+* [33mc5489f8[m update seeders for static values
+* [33ma9a157b[m update seeders for static values
+* [33mb1d7f63[m filter section finished (not functional)
+* [33m8b1b2c7[m Updated seeders for Color table
+* [33m58bce5d[m Updated migrations (color column changed to table color)
+* [33mac76f44[m Change type table to Category table (just name
+* [33mbb71ce3[m started livewire filter
+* [33m1cc3054[m Delete category table, instead use status column for pets
+* [33m555f935[m View adopt and lost
+* [33m9d6a466[m Convert PetController to Adopt and Pet Controllers
+* [33mf60484b[m Fixed some routes
+* [33mfe35ace[m show pet info and similars
+* [33m01fcd33[m add age column to pets table
+* [33m258580f[m show pet details
+* [33m2fea2e3[m cards,paginate and responsive on firts category
+* [33m336d58b[m some changes
+* [33m436fdca[m functional navbar (public pet not yet
+* [33me1fad03[m implement navbar and flowbite
+* [33m4c6a040[m Seeders for DB
+* [33mcc708c8[m DB relations with Models
+* [33m8aeeb89[m Migrations done
+* [33mec0a6b0[m Install instructions
+* [33maa4d505[m installed laravel and jetstream
