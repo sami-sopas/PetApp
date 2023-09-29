@@ -9,7 +9,8 @@ class Category extends Model
 {
     use HasFactory;
 
-    
+    protected $fillable = ['name'];
+
     //Relacion de uno a uno
     public function pets()
     {
