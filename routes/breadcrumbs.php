@@ -5,7 +5,7 @@
 
 use App\Models\Color;
 use App\Models\Category;
-
+use App\Models\Tag;
 // This import is also not required, and you could replace `BreadcrumbTrail $trail`
 //  with `$trail`. This is nice for IDE type checking and completion.
 use Diglactic\Breadcrumbs\Breadcrumbs;
@@ -52,6 +52,25 @@ Breadcrumbs::for('colors-create', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('colors-edit', function (BreadcrumbTrail $trail,Color $color) {
     $trail->parent('colors');
     $trail->push($color->name, route('colors.edit', $color));
+}); 
+
+//------------------------------------------------------------------------
+
+//Tags
+Breadcrumbs::for('tags', function (BreadcrumbTrail $trail) {
+    $trail->push('Tags', route('tags.index'));
+});
+
+// Tags > Crear
+Breadcrumbs::for('tags-create', function (BreadcrumbTrail $trail) {
+    $trail->parent('tags');
+    $trail->push('Crear', route('tags.index'));
+});
+
+// Tags > Editar > [Color]
+Breadcrumbs::for('tags-edit', function (BreadcrumbTrail $trail,Tag $tag) {
+    $trail->parent('tags');
+    $trail->push($tag->name, route('tags.edit', $tag));
 }); 
 
 //------------------------------------------------------------------------

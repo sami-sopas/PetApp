@@ -37,7 +37,7 @@ class ColorController extends Controller
 
         Color::create($request->all());
 
-        return redirect()->route('colors.index');
+        return redirect()->route('colors.index')->with('info','El color ' . $request->name . ' fue agregado correctemente');
     }
 
     /**

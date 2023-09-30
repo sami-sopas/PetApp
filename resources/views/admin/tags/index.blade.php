@@ -1,7 +1,7 @@
 <x-admin-layout>
     <div class="p-4 sm:ml-64">
         <div class="p-4 mt-10">
-            <span>{{ Breadcrumbs::render('categories') }}</span>
+            <span>{{ Breadcrumbs::render('tags') }}</span>
 
             <!-- Tarjeta donde iran las tablas -->
             <div class="pt-4">
@@ -9,10 +9,10 @@
                     class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
                     <h5 class="mb-5 text-3xl font-bold text-gray-900 dark:text-white">
-                        Categorias
+                        Tags
                     </h5>
 
-                    <!-- Sesion para cuando se elimina un registro -->
+                    <!-- Variable de sesion para notificar cambio -->
                     @if (session('info'))
                         <div id="alert-border-3"
                             class="flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50 dark:text-green-400 dark:bg-gray-800 dark:border-green-800 rounded-sm"
@@ -38,9 +38,9 @@
                         </div>
                     @endif
 
-                    <a href="{{ route('categories.create') }}"
-                        class="text-gray-900 inline-block bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-5">
-                        Agregar nueva categoria
+                    <!-- Boton de crear -->
+                    <a href="{{ route('tags.create') }}" class="inline-block text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-4">
+                        Agregar tag
                     </a>
 
                     <!-- Tabla-->
@@ -61,23 +61,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $category)
+                                @foreach ($tags as $tag)
                                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ $category->id }}
+                                            {{ $tag->id }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            {{ $category->name }}
+                                            {{ $tag->name }}
                                         </td>
                                         <td class="px-6 py-4 w-3">
-                                            <a href="{{ route('categories.edit', $category) }}"
+                                            <a href="{{ route('tags.edit', $tag) }}"
                                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                                 Edit
                                             </a>
                                         </td>
                                         <td class="px-6 py-4 w-3">
-                                            <form action="{{ route('categories.destroy', $category) }}" method="POST">
+                                            <form action="{{ route('tags.destroy', $tag) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"

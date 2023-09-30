@@ -9,6 +9,8 @@ class Tag extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+
     //Relacion muchos a muchos con tags
     public function pets()
     {
