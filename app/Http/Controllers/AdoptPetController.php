@@ -111,4 +111,10 @@ class AdoptPetController extends Controller
 
         return view('adopt.index', compact('pets'));
     }
+
+    //Retorna la vista para dar en adopcion
+    public function create()
+    {
+        return view('adopt.create');
+    }
 }

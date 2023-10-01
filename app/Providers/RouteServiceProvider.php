@@ -36,10 +36,15 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
 
-            /* Para que laravel reconozca nuestro archivo de rutas */
+            /* Para que laravel reconozca nuestro archivo de rutas  del admin*/
             Route::middleware('web','auth')
                 ->prefix('admin') //Prefijo para que todas las rutas de admin necesiten eso antes /admin/dashboard
                 ->group(base_path('routes/admin.php'));
+
+            /* Rutas accesibles para usuarios */
+            Route::middleware('web')
+                ->prefix('user') //Prefijo para que todas las rutas de crud de psot necesiten eso antes /user/pets
+                ->group(base_path('routes/user.php'));
         });
     }
 }

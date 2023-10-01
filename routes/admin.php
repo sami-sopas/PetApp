@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\TagController;
 use Illuminate\Support\Facades\Route;
 
+//AQUI ESTAN LAS RUTAS QUE SERAN ACCESIBLES SOLO PARA EL ADMIN
+
 
 //Definicion de rutas de administrador
 Route::get('',[AdminController::class, 'index'])->name('admin.index');

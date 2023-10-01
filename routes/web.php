@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// AQUI ESTARAN LAS RUTAS QUE SERAN ACCESIBLES PARA TODO MUNDO
+
 
 //Vista del inicio
 Route::get('/', function () {
@@ -40,6 +42,8 @@ Route::get('adoptar/mascota/{pet}',[AdoptPetController::class,'show'])->name('ad
 //Buscar mascota segun los parametros que de el usuario (filtrar)
 Route::get('adoptar/buscar',[AdoptPetController::class,'search'])->name('adoptar.search');
 
+//Regresa la vista para el formulario de crear mascota en adopcion
+Route::get('adoptar/create',[AdoptPetController::class,'create'])->name('adoptar.create');
 
 
 Route::middleware([
