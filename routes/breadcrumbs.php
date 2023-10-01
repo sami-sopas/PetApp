@@ -74,6 +74,25 @@ Breadcrumbs::for('tags-edit', function (BreadcrumbTrail $trail,Tag $tag) {
 }); 
 
 //------------------------------------------------------------------------
+
+//Mascotas
+Breadcrumbs::for('adopciones', function (BreadcrumbTrail $trail) {
+    $trail->push('Mascotas');
+});
+
+// Mascotas > En adopcion
+Breadcrumbs::for('adopciones-index', function (BreadcrumbTrail $trail) {
+    $trail->parent('adopciones');
+    $trail->push('En adopcion', route('pets-adopt.index'));
+});
+
+/* Tags > Editar > [Color]
+Breadcrumbs::for('tags-edit', function (BreadcrumbTrail $trail,Tag $tag) {
+    $trail->parent('tags');
+    $trail->push($tag->name, route('tags.edit', $tag));
+}); */
+
+//------------------------------------------------------------------------
 /*
 // Home > Blog > [Category]
 Breadcrumbs::for('category', function (BreadcrumbTrail $trail, $category) {
