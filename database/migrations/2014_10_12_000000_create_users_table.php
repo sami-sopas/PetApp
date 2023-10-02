@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('phone')->nullable();
-            $table->string('state')->nullable();
+            $table->foreignId('state_id')->constrained(); //FK para la tabla estados
             $table->string('role')->default('role');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

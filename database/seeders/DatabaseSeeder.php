@@ -24,7 +24,10 @@ class DatabaseSeeder extends Seeder
 
         //Aqui generamos los datos falsos, mediante un seeder
 
-        //LLamamos al user seeder
+        //Primero generamos la tabla con los 32 estados
+        $this->call(StateSeeder::class);
+
+        //LLamamos al user seeder (a cada uno se le asigna un estado)
         $this->call(UserSeeder::class);
 
         //Crear las dos categorias iniciales (perro y gato)

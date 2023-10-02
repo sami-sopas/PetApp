@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'email' => 'prueba@gmail.com',
             'password' => bcrypt('12345678'),
             'phone' => '11-22-33-44-55',
-            'state' => 'gdl',
+            'state_id' => '1',
             'role' => 'admin',
         ]);
         //Crear registros falsos
