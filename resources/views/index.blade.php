@@ -291,7 +291,7 @@ data-wf-domain="adoptable-template.webflow.io" data-wf-page="5f5b66b53e97c2c3900
           class="logo-link-block w-inline-block w--current"></a>
         <nav role="navigation" id="w-node-bb0bf636-1622-2bac-85b3-47f867d53010-67d5300b" class="nav-menu w-nav-menu">
           <div class="nav-menu-wrapper">
-            <div class="nav-menu-item-1"><a href="adopt-a-dog.html" class="nav-link">Adopt a Dog</a></div>
+            <div class="nav-menu-item-1"><a href="{{ route('adopt-dog.index') }}" class="nav-link">Adopt a Dog</a></div>
             <div class="nav-menu-item-2"><a href="adopt-a-cat.html" class="nav-link">Adopt a Cat</a></div>
             <div class="nav-menu-item-3"><a href="ways-to-help.html" class="nav-link">Ways to Help</a></div>
             <div class="nav-menu-item-4"><a href="blog.html" class="nav-link">Blog</a></div>
@@ -1216,8 +1216,8 @@ data-wf-domain="adoptable-template.webflow.io" data-wf-page="5f5b66b53e97c2c3900
   </div>
   <script src="{{ asset('desmadre/d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8d3c2.js') }}"></script>
     <script src="{{ asset('desmadre/uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/js/webflow.d3e0328fb.js')}}"></script>
+    
     @stack('modals')
-
     @livewireScripts
 
     <script>

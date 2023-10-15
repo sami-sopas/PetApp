@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdoptDog;
+use App\Http\Controllers\AdoptDogController;
 use App\Http\Controllers\AdoptPetController;
 use App\Http\Controllers\LostPetController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +24,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+//Mostrar doggos para adoptar
+Route::get('adopt-dog',[AdoptDogController::class,'index'])->name('adopt-dog.index');
+
+
+
+
 
 // RUTAS PARA AVISTAMIENTOS---------------------------------------------------------
 
