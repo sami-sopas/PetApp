@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 //Vista del inicio
 Route::get('/', function () {
-    return view('home');
+    return view('index');
 });
 
 // RUTAS PARA AVISTAMIENTOS---------------------------------------------------------

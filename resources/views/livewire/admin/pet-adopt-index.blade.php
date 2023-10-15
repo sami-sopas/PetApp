@@ -28,6 +28,16 @@
                     <th scope="col" class="px-6 py-3">
                         Nombre
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                        Categoria
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Autor
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Sexo
+                    </th>
+                    <th scope="col" class="px-6 py-3"></th>
                     <th scope="col" class="px-6 py-3"></th>
                     <th scope="col" class="px-6 py-3"></th>
                 </tr>
@@ -40,6 +50,21 @@
                         </th>
                         <td class="px-6 py-4">
                             {{ $pet->name }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $pet->category->name }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $pet->user->name }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $pet->sex }}
+                        </td>
+                        <td class="px-6 py-4 w-3">
+                            <a href="{{ route('pets-adopt.show', $pet) }}"
+                                class="font-medium text-black dark:text-white hover:underline">
+                                Detalles
+                            </a>
                         </td>
                         <td class="px-6 py-4 w-3">
                             <a href="{{ route('pets-adopt.edit', $pet) }}"
