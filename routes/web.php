@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdoptCatController;
 use App\Http\Controllers\AdoptDog;
 use App\Http\Controllers\AdoptDogController;
 use App\Http\Controllers\AdoptPetController;
@@ -27,6 +28,9 @@ Route::get('/', function () {
 
 //Mostrar doggos para adoptar
 Route::get('adopt-dog',[AdoptDogController::class,'index'])->name('adopt-dog.index');
+
+//Mostrar cattos para adoptar
+Route::get('adopt-cat',[AdoptCatController::class,'index'])->name('adopt-cat.index');
 
 
 
