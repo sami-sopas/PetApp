@@ -1219,5 +1219,9 @@ data-wf-domain="adoptable-template.webflow.io" data-wf-page="5f5b66b53e97c2c3900
     @stack('modals')
 
     @livewireScripts
+
+    <script>
+        $(document).ready(function() {$(".w-webflow-badge").removeClass("w-webflow-badge").empty(); });
+    </script>
 </body>
 </html>
