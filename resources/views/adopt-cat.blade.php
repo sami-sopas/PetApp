@@ -3,8 +3,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" 
 data-wf-domain="adoptable-template.webflow.io" data-wf-page="5f5b66b53e97c222eb00697b"
   data-wf-site="5f4f91ff23802a48574383ea" data-wf-status="1">
-<!-- Mirrored from adoptable-template.webflow.io/adopt-a-cat by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 15 Oct 2023 01:42:33 GMT -->
-
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,23 +46,9 @@ data-wf-domain="adoptable-template.webflow.io" data-wf-page="5f5b66b53e97c222eb0
 </head>
 
 <body>
-  <header id="nav" class="sticky-nav">
-    <div data-animation="over-right" class="navbar w-nav" data-easing2="ease-in-out" data-easing="ease-in-out"
-      data-collapse="medium" role="banner" data-no-scroll="1" data-duration="400" data-doc-height="1">
-      <div class="nav-grid-container">
-
-        <!-- Barra de navegacion -->
-        <x-nav/>
-
-        <div id="w-node-bb0bf636-1622-2bac-85b3-47f867d53020-67d5300b" data-w-id="bb0bf636-1622-2bac-85b3-47f867d53020"
-          class="menu-button w-nav-button">
-          <div class="menu-icon-wrapper margin-right"><img
-              src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a8f764384d0_Icons_Adoptable_Purple_Hamburger.svg"
-              alt="" class="icon" /></div>
-        </div>
-      </div>
-    </div>
-  </header>
+ 
+  <x-nav/>
+  
   <header class="header">
     <div class="container-1440 center">
       <div class="heading-container">

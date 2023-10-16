@@ -41,6 +41,9 @@
             </main>
         </div>
 
+        <!-- Footer -->
+        <x-footer/>
+
         <!-- Scripts -->
         <script src="{{ asset('desmadre/d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8d3c2.js') }}"></script>
         <script src="{{ asset('desmadre/uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/js/webflow.d3e0328fb.js')}}"></script>

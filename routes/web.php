@@ -1,11 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LostPetController;
 use App\Http\Controllers\AdoptCatController;
-use App\Http\Controllers\AdoptDog;
 use App\Http\Controllers\AdoptDogController;
 use App\Http\Controllers\AdoptPetController;
-use App\Http\Controllers\LostPetController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
