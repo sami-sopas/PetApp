@@ -28,9 +28,15 @@ Route::get('/', function () {
 //Mostrar doggos para adoptar
 Route::get('adopt-dog',[AdoptDogController::class,'index'])->name('adopt-dog.index');
 
+//Mostrar perro para adoptar
+Route::get('adopt-dog/dog/',[AdoptDogController::class,'show'])->name('adopt-dog.show');
+
+//Filtrar doggos
+Route::get('adopt-dog/filter',[AdoptDogController::class,'filter'])->name('adopt-dog.filter');
+
+
 //Mostrar cattos para adoptar
 Route::get('adopt-cat',[AdoptCatController::class,'index'])->name('adopt-cat.index');
-
 
 
 

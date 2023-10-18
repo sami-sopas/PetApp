@@ -1,5 +1,5 @@
 <div>
-    
+  
     <!-- Filtrar por... -->
     <div style="-webkit-transform:translate3d(0, 4EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 4EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 4EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 4EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
         class="section">
@@ -8,16 +8,108 @@
                 <div class="accordion-item">
                     <div data-w-id="828cfaa3-090e-e241-cc03-3ea597911d62" class="accordion-item-trigger">
                         <div class="flex-horizontal justify-space-between">
-                            <h4 class="accordion-headline">Estoy buscando un perro...</h4>
+                            <h4 class="accordion-headline">Filtrar por ...</h4>
                             <div class="arrow-icon small"><img
                                     src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a42154384b8_Icons_Adoptable_Purple_Arrow Down.svg"
                                     width="75" alt="" /></div>
                         </div>
                     </div>
-                    <div style="height:0PX;opacity:0" class="accordion-item-content">
+
+                    <div style="height: 0px; opacity: 0" class="accordion-item-content">
                         <div class="collection-list-wrapper w-dyn-list">
                             <div role="list" class="center-tags-horizontal w-dyn-items">
-                                <div id="w-node-_5f0b8d2a-a268-fcd9-2f16-fddfeedd3145-ad00697c" role="listitem"
+
+                                <!-- Filtros -->
+                                <div class="grid grid-cols-3 gap-4 p-4">
+                                    <!-- Columna 1 -->
+                                    <div class="col-span-1">
+                                        <!-- Filtro por Tamaño -->
+                                        <div class="mb-4">
+                                            <label for="size">Tamaño</label>
+                                            <select name="size" wire:model="size">
+                                                <option value="" selected disabled>Todos los tamaños</option>
+                                                @foreach($sizeOptions as $option)
+                                                    <option value="{{ $option->size }}">{{ $option->size }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        
+                                        <!-- Filtro por Sexo -->
+                                        <div class="mb-4">
+                                            <label for="sex">Sexo</label>
+                                            <select name="sex" wire:model="sex">
+                                                <option value="" selected disabled>Ambos sexos</option>
+                                                @foreach($sexOptions as $option)
+                                                    <option value="{{ $option->sex }}">{{ $option->sex }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                    
+                                    <!-- Columna 2 -->
+                                    <div class="col-span-1">
+                                        <!-- Filtro por Edad -->
+                                        <div class="mb-4">
+                                            <label for="age">Edad</label>
+                                            <select name="age" wire:model="age">
+                                                <option value="" selected disabled>Todas las edades</option>
+                                                @foreach($ageOptions as $option)
+                                                    <option value="{{ $option->age }}">{{ $option->age }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                    
+                                        <!-- Filtro por Ubicación -->
+                                        <div class="mb-4">
+                                            <label for="ubicacion">Ubicación</label>
+                                            <select id="ubicacion" name="ubicacion">
+                                                <option value="">Todas las ubicaciones</option>
+                                                <!-- Opciones para las ubicaciones -->
+                                            </select>
+                                        </div>
+                                    </div>
+                    
+                                    <!-- Columna 3 -->
+                                    <div class="col-span-1">
+                                        <!-- Filtro por Etiqueta (Tag) -->
+                                        <div class="mb-4">
+                                            <label for="etiqueta">Etiqueta</label>
+                                            <select id="etiqueta" name="etiqueta">
+                                                <option value="">Todas las etiquetas</option>
+                                                <!-- Opciones para las etiquetas -->
+                                            </select>
+                                        </div>
+                    
+                                        <!-- Filtro por Color -->
+                                        <div class="mb-4">
+                                            <label for="color">Color</label>
+                                            <select id="color" name="color">
+                                                <option value="">Todos los colores</option>
+                                                <!-- Opciones para los colores -->
+                                            </select>
+                                        </div>
+                                    </div>
+                    
+                                    <!-- Botón de Filtrar -->
+                                    <div wire:click="filter" wire:click.post="filter" class="col-span-3 text-center">
+                                        <button type="button" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
+                                            Filtrar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <!-- Mostrar tags anteriores -->
+                    {{-- <div style="height:0PX;opacity:0" class="accordion-item-content">
+                        <div class="collection-list-wrapper w-dyn-list">
+                            <div role="list" class="center-tags-horizontal w-dyn-items">
+                                <div>
+                                    Filtros
+                                </div>
+                                 <div id="w-node-_5f0b8d2a-a268-fcd9-2f16-fddfeedd3145-ad00697c" role="listitem"
                                     class="tags-collection-item w-dyn-item"><a
                                         href="dog-tags/needs-a-home-based-owner.html"
                                         class="badge brand-color-3 w-inline-block">
@@ -94,14 +186,49 @@
                                     </a></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Mostrar perros de manera dinamica -->
     <section class="section wide no-padding">
+        <div class="w-dyn-list">
+            <div role="list" class="pet-profiles-grid w-dyn-items">
+                @foreach ($dogs as $dog)
+                    <div role="listitem" class="w-dyn-item my-5 mx-5">
+                        <a href="{{ 'dog/' . $dog['slug'] }}" class="profile-card-link-block w-inline-block">
+                            <div class="flex-horizontal">
+                                <div class="profile-card-half">
+                                    <div style="background-color: {{ $dog['background_color'] }}" class="content-padding profile-cards">
+                                        <div class="profile-icon">
+                                            <img src="{{ $dog['icon_url'] }}" width="38" alt="" />
+                                        </div>
+                                        <h3 class="profile-descriptor">
+                                            {{ $dog['name'] }}
+                                        </h3>
+                                        <div>
+                                            <div style="background-color: {{ $dog['badge_color'] }}" class="badge-outline white">
+                                                <h6>{{ $dog['age'] }}</h6>
+                                            </div>
+                                        </div>
+                                        <div class="long-fur-pattern"></div>
+                                    </div>
+                                </div>
+                                <div style="background-color: {{ $dog['background_color'] }}" class="profile-card-half">
+                                    <img src="{{  Storage::url($dog->image->url) }}" alt="" sizes="(max-width: 767px) 50vw, (max-width: 991px) 25vw, 17vw" class="pet-thumbnail-image" />
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Mostrar perros de manera dinamica -->
+    {{-- <section class="section wide no-padding">
         <div class="w-dyn-list">
             <div role="list" class="pet-profiles-grid w-dyn-items">
                 <div role="listitem" class="w-dyn-item"><a href="dog/missy.html"
@@ -364,5 +491,5 @@
                     </a></div>
             </div>
         </div>
-    </section>
+    </section> --}}
 </div>
