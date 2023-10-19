@@ -100,7 +100,7 @@
                                             <img src="{{ $dog['icon_url'] }}" width="38" alt="" />
                                         </div>
                                         <h3 class="profile-descriptor">
-                                            {{ $dog->name }}
+                                            <a href="{{ route('adopt-dog.show',$dog) }}">{{ $dog->name }}</a>
                                         </h3>
                                         <div>
                                             <div style="background-color: {{ $dog['badge_color'] }}"
@@ -125,6 +125,38 @@
         </div>
     </section>
 
+    <!-- EL ejemplo -->
+    <section class="section wide no-padding">
+        <div class="w-dyn-list">
+          <div role="list" class="pet-profiles-grid w-dyn-items">
+            <div role="listitem" class="w-dyn-item"><a href="dog/missy.html" class="profile-card-link-block w-inline-block">
+                <div class="flex-horizontal">
+                  <div class="profile-card-half">
+                    <div style="background-color:hsla(41, 100.00%, 76.34%, 1.00)" class="content-padding profile-cards">
+                      <div class="profile-icon"><img
+                          src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802ae14a438512_Icons_Adoptable_White_Bone.svg"
+                          width="38" alt="" /></div>
+                      <h3 class="profile-descriptor">Hi I&#x27;m Missy, the low flying cloud dog.</h3>
+                      <div>
+                        <div style="background-color:hsla(41, 100.00%, 76.34%, 1.00)" class="badge-outline white">
+                          <h6>Puppy</h6>
+                        </div>
+                      </div>
+                      <div class="long-fur-pattern"></div>
+                    </div>
+                  </div>
+                  <div style="background-color:hsla(41, 100.00%, 76.34%, 1.00)" class="profile-card-half"><img
+                      src="../uploads-ssl.webflow.com/5f4f91ff23802a3d804383e9/5f4f91ff23802a2d1a4384e8_Adoptable-Webflow-Theme_Dog%207_Pic%201_white-samoyed_puppy_Photo%20by_wildlittlethingsphoto.jpg"
+                      alt="" sizes="(max-width: 767px) 50vw, (max-width: 991px) 25vw, 17vw"
+                      srcset="https://uploads-ssl.webflow.com/5f4f91ff23802a3d804383e9/5f4f91ff23802a2d1a4384e8_Adoptable-Webflow-Theme_Dog%25207_Pic%25201_white-samoyed_puppy_Photo%2520by_wildlittlethingsphoto-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5f4f91ff23802a3d804383e9/5f4f91ff23802a2d1a4384e8_Adoptable-Webflow-Theme_Dog%207_Pic%201_white-samoyed_puppy_Photo%20by_wildlittlethingsphoto.jpg 920w"
+                      class="pet-thumbnail-image" /></div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+    </section>
+
 
     <x-footer />
 
@@ -137,6 +169,7 @@
         </div>
         <div data-w-id="c2807aa4-d9bf-2d8f-f78c-7b6aed1a8c42" class="search-modal-trigger"></div>
     </div>
+
     <script src="{{ asset('desmadre/d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8d3c2.js') }}"></script>
     <script src="{{ asset('desmadre/uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/js/webflow.d3e0328fb.js') }}">
     </script>

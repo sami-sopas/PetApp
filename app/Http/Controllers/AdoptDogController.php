@@ -46,12 +46,19 @@ class AdoptDogController extends Controller
                     ->where('category_id', 2)
                     ->get();
 
-        return view('adopt-dog',compact('dogs'));
+        return view('adopt-dog.index',compact('dogs'));
     }
 
-    public function show(Pet $pet)
+    public function show(Pet $dog)
     {
-        return view('show-dog');
+        $similars = Pet::where('category_id',2)
+                     ->where('status',2)
+                     ->where('id','!=',$dog->id)
+                     ->latest('id')
+                     ->take(6)
+                     ->get();
+
+        return view('adopt-dog.show',compact('dog','similars'));
     }
 
     public function filter(Request $request)
@@ -77,6 +84,6 @@ class AdoptDogController extends Controller
             // Obtén los resultados
         $dogs = $query;
 
-        return view('adopt-dog',compact('dogs'));
+        return view('adopt-dog.index',compact('dogs'));
     }
 }
