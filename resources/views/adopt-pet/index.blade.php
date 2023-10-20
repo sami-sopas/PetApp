@@ -73,47 +73,48 @@
                 </div>
                 <div style="-webkit-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(6DEG) skew(0, 0);-moz-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(6DEG) skew(0, 0);-ms-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(6DEG) skew(0, 0);transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(6DEG) skew(0, 0);opacity:0"
                     class="heading-row-2">
-                    <h1>Dogs &amp; <span class="spark-right">Puppies</span></h1>
+                    <h1>pets &amp; <span class="spark-right">Puppies</span></h1>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Componente de livewire para mostrar de manera dinamica -->
-    {{-- @livewire('dog-list') NO JALO ES TRISTE --}}
+    {{-- @livewire('pet-list') NO JALO ES TRISTE --}}
 
     <!-- Componente estatico con los filtros -->
-    <x-filter-dog-cat/>
+    <x-filter-pet/>
+    
 
-    <!-- Aqui se muestran los doggos -->
+    <!-- Aqui se muestran los petgos -->
     <section class="section wide no-padding">
         <div class="w-dyn-list">
             <div role="list" class="pet-profiles-grid w-dyn-items">
-                @foreach ($dogs as $dog)
+                @foreach ($pets as $pet)
                     <div role="listitem" class="w-dyn-item my-5 mx-5">
-                        <a href="{{ 'dog/' . $dog['slug'] }}" class="profile-card-link-block w-inline-block">
+                        <a href="{{ 'pet/' . $pet['slug'] }}" class="profile-card-link-block w-inline-block">
                             <div class="flex-horizontal">
                                 <div class="profile-card-half">
-                                    <div style="background-color: {{ $dog['background_color'] }}"
+                                    <div style="background-color: {{ $pet['background_color'] }}"
                                         class="content-padding profile-cards">
                                         <div class="profile-icon">
-                                            <img src="{{ $dog['icon_url'] }}" width="38" alt="" />
+                                            <img src="{{ $pet['icon_url'] }}" width="38" alt="" />
                                         </div>
                                         <h3 class="profile-descriptor">
-                                            <a href="{{ route('adopt-dog.show',$dog) }}">{{ $dog->name }}</a>
+                                            <a href="{{ route('adopt-pet.show',$pet) }}">{{ $pet->name }}</a>
                                         </h3>
                                         <div>
-                                            <div style="background-color: {{ $dog['badge_color'] }}"
+                                            <div style="background-color: {{ $pet['badge_color'] }}"
                                                 class="badge-outline white">
-                                                <h6>{{ $dog['age'] }}</h6>
+                                                <h6>{{ $pet['age'] }}</h6>
                                             </div>
                                         </div>
                                         <div class="long-fur-pattern"></div>
                                     </div>
                                 </div>
-                                <div style="background-color: {{ $dog['background_color'] }}"
+                                <div style="background-color: {{ $pet['background_color'] }}"
                                     class="profile-card-half">
-                                    <img src="{{ Storage::url($dog->image->url) }}" alt=""
+                                    <img src="{{ Storage::url($pet->image->url) }}" alt=""
                                         sizes="(max-width: 767px) 50vw, (max-width: 991px) 25vw, 17vw"
                                         class="pet-thumbnail-image" />
                                 </div>
@@ -129,14 +130,14 @@
     <section class="section wide no-padding">
         <div class="w-dyn-list">
           <div role="list" class="pet-profiles-grid w-dyn-items">
-            <div role="listitem" class="w-dyn-item"><a href="dog/missy.html" class="profile-card-link-block w-inline-block">
+            <div role="listitem" class="w-dyn-item"><a href="pet/missy.html" class="profile-card-link-block w-inline-block">
                 <div class="flex-horizontal">
                   <div class="profile-card-half">
                     <div style="background-color:hsla(41, 100.00%, 76.34%, 1.00)" class="content-padding profile-cards">
                       <div class="profile-icon"><img
                           src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802ae14a438512_Icons_Adoptable_White_Bone.svg"
                           width="38" alt="" /></div>
-                      <h3 class="profile-descriptor">Hi I&#x27;m Missy, the low flying cloud dog.</h3>
+                      <h3 class="profile-descriptor">Hi I&#x27;m Missy, the low flying cloud pet.</h3>
                       <div>
                         <div style="background-color:hsla(41, 100.00%, 76.34%, 1.00)" class="badge-outline white">
                           <h6>Puppy</h6>
@@ -146,9 +147,9 @@
                     </div>
                   </div>
                   <div style="background-color:hsla(41, 100.00%, 76.34%, 1.00)" class="profile-card-half"><img
-                      src="../uploads-ssl.webflow.com/5f4f91ff23802a3d804383e9/5f4f91ff23802a2d1a4384e8_Adoptable-Webflow-Theme_Dog%207_Pic%201_white-samoyed_puppy_Photo%20by_wildlittlethingsphoto.jpg"
+                      src="{{ asset('desmadre/uploads-ssl.webflow.com/5f4f91ff23802a3d804383e9/5f4f91ff23802a2d1a4384e8_Adoptable-Webflow-Theme_pet%207_Pic%201_white-samoyed_puppy_Photo%20by_wildlittlethingsphoto.jpg')}}"
                       alt="" sizes="(max-width: 767px) 50vw, (max-width: 991px) 25vw, 17vw"
-                      srcset="https://uploads-ssl.webflow.com/5f4f91ff23802a3d804383e9/5f4f91ff23802a2d1a4384e8_Adoptable-Webflow-Theme_Dog%25207_Pic%25201_white-samoyed_puppy_Photo%2520by_wildlittlethingsphoto-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5f4f91ff23802a3d804383e9/5f4f91ff23802a2d1a4384e8_Adoptable-Webflow-Theme_Dog%207_Pic%201_white-samoyed_puppy_Photo%20by_wildlittlethingsphoto.jpg 920w"
+                      srcset="https://uploads-ssl.webflow.com/5f4f91ff23802a3d804383e9/5f4f91ff23802a2d1a4384e8_Adoptable-Webflow-Theme_pet%25207_Pic%25201_white-samoyed_puppy_Photo%2520by_wildlittlethingsphoto-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5f4f91ff23802a3d804383e9/5f4f91ff23802a2d1a4384e8_Adoptable-Webflow-Theme_pet%207_Pic%201_white-samoyed_puppy_Photo%20by_wildlittlethingsphoto.jpg 920w"
                       class="pet-thumbnail-image" /></div>
                 </div>
               </a>

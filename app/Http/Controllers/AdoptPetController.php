@@ -7,6 +7,53 @@ use Illuminate\Http\Request;
 
 class AdoptPetController extends Controller
 {
+    public function index(Request $request)
+    {
+
+        /* 
+        Recuperar mascotas en adopcion que no sean perros y gatos
+         y aplicar filtros segun sea necesario
+        */
+        $pets = Pet::where('status',2)
+                    ->where('category_id','!=',1)
+                    ->where('category_id','!=',2)
+                      //Estados
+                    ->when($request->state, function ($query) use ($request) {
+                        return $query->whereHas('user.state', function ($q) use ($request) {
+                            $q->where('name', $request->state);
+                        });
+                    }) //Tags
+                    ->when($request->tag != null, function ($query) use ($request) {
+                        return $query->whereHas('tags', function ($q) use ($request) {
+                            $q->where('tags.name', $request->tag);
+                        });
+                    }) //Colores
+                    ->when($request->color, function ($query) use ($request) {
+                        return $query->whereHas('color', function ($q) use ($request) {
+                            $q->where('name', $request->color);
+                        });
+                    }) //Categoria
+                    ->when($request->category, function ($query) use ($request) {
+                        return $query->whereHas('category', function ($q) use ($request) {
+                            $q->where('name', $request->category);
+                        });
+                    })
+                    ->get();
+
+        return view('adopt-pet.index',compact('pets'));
+
+
+
+    }
+
+    public function show(Pet $pet)
+    {
+        
+    }
+
+
+
+    // LO DEL ANTERIOR CONTROLADRO
     // public function index()
     // {
     //     //Recuperar registros de mascotas en adopcion(2),

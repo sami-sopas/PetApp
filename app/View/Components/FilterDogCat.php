@@ -5,22 +5,19 @@ namespace App\View\Components;
 use Closure;
 use App\Models\Pet;
 use App\Models\Tag;
-use App\Models\User;
 use App\Models\Color;
-use App\Models\Category;
 use App\Models\State;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
-class Filter extends Component
+class FilterDogCat extends Component
 {
     /**
      * Create a new component instance.
      */
-
     public function __construct()
     {
-
+        //
     }
 
     /**
@@ -28,8 +25,7 @@ class Filter extends Component
      */
     public function render(): View|Closure|string
     {
-
-        //Le enviamos todas las opcines que podra elegir de los filtros
+       //Le enviamos todas las opcines que podra elegir de los filtros
 
         // // Obtén y establece todos los perros en adopción como resultados predeterminados
         // //Recibe la categoria, para mostrar ya sea perro o gato y ahi empezamos a formar el query
@@ -57,7 +53,7 @@ class Filter extends Component
         //Colroes
         $colorOptions = Color::get();
         
-        return view('components.filter',compact(
+        return view('components.filter-dog-cat',compact(
             'sizeOptions','sexOptions','ageOptions','stateOptions','tagOptions','colorOptions'));
     }
 }

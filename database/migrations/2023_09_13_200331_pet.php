@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name'); //Juanito
             //$table->string('color'); //Negro
-            $table->string('size'); //Mediano
-            $table->string('sex'); //Macho
+            $table->string('size')->nullable(); //Mediano
+            $table->string('sex')->nullable(); //Macho
             $table->longText('description'); //Perro bastardo
-            $table->string('age'); //cachorro, adulto, adulto mayor
+            $table->string('age')->nullable(); //cachorro, adulto, adulto mayor
             $table->enum('status',['Perdido','En Adopcion','Encontrado','Adoptado']); //1-Perdido 2-En adopcion 3-Encontrado 4-Adoptado
             $table->timestamps();
 

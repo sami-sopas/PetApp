@@ -39,7 +39,11 @@ Route::get('adopt-dog/filter',[AdoptDogController::class,'filter'])->name('adopt
 Route::get('adopt-cat',[AdoptCatController::class,'index'])->name('adopt-cat.index');
 
 
+//Mostrar otro tipo de mascotas para adoptar
+Route::get('adopt-pet',[AdoptPetController::class,'index'])->name('adopt-pet.index');
 
+//Mostrar esa mascota
+Route::get('adopt-pet/pet/{dpet}',[AdoptPetController::class,'show'])->name('adopt-pet.show');
 
 // RUTAS PARA AVISTAMIENTOS---------------------------------------------------------
 

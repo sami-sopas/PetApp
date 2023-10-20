@@ -42,8 +42,6 @@ class AdoptDogController extends Controller
                             $q->where('name', $request->state);
                         });
                     })
-                    ->where('status', 2)
-                    ->where('category_id', 2)
                     ->get();
 
         return view('adopt-dog.index',compact('dogs'));

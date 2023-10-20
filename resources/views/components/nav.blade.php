@@ -13,25 +13,54 @@
             <nav role="navigation" id="w-node-bb0bf636-1622-2bac-85b3-47f867d53010-67d5300b"
                 class="nav-menu w-nav-menu">
                 <div class="nav-menu-wrapper">
-                    <div class="nav-menu-item-1"><a href="{{ route('adopt-dog.index') }}" class="nav-link">Adopt a
-                            Dog</a></div>
-                    <div class="nav-menu-item-2"><a href="{{ route('adopt-cat.index') }}" class="nav-link">Adopt a
-                            Cat</a></div>
-                    <div class="nav-menu-item-3"><a href="ways-to-help.html" class="nav-link">Ways to Help</a></div>
+                    <div class="nav-menu-item-1">
+                        <a href="{{ route('adopt-dog.index') }}" class="nav-link">
+                            Adopt a Dog
+                        </a>
+                    </div>
+                    <div class="nav-menu-item-2">
+                        <a href="{{ route('adopt-cat.index') }}" class="nav-link">
+                            Adopt a Cat
+                        </a>
+                    </div>
+                    <div class="nav-menu-item-3">
+                        <a href="{{ route('adopt-pet.index')}}" class="nav-link">
+                            +Kotas
+                        </a>
+                    </div>
                     <div class="nav-menu-item-4"><a href="blog.html" class="nav-link">Blog</a></div>
                     <div class="nav-menu-item-5"><a href="contact-us.html" class="nav-link right-margin-1em">Contact
                             Us</a>
-                    </div><a id="w-node-bb0bf636-1622-2bac-85b3-47f867d5301a-67d5300b" href="donate.html"
-                        class="navigation-button w-button">Donate Today</a>
+                    </div>
+
+                    <div>
+
+                        @guest  
+                        <a 
+                            id="w-node-bb0bf636-1622-2bac-85b3-47f867d5301a-67d5300b" 
+                            href=" {{ route('login')}}"
+                            class="navigation-button w-button">
+                            Iniciar sesion
+                        </a>                     
+                        @endguest
+
+                        @auth
+                        <a 
+                            id="w-node-bb0bf636-1622-2bac-85b3-47f867d5301a-67d5300b" 
+                            href=" {{ route('profile.show')}}"
+                            class="navigation-button w-button">
+                            Cuenta
+                        </a>    
+                        @endauth
+                    </div>
+
+                    
+
                 </div>
                 <div class="short-fur-pattern hide-desktop"></div>
             </nav>
-            <div id="w-node-d0391931-44cd-60ee-f7b8-796ab8e2c63b-67d5300b"
-                data-w-id="d0391931-44cd-60ee-f7b8-796ab8e2c63b" class="search-icon-trigger"><img
-                    src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a7f614384f1_Icons_Adoptable_Purple_Search.svg"
-                    alt="" class="icon" />
-            </div>
 
+            <!-- Menu Hamburguesa para versiones mobiles -->
             <div id="w-node-bb0bf636-1622-2bac-85b3-47f867d53020-67d5300b"
                 data-w-id="bb0bf636-1622-2bac-85b3-47f867d53020" class="menu-button w-nav-button">
                 <div class="menu-icon-wrapper margin-right"><img
@@ -40,4 +69,5 @@
             </div>
         </div>
     </div>
+
 </header>

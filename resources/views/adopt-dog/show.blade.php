@@ -310,16 +310,8 @@ data-wf-domain="adoptable-template.webflow.io" data-wf-page="5f5b66b53e97c283f80
             </div>
         </div>
     </section>
+    
   <x-footer/>
-
-  <div class="search-modal">
-    <div class="search-card">
-      <form action="https://adoptable-template.webflow.io/search" class="search-form w-form"><input type="search"
-          class="search-input large w-input" maxlength="256" name="query" placeholder="Search Adoptable" id="search"
-          required="" /><input type="submit" value="Search" class="button large search-button w-button" /></form>
-    </div>
-    <div data-w-id="c2807aa4-d9bf-2d8f-f78c-7b6aed1a8c42" class="search-modal-trigger"></div>
-  </div>
 
   <script src="{{ asset('desmadre/d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8d3c2.js') }}"></script>
     <script src="{{ asset('desmadre/uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/js/webflow.d3e0328fb.js') }}">

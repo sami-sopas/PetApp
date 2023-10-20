@@ -32,10 +32,13 @@ class DatabaseSeeder extends Seeder
 
         //Crear las dos categorias iniciales (perro y gato)
         Category::create([
-            'name' => 'Perro'
+            'name' => 'Perros'
         ]);
         Category::create([
-            'name' => 'Gato'
+            'name' => 'Gatos'
+        ]);
+        Category::create([
+            'name' => 'Pajaros'
         ]);
 
         //Generar colores
