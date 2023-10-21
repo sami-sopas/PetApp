@@ -28,9 +28,14 @@
                             +Kotas
                         </a>
                     </div>
-                    <div class="nav-menu-item-4"><a href="blog.html" class="nav-link">Blog</a></div>
-                    <div class="nav-menu-item-5"><a href="contact-us.html" class="nav-link right-margin-1em">Contact
-                            Us</a>
+                    <div class="nav-menu-item-4">
+                        <a href="{{ route('adopt-dog.create') }}" class="nav-link">
+                            Publicacion dog
+                        </a>
+                    </div>
+                    <div class="nav-menu-item-5">
+                        <a href="contact-us.html" class="nav-link right-margin-1em">
+                        Contact Us</a>
                     </div>
 
                     <div>

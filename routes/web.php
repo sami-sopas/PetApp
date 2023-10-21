@@ -31,9 +31,8 @@ Route::get('adopt-dog',[AdoptDogController::class,'index'])->name('adopt-dog.ind
 //Mostrar perro para adoptar
 Route::get('adopt-dog/dog/{dog}',[AdoptDogController::class,'show'])->name('adopt-dog.show');
 
-//Filtrar doggos
-Route::get('adopt-dog/filter',[AdoptDogController::class,'filter'])->name('adopt-dog.filter');
-
+//Formulario de crear publicacion de doggo
+Route::get('adopt-dog/create',[AdoptDogController::class,'create'])->name('adopt-dog.create');
 
 //Mostrar cattos para adoptar
 Route::get('adopt-cat',[AdoptCatController::class,'index'])->name('adopt-cat.index');

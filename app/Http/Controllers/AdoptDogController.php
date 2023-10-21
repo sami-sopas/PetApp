@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pet;
+use App\Models\Tag;
+use App\Models\Color;
+use App\Models\State;
 use Illuminate\Http\Request;
 
 class AdoptDogController extends Controller
@@ -47,41 +50,24 @@ class AdoptDogController extends Controller
         return view('adopt-dog.index',compact('dogs'));
     }
 
-    public function show(Pet $dog)
+    public function create()
     {
-        $similars = Pet::where('category_id',2)
-                     ->where('status',2)
-                     ->where('id','!=',$dog->id)
-                     ->latest('id')
-                     ->take(6)
-                     ->get();
 
-        return view('adopt-dog.show',compact('dog','similars'));
-    }
+        //Informacion a mostrar en el form
+        $colors = Color::all();
 
-    public function filter(Request $request)
-    {
-        // Inicializa la consulta con los perros en adopción
-        $query = Pet::where('status', 2)->where('category_id', 2)->get();
+        $sizes = Pet::select('size')->distinct()->get();
 
-        // Filtrar por tamaño
-        if ($request->has('size') && $request->input('size') !== 'all') {
-            $query->where('size', $request->input('size'));
-        }
+        $ages = Pet::select('age')->distinct()->get();
 
-        // Filtrar por sexo
-        if ($request->has('sex') && $request->input('sex') !== 'all') {
-            $query->where('sex', $request->input('sex'));
-        }
+        $states = State::all();
 
-        // Filtrar por edad
-        if ($request->has('age') && $request->input('age') !== 'all') {
-            $query->where('age', $request->input('age'));
-        }
+        $tags = Tag::all();
 
-            // Obtén los resultados
-        $dogs = $query;
+        $sexs = Pet::select('sex')->distinct()->get();
 
-        return view('adopt-dog.index',compact('dogs'));
+
+        return view('adopt-dog.create');
+
     }
 }

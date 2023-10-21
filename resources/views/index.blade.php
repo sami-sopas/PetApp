@@ -258,8 +258,6 @@
                 </div>
             </div>
         </section>
-
-        <x-footer/>
         
     </div>
 </x-app-layout>
