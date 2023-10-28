@@ -16,7 +16,9 @@
         
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('desmadre/uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/css/adoptable-template.webflow.9c940ae01.css')}}">
-        
+        {{--Dropzone--}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         
         <!-- Fonts -->
@@ -49,7 +51,7 @@
         <!-- Scripts -->
         <script src="{{ asset('desmadre/d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8d3c2.js') }}"></script>
         <script src="{{ asset('desmadre/uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/js/webflow.d3e0328fb.js')}}"></script>
-          
+   
           @stack('modals')
           @livewireScripts
       

@@ -25,7 +25,7 @@ class PetFactory extends Factory
             'sex' => $this->faker->randomElement(['Macho','Hembra']),
             'description' => $this->faker->text(50),
             'age' => $this->faker->randomElement(['Cachorro','Joven','Adulto','Adulto Mayor']),
-            'status' => $this->faker->randomElement(['Perdido','En Adopcion','Encontrado','Adoptado']),
+            'status' => $this->faker->randomElement(['En Adopcion','Adoptado']),
 
             //traernos los id de otro modelo para llenar las columnas foraneas sin errores
             'user_id' => User::all()->random()->id,

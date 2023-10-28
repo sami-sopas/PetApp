@@ -34,6 +34,10 @@ Route::get('adopt-dog/dog/{dog}',[AdoptDogController::class,'show'])->name('adop
 //Formulario de crear publicacion de doggo
 Route::get('adopt-dog/create',[AdoptDogController::class,'create'])->name('adopt-dog.create');
 
+//Guardar lo de form de create
+Route::post('adopt-dog', [AdoptDogController::class, 'store'])->name('adopt-dog.store');
+
+
 //Mostrar cattos para adoptar
 Route::get('adopt-cat',[AdoptCatController::class,'index'])->name('adopt-cat.index');
 
@@ -42,7 +46,7 @@ Route::get('adopt-cat',[AdoptCatController::class,'index'])->name('adopt-cat.ind
 Route::get('adopt-pet',[AdoptPetController::class,'index'])->name('adopt-pet.index');
 
 //Mostrar esa mascota
-Route::get('adopt-pet/pet/{dpet}',[AdoptPetController::class,'show'])->name('adopt-pet.show');
+Route::get('adopt-pet/pet/{pet}',[AdoptPetController::class,'show'])->name('adopt-pet.show');
 
 // RUTAS PARA AVISTAMIENTOS---------------------------------------------------------
 

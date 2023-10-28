@@ -3,15 +3,15 @@
         <header data-w-id="bea9b7ed-f748-980a-924e-d39fafb4bf59" class="homepage-header">
             <div class="container-1440 full-width">
                 <div class="heading-container">
-                    <div data-w-id="df8ba497-8e89-eee6-5eb6-a66803c3113f" class="heading-row-1">
+                    <div data-w-id="df8ba497-8e89-eee6-5eb6-a66803c3113f" class="heading-row-1 text-5xl">
                         <h1 class="headline tilt-left"><span class="spark-left">Connecting</span> vulnerable animals </h1>
                         <h1 class="headline">with their <span class="underline-wavey brand-color-2">forever</span> <span
                                 class="underline-wavey brand-color-2">families</span>, </h1>
                     </div>
-                    <div data-w-id="df8ba497-8e89-eee6-5eb6-a66803c31144" class="heading-row-2">
+                    <div data-w-id="df8ba497-8e89-eee6-5eb6-a66803c31144" class="heading-row-2 text-5xl">
                         <h1 class="headline tilt-right">one adoption at a time.</h1>
                     </div>
-                    <div class="static-badge top-margin">
+                    <div class="static-badge top-margin font-bold text-xl mt-4 p-4">
                         <h5>adopt, don&#x27;t shop</h5>
                     </div>
                 </div>

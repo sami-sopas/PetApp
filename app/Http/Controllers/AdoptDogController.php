@@ -7,6 +7,8 @@ use App\Models\Tag;
 use App\Models\Color;
 use App\Models\State;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdoptDogController extends Controller
 {
@@ -18,8 +20,8 @@ class AdoptDogController extends Controller
         //$dogs = Pet::where('status', 2)->where('category_id', 2)->get();
 
         //dd($request);
-        $dogs = Pet::where('status',2)
-                    ->where('category_id',2)
+        $dogs = Pet::where('status',1)
+                    ->where('category_id',1)
                        //Tamaño
                     ->when($request->size != null, function($query) use ($request) {
                         return $query->where('size',$request->size);
@@ -67,7 +69,58 @@ class AdoptDogController extends Controller
         $sexs = Pet::select('sex')->distinct()->get();
 
 
-        return view('adopt-dog.create');
+        return view('adopt-dog.create',compact(
+            'colors',
+            'sizes',
+            'ages',
+            'states',
+            'tags',
+            'sexs'
+        ));
+
+    }
+
+    //Guardar en BD
+    public function store(Request $request)
+    {
+        //Obtener el archivo temporal donde se guardada
+        //($request->file('file')->getPathname());
+        //$path = Storage::put('pets', $request->file('file')); pets/qdb4SVcHphIDt9mfDXnvbxx2NKxRUZZyfyiWt11m.png
+        //$url = Storage::url($path); http.petapp.test/pets/qdb4SVcHphIDt9mfDXnvbxx2NKxRUZZyfyiWt11m.png
+        
+
+        //dd($request->file('file'));
+        //Luego validamos
+        $request->validate([
+
+        ]);
+
+        //Definir que sera para perro
+        $request->merge(['category_id' => 1]);
+
+        //Agregar el user_id al que pertenece la publicacion
+        $request->merge(['user_id' => Auth::id()]);
+
+        //Agregar que el status sera en adopcion (1)
+        $request->merge(['status' => 1]);
+
+        //Guardar en BD la informacion enviada del formulario
+        $dog = Pet::create($request->all());
+
+        //Agregar imagen
+        $url = Storage::put('pets', $request->file('file'));
+
+        $dog->image()->create([
+            'url' => $url
+        ]);
+
+        //Agregar los tags del select multiple (de la tabla M:M)
+        $dog->tags()->attach($request->tags);
+
+
+        //Redirigimos a la publicacion ya hecha
+        return redirect()->route('adopt-dog.index');
+
 
     }
 }

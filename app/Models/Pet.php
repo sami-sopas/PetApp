@@ -9,6 +9,8 @@ class Pet extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id','created_at','updated_at'];
+
     //Relacion uno a muchos de post le pertenece a un usuario
     public function user()
     {

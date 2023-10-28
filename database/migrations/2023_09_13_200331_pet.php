@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('sex')->nullable(); //Macho
             $table->longText('description'); //Perro bastardo
             $table->string('age')->nullable(); //cachorro, adulto, adulto mayor
-            $table->enum('status',['Perdido','En Adopcion','Encontrado','Adoptado']); //1-Perdido 2-En adopcion 3-Encontrado 4-Adoptado
+            $table->enum('status',['En Adopcion','Adoptado']); //1-En adopcion 2. Adoptado
             $table->timestamps();
 
             //LLaves foraneas

@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
+            $table->string('url')->nullable();
 
             //Relacion polimorfica
-            $table->unsignedBigInteger('imageable_id');
-            $table->string('imageable_type');
+            $table->unsignedBigInteger('imageable_id')->nullable();
+            $table->string('imageable_type')->nullable();
             $table->timestamps();
         });
     }
