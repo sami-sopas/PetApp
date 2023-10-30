@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
+use App\Models\Pet;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PetController extends Controller
 {
     public function index()
     {
-        return view('post.index');
+        $pets = Pet::where('user_id',Auth()->user()->id)->get();
+
+        return view('post.index',compact('pets'));
     }
 }
