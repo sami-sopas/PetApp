@@ -89,10 +89,17 @@ class AdoptDogController extends Controller
         //$url = Storage::url($path); http.petapp.test/pets/qdb4SVcHphIDt9mfDXnvbxx2NKxRUZZyfyiWt11m.png
         
 
-        //dd($request->file('file'));
         //Luego validamos
         $request->validate([
-
+            'name' => 'required|max:255',
+            'color_id' => 'required|integer',
+            'size' => 'required|max:255',
+            'sex' => 'required|max:255',
+            'age' => 'required|max:255',
+            'description' => 'required',
+            'tags' => 'required',
+            'files.*' => 'image|max:2048',
+            'files' => 'required|max:3'
         ]);
 
         //Definir que sera para perro
@@ -107,12 +114,18 @@ class AdoptDogController extends Controller
         //Guardar en BD la informacion enviada del formulario
         $dog = Pet::create($request->all());
 
-        //Agregar imagen
-        $url = Storage::put('pets', $request->file('file'));
+        //Agregar imagenes
+        foreach ($request->file('files') as $file) {
+            $url = Storage::put('pets', $file);
+            $dog->image()->create([
+                'url' => $url
+            ]);
+        }
+        // $url = Storage::put('pets', $request->file('file'));
 
-        $dog->image()->create([
-            'url' => $url
-        ]);
+        // $dog->image()->create([
+        //     'url' => $url
+        // ]);
 
         //Agregar los tags del select multiple (de la tabla M:M)
         $dog->tags()->attach($request->tags);

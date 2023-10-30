@@ -52,7 +52,7 @@
                         @auth
                         <a 
                             id="w-node-bb0bf636-1622-2bac-85b3-47f867d5301a-67d5300b" 
-                            href=" {{ route('profile.show')}}"
+                            href=" {{ route('user.index')}}"
                             class="navigation-button w-button">
                             Cuenta
                         </a>    

@@ -102,9 +102,10 @@
                 </div>
             </div>
 
-            <!--Previsualizas-->
+            <!--Previsualizacion-->
             <div class="">
                 <img id="picture"
+                    class="w-32 h-32"
                     src="https://cdn.dribbble.com/users/1201194/screenshots/7197395/media/d5d300c76b56aa290f34cfc39de99c2d.gif"
                     alt="">
             </div>
@@ -112,9 +113,15 @@
             <!-- Campo Imágenes -->
             <div class="mb-4">
                 <label for="images" class="text-gray-600">Images</label>
-                <input type="file" name="file" id="file" multiple>
+                <input type="file" name="files[]" id="file" multiple>
                 <div id="image-preview"></div>
-            </div>
+                @error('files.*')
+                    <p class="text-red-500">{{ $message }}</p>
+                @enderror
+                @error('files')
+                    <p class="text-red-500">{{ $message }}</p>
+                @enderror
+  
 
             <!-- Botón de Enviar -->
             <div class="grid grid-cols-1">

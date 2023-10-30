@@ -5,6 +5,8 @@ use App\Http\Controllers\LostPetController;
 use App\Http\Controllers\AdoptCatController;
 use App\Http\Controllers\AdoptDogController;
 use App\Http\Controllers\AdoptPetController;
+use App\Http\Controllers\User\PetController;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +71,12 @@ Route::get('adoptar/buscar',[AdoptPetController::class,'search'])->name('adoptar
 
 //Regresa la vista para el formulario de crear mascota en adopcion
 Route::get('adoptar/create',[AdoptPetController::class,'create'])->name('adoptar.create');
+
+
+Route::get('user',[UserController::class,'index'])->name('user.index');
+
+//Mostrar publicaciones creadas x el user (AHUEVO TUVE QUE USAR ESE CONTROLADOR POR CULPA DEL RESOURCE QUE SE QUEDO)
+Route::get('user/posts',[PetController::class,'index'])->name('posts.index');
 
 
 Route::middleware([

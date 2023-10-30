@@ -16,9 +16,7 @@
         
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('desmadre/uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/css/adoptable-template.webflow.9c940ae01.css')}}">
-        {{--Dropzone--}}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
+    
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         
         <!-- Fonts -->
