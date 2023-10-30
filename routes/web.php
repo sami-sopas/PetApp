@@ -75,8 +75,9 @@ Route::get('adoptar/create',[AdoptPetController::class,'create'])->name('adoptar
 
 Route::get('user',[UserController::class,'index'])->name('user.index');
 
-//Mostrar publicaciones creadas x el user (AHUEVO TUVE QUE USAR ESE CONTROLADOR POR CULPA DEL RESOURCE QUE SE QUEDO)
-Route::get('user/posts',[PetController::class,'index'])->name('posts.index');
+//Mostrar publicaciones creadas x el user (AHUEVO TUVE QUE USAR ESE CONTROLADOR POR CULPA DEL RESOURCE QUE NOSESE QUE PEDO)
+Route::get('user/pet',[PetController::class,'index'])->name('posts.index');
+Route::get('user/pet/{pet}/edit',[PetController::class,'edit'])->name('post.edit');
 
 
 Route::middleware([

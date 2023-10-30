@@ -113,7 +113,7 @@
                                 </div>
                                 <div style="background-color: {{ $dog['background_color'] }}"
                                     class="profile-card-half">
-                                    <img src="{{ Storage::url($dog->image->url) }}" alt=""
+                                    <img src="{{ Storage::url($dog->images->first()->url) }}" alt=""
                                         sizes="(max-width: 767px) 50vw, (max-width: 991px) 25vw, 17vw"
                                         class="pet-thumbnail-image" />
                                 </div>

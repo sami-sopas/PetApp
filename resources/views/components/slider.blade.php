@@ -8,7 +8,7 @@
             <!-- Elemento del carrusel para cada mascota en $pets -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <div class="relative h-96">
-                    <img src="{{ Storage::url($pet->image->url) }}" class="absolute w-1/3 h-full object-cover rounded-lg" alt="{{ $pet->name }}">
+                    <img src="{{ Storage::url($pet->images->first()->url) }}" class="absolute w-1/3 h-full object-cover rounded-lg" alt="{{ $pet->name }}">
                 </div>
                 <div class="absolute top-0 right-0 w-2/3 h-full p-8 text-left flex flex-col justify-center">
                     <h2 class="text-2xl font-bold">Soy {{ $pet->name }}</h2>

@@ -36,9 +36,9 @@ class Pet extends Model
     }
 
     //Relacion uno a uno polimorfica con img
-    public function image()
+    public function images()
     {
         //Se le pasa el parametro y el nombre del metodo al que hace referencia
-        return $this->morphOne(Image::class,'imageable');
+        return $this->morphMany(Image::class,'imageable');
     }
 }

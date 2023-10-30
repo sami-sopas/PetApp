@@ -117,7 +117,7 @@ class AdoptDogController extends Controller
         //Agregar imagenes
         foreach ($request->file('files') as $file) {
             $url = Storage::put('pets', $file);
-            $dog->image()->create([
+            $dog->images()->create([
                 'url' => $url
             ]);
         }

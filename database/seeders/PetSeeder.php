@@ -21,7 +21,7 @@ class PetSeeder extends Seeder
         //Recorrer para que por cada pet, se agrege su imagen y se almacenen en esa tabla
         foreach($pets as $pet)
         {
-            Image::factory(1)->create([
+            Image::factory(3)->create([
                 'imageable_id' => $pet->id,
                 'imageable_type' => Pet::class,
             ]);

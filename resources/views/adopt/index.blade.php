@@ -11,7 +11,7 @@
                 <article class="col-span-1">
                     <div class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto">
                         <a href="#">
-                            <img class="w-full h-auto rounded-t-lg" src="{{ Storage::url($pet->image->url) }}" alt="imagen-{{ $pet->name }}">
+                            <img class="w-full h-auto rounded-t-lg" src="{{ Storage::url($pet->images->first()->url) }}" alt="imagen-{{ $pet->name }}">
                         </a>
                         <div class="p-2">
                             <a href="#">
