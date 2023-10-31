@@ -2,6 +2,10 @@
     <div class="m-10 p-6 bg-white dark:bg-gray-800 shadow-md sm:rounded-lg">
         <h2 class="text-3xl text-center font-bold text-gray-800 dark:text-white mb-4">Publicaciones Realizadas</h2>
 
+        @if(session('info'))
+            <strong>{{session('info')}}</strong>
+        @endif
+
         <div class="relative overflow-x-auto">
             <!-- Table Header -->
             <div class="flex items-center justify-between py-4 bg-white dark:bg-gray-800">
@@ -67,21 +71,24 @@
                             <td class="px-6 py-4">
                         
                                 <a href="{{ route('pet.edit',$pet) }}"
-                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                    class="inline-block font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                     Editar
                                 </a>
-                                <a href="#" 
-                                    class="font-medium text-red-600 dark:text-red-500 hover:underline ml-2">
-                                    Eliminar
-                                </a>
+                                <form action="{{ route('pet.destroy',$pet) }}"
+                                        method="POST"
+                                        class="inline-block">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button
+                                         class="font-medium text-red-600 dark:text-red-500 hover:underline ml-2" 
+                                         type="submit">Eliminar</button>
+                                </form>
+
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-
-            <!-- Edit user modal (si lo necesitas) -->
-            <!-- ... -->
         </div>
     </div>
 

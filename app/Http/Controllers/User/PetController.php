@@ -83,8 +83,17 @@ class PetController extends Controller
         }
 
         //Actualizar de la tabla M:M
-        $pet->tags()->attach($request->tags);
+        $pet->tags()->sync($request->tags);
 
         return redirect()->route('pet.edit',$pet)->with('info','La publicacion fue actualizada correctamente !');
+    }
+
+    public function destroy(Pet $pet)
+    {
+        //Nota: Las imagenes asociadas se eliminan con un observer
+
+        $pet->delete();
+
+        return redirect()->route('posts.index')->with('info','La publicacion fue eliminada correctamente !');
     }
 }

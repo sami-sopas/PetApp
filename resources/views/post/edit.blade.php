@@ -144,7 +144,7 @@
             <!--Previsualizacion de imagenes-->
             <div class="image-gallery grid grid-cols-3 gap-4">
                 @foreach ($pet->images as $image)
-                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div id="picture" class="bg-white rounded-lg overflow-hidden shadow-lg">
                         <img class="w-full h-full object-cover" src="{{ Storage::url($image->url) }}" alt="{{ $pet->name }}">
                     </div>
                 @endforeach
