@@ -6,9 +6,10 @@ use App\Models\Pet;
 use App\Models\Tag;
 use App\Models\Color;
 use App\Models\State;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class PetController extends Controller
 {
@@ -43,5 +44,47 @@ class PetController extends Controller
             'tags',
             'sexs'
         ));
+    }
+
+    public function update(Request $request, Pet $pet)
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+            'color_id' => 'required|integer',
+            'size' => 'required|max:255',
+            'sex' => 'required|max:255',
+            'age' => 'required|max:255',
+            'description' => 'required',
+            'tags' => 'required',
+            'files.*' => 'image|max:2048',
+            'files' => 'max:3'
+        ]);
+
+        //Actualizar info
+        $pet->update($request->all());
+
+        //Se envia alguna imagen?
+        if($request->hasFile('files')){
+            //Eliminar las imagenes antiguas
+            foreach($pet->images as $image){
+                Storage::delete($image->url);
+                $image->delete();
+            }
+
+            //Subir las nuevas imagenes
+            foreach($request->file('files') as $file){
+                $url = Storage::put('pets', $file);
+
+                //Crear una nueva imagen
+                $pet->images()->create([
+                    'url' => $url
+                ]);
+            }
+        }
+
+        //Actualizar de la tabla M:M
+        $pet->tags()->attach($request->tags);
+
+        return redirect()->route('pet.edit',$pet)->with('info','La publicacion fue actualizada correctamente !');
     }
 }

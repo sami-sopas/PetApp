@@ -8,11 +8,19 @@
             </div>
     </header>
 
+    @if(session('info'))
+        <strong>{{session('info')}}</strong>
+    @endif
+
     <div class="container mx-auto mt-10">
         {{-- Formulario --}}
-        <form method="POST" action="{{ route('adopt-dog.store') }}"
-            class="w-full mx-auto p-4 bg-white rounded-lg shadow-lg" enctype="multipart/form-data">
+        <form 
+            method="POST" 
+            action="{{ route('pet.update', $pet) }}"
+            class="w-full mx-auto p-4 bg-white rounded-lg shadow-lg" 
+            enctype="multipart/form-data">
             @csrf
+            @method('PATCH')
             <h2 class="text-2xl font-bold mb-4">Editar mascota</h2>
 
             <!-- Campo Name -->
@@ -134,11 +142,14 @@
             </div>
             
             <!--Previsualizacion de imagenes-->
-            <div class="image-gallery">
+            <div class="image-gallery grid grid-cols-3 gap-4">
                 @foreach ($pet->images as $image)
-                    <img class="w-32 h-32" src="{{ Storage::url($image->url) }}" alt="{{ $pet->name }}">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                        <img class="w-full h-full object-cover" src="{{ Storage::url($image->url) }}" alt="{{ $pet->name }}">
+                    </div>
                 @endforeach
             </div>
+            
             
             <!-- Campo Imágenes -->
             <div class="mb-4">
@@ -158,7 +169,7 @@
                 <div class="text-center">
                     <button type="submit"
                         class=" px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-                        Enviar
+                        Actualizar
                     </button>
                 </div>
             </div>
