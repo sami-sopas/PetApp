@@ -3,8 +3,9 @@
         <div class="max-w-screen-xl m-0 sm:m-5 bg-white shadow sm:rounded-lg flex justify-center flex-1">
             <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-6">
                 <div>
-                    <img src="https://storage.googleapis.com/devitary-image-host.appspot.com/15846435184459982716-LogoMakr_7POjrN.png"
-                        class="w-32 mx-auto" />
+                    Logo aqui
+                    {{-- <img src="https://storage.googleapis.com/devitary-image-host.appspot.com/15846435184459982716-LogoMakr_7POjrN.png"
+                        class="w-32 mx-auto" /> --}}
                 </div>
                 <div class="mt-6 flex flex-col items-center">
                     <h1 class="text-2xl xl:text-3xl font-extrabold">
@@ -12,7 +13,7 @@
                     </h1>
                     <div class="w-full flex-1 mt-8">
                         <div class="flex flex-col items-center">
-                            <button
+                            {{-- <button
                                 class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
                                 <div class="bg-white p-2 rounded-full">
                                     <svg class="w-4" viewBox="0 0 533.5 544.3">
@@ -46,7 +47,7 @@
                                 <span class="ml-4">
                                     Inicia sesión with GitHub
                                 </span>
-                            </button>
+                            </button> --}}
                         </div>
 
                         <div class="mb-7 mt-3 border-b text-center">
@@ -80,13 +81,13 @@
                             </button>
                         </form>
                             <p class="mt-6 text-xs text-gray-600 text-center">
-                                I agree to abide by templatana's
+                                Acepto los 
                                 <a href="#" class="border-b border-gray-500 border-dotted">
-                                    Terms of Service
+                                    Terminos de servicio
                                 </a>
-                                and its
+                                y la
                                 <a href="#" class="border-b border-gray-500 border-dotted">
-                                    Privacy Policy
+                                    Politica de privacidad
                                 </a>
                             </p>
                         </div>
