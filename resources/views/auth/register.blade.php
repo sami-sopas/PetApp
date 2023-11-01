@@ -1,7 +1,8 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            {{-- <x-authentication-card-logo /> --}}
+            LOGO
         </x-slot>
 
         <x-validation-errors class="mb-4" />
@@ -17,6 +18,21 @@
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="phone" value="{{ __('Phone') }}" />
+                <x-input id="phone" class="block mt-1 w-full" type="tel" name="phone" :value="old('phone')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="state_id" value="{{ __('State') }}" />
+                <select id="state_id" class="block mt-1 w-full rounded-md border border-gray-300" name="state_id" required>
+                    <option value="" disabled selected>Selecciona un estado</option>
+                    @foreach (\App\Models\State::all() as $state)
+                        <option value="{{ $state->id }}">{{ $state->name }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="mt-4">
