@@ -81,6 +81,11 @@ Route::get('user',[UserController::class,'index'])->name('user.index');
 // Route::post('user/pet/{pet}',[PetController::class,'update'])->name('post.update');
 Route::resource('user/pet',PetController::class); //name('pet.algo')
 
+
+Route::get('/donate',function() {
+    return view('donate');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

@@ -22,7 +22,9 @@ class PetController extends Controller
 
     public function edit(Pet $pet)
     {
-  
+        //Aplicando la policy
+        $this->authorize('author',$pet);
+
         //Informacion a mostrar en el form
         $categories = Category::all();
         $colors = Color::all();
@@ -48,6 +50,8 @@ class PetController extends Controller
 
     public function update(Request $request, Pet $pet)
     {
+        $this->authorize('author',$pet);
+
         $request->validate([
             'name' => 'required|max:255',
             'color_id' => 'required|integer',
@@ -90,8 +94,9 @@ class PetController extends Controller
 
     public function destroy(Pet $pet)
     {
+        $this->authorize('author',$pet);
+        
         //Nota: Las imagenes asociadas se eliminan con un observer
-
         $pet->delete();
 
         return redirect()->route('posts.index')->with('info','La publicacion fue eliminada correctamente !');
