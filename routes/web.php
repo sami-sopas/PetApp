@@ -5,6 +5,7 @@ use App\Http\Controllers\LostPetController;
 use App\Http\Controllers\AdoptCatController;
 use App\Http\Controllers\AdoptDogController;
 use App\Http\Controllers\AdoptPetController;
+use App\Http\Controllers\DonateController;
 use App\Http\Controllers\User\PetController;
 use App\Http\Controllers\User\UserController;
 
@@ -83,10 +84,9 @@ Route::resource('pet',PetController::class); //name('pet.algo')
 
 
 //Manejar el pedo de las donaciones
-
-Route::get('/donate',function() {
-    return view('donate');
-});
+Route::get('donate',[DonateController::class,'index'])->name('donate.index');
+Route::get('donate/{opc}',[DonateController::class,'show'])->name('donate.show');
+Route::get('thank-you',[DonateController::class,'donated'])->name('donate.finished');
 
 Route::middleware([
     'auth:sanctum',

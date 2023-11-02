@@ -49,8 +49,8 @@
                                             src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802acf23438506_Icons_Adoptable_Purple_Wool.svg"
                                             width="75" alt="" /></div>
                                     <div class="content-padding">
-                                        <h3 class="centered-text donate-cards">$25</h3>
-                                        <a href="#" class="bg-white text-black py-2 px-4 rounded-xl text-center block mt-4">
+                                        <h3 class="centered-text donate-cards">$ {{$opc1}}</h3>
+                                        <a href="{{ route('donate.show',$opc1) }}" class="bg-white text-black py-2 px-4 rounded-xl text-center block mt-4">
                                             Donar
                                         </a>
                                     </div>
@@ -79,8 +79,8 @@
                                             src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802acf23438506_Icons_Adoptable_Purple_Wool.svg"
                                             width="75" alt="" /></div>
                                     <div class="content-padding">
-                                        <h3 class="centered-text donate-cards">$50</h3>
-                                        <a href="#" class="bg-white text-black py-2 px-4 rounded-xl text-center block mt-4">
+                                        <h3 class="centered-text donate-cards">$ {{$opc2}}</h3>
+                                        <a href="{{ route('donate.show',$opc2) }}" class="bg-white text-black py-2 px-4 rounded-xl text-center block mt-4">
                                             Donar
                                         </a>
                                     </div>
@@ -109,8 +109,8 @@
                                             src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802acf23438506_Icons_Adoptable_Purple_Wool.svg"
                                             width="75" alt="" /></div>
                                     <div class="content-padding">
-                                        <h3 class="centered-text donate-cards">$100</h3>
-                                        <a href="#" class="bg-white text-black py-2 px-4 rounded-xl text-center block mt-4">
+                                        <h3 class="centered-text donate-cards">$ {{$opc3}}</h3>
+                                        <a href="{{ route('donate.show',$opc3) }}" class="bg-white text-black py-2 px-4 rounded-xl text-center block mt-4">
                                             Donar
                                         </a>
                                     </div>
