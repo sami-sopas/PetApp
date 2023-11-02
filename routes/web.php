@@ -82,6 +82,8 @@ Route::get('user',[UserController::class,'index'])->name('user.index');
 Route::resource('pet',PetController::class); //name('pet.algo')
 
 
+//Manejar el pedo de las donaciones
+
 Route::get('/donate',function() {
     return view('donate');
 });
