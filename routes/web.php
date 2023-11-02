@@ -79,7 +79,7 @@ Route::get('user',[UserController::class,'index'])->name('user.index');
 // Route::get('user/pet',[PetController::class,'index'])->name('post.index');
 // Route::get('user/pet/{pet}/edit',[PetController::class,'edit'])->name('post.edit');
 // Route::post('user/pet/{pet}',[PetController::class,'update'])->name('post.update');
-Route::resource('user/pet',PetController::class); //name('pet.algo')
+Route::resource('pet',PetController::class); //name('pet.algo')
 
 
 Route::get('/donate',function() {

@@ -20,6 +20,11 @@ class PetController extends Controller
         return view('post.index',compact('pets'));
     }
 
+    public function show(Pet $pet)
+    {
+        dd('show');
+    }
+
     public function edit(Pet $pet)
     {
         //Aplicando la policy

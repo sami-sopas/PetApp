@@ -100,7 +100,7 @@
                                             <img src="{{ $dog['icon_url'] }}" width="38" alt="" />
                                         </div>
                                         <h3 class="profile-descriptor">
-                                            <a href="{{ route('adopt-dog.show',$dog) }}">{{ $dog->name }}</a>
+                                            <a href="{{ route('pet.show',$dog) }}">{{ $dog->name }}</a>
                                         </h3>
                                         <div>
                                             <div style="background-color: {{ $dog['badge_color'] }}"
