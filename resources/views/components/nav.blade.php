@@ -14,6 +14,7 @@
                 class="nav-menu w-nav-menu">
                 <div class="nav-menu-wrapper">
                     <div class="nav-menu-item-1">
+                        @livewire('like-component')
                         <a href="{{ route('adopt-dog.index') }}" class="nav-link">
                             Adopt a Dog
                         </a>

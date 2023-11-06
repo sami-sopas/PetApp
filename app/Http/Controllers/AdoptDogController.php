@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Storage;
 class AdoptDogController extends Controller
 {
 
+    public function index()
+    {
+        return view('adopt-dog.index');
+    }
+
+    /* ANTERIOR ANTES DE LIVEWIRE
     //En request recibimos los parametros de los filtros
     public function index(Request $request)
     {
@@ -51,6 +57,7 @@ class AdoptDogController extends Controller
 
         return view('adopt-dog.index',compact('dogs'));
     }
+    */
 
     public function create()
     {

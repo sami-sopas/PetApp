@@ -24,6 +24,9 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     <link
         href="{{ asset('desmadre/uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/css/adoptable-template.webflow.9c940ae01.css') }}"
@@ -83,10 +86,11 @@
     {{-- @livewire('dog-list') NO JALO ES TRISTE --}}
 
     <!-- Componente estatico con los filtros -->
-    <x-filter-dog-cat/>
+    {{-- <x-filter-dog-cat/> --}}
 
     <!-- Aqui se muestran los doggos -->
-    <section class="section wide no-padding">
+    @livewire('dog-list')
+    {{-- <section class="section wide no-padding">
         <div class="w-dyn-list">
             <div role="list" class="pet-profiles-grid w-dyn-items">
                 @foreach ($dogs as $dog)
@@ -123,10 +127,10 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- EL ejemplo -->
-    <section class="section wide no-padding">
+    {{-- <section class="section wide no-padding">
         <div class="w-dyn-list">
           <div role="list" class="pet-profiles-grid w-dyn-items">
             <div role="listitem" class="w-dyn-item"><a href="dog/missy.html" class="profile-card-link-block w-inline-block">
@@ -155,7 +159,7 @@
             </div>
           </div>
         </div>
-    </section>
+    </section> --}}
 
     <x-footer />
 
