@@ -24,6 +24,19 @@ class DogList extends Component
         $this->dispatch('render')->to(LikeComponent::class);
     }
 
+    public function removeFromLikeList($pet_id)
+    {
+        foreach(Cart::content() as $likeItem)
+        {
+            if($likeItem->id == $pet_id){
+                Cart::remove($likeItem->rowId);
+                $this->dispatch('render')->to(LikeComponent::class);
+                return;
+            }
+        }
+
+    }
+
     public function render()
     {
         //Perros en adopcion

@@ -17,8 +17,10 @@
                                         <div class="profile-icon">
                                             {{-- Comparar lo de la lista con lo existente para ver cuales tendran el corazon lleno --}}
                                             @if ($likeItems->contains($dog->id))
-                                                {{-- Cuando coincide, lo marcamos como likeado--}}
-                                                <i class="fa-solid fa-heart"></i>
+                                                {{-- Cuando coincide, lo marcamos como likeado, pero si ya esta likeado, lo quita--}}
+                                                <a href="#" wire:click.prevent="removeFromLikeList({{$dog->id}})">
+                                                    <i class="fa-solid fa-heart"></i>
+                                                </a>
                                             @else
                                                 {{-- Cuando no coincide, sin marcar--}}
                                                 <a href="#" wire:click.prevent="addToLikeList({{$dog->id}},'{{$dog->name}}')">
