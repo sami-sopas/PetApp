@@ -18,7 +18,7 @@ class DogList extends Component
 
     public function addToLikeList($pet_id,$pet_name)
     {
-        Cart::add($pet_id, $pet_name, 1, 1);
+        Cart::add($pet_id, $pet_name, 1, 1)->associate(Pet::class);
 
         //Emitir evento para que se actualize el icono
         $this->dispatch('render')->to(LikeComponent::class);

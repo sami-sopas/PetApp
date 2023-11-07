@@ -8,6 +8,7 @@ use App\Http\Controllers\AdoptPetController;
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\User\PetController;
 use App\Http\Controllers\User\UserController;
+use App\Livewire\LikeListComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,6 +88,10 @@ Route::resource('pet',PetController::class); //name('pet.algo')
 Route::get('donate',[DonateController::class,'index'])->name('donate.index');
 Route::get('donate/{opc}',[DonateController::class,'show'])->name('donate.show');
 Route::get('thank-you',[DonateController::class,'donated'])->name('donate.finished');
+
+//Ver mascotas likeadas
+Route::get('likes',LikeListComponent::class)->name('likelist');
+
 
 Route::middleware([
     'auth:sanctum',
