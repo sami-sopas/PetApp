@@ -10,11 +10,28 @@ class DogList extends Component
 {
     public $dogs;
 
+    //opciones de filtro
+    public $size;
+
     public function mount()
     {
         //Recueperar perros en adopcion
         $this->dogs = Pet::where('status', 2)->where('category_id', 2)->get();
     }
+
+    public function filter()
+    {
+        //Por defecto aqui siempre buscaremos a los perros en adopcion
+        $query = Pet::where('status', 2)
+                     ->where('category_id', 2);
+
+        if ($this->size != '') {
+            $query = $query->where('size', $this->size);
+        }
+
+        $this->dogs = $query->get();
+    }
+
 
     public function addToLikeList($pet_id,$pet_name)
     {
