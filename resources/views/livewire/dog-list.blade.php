@@ -22,76 +22,77 @@
                <!-- Filtro por Sexo -->
                <div class="mb-4">
                    <label for="sex">Sexo</label>
-                   <select name="sex">
+                   <select wire:model="sex">
                        <option value="" selected>Ambos sexos</option>
-                       {{-- @foreach ($sexOptions as $option)
+                        @foreach (\App\Models\Pet::select('sex')->distinct()->get() as $option)
                            <option value="{{ $option->sex }}" {{Request::get('sex') == $option->sex ? 'selected' : ''}}>
                                {{ $option->sex }}
                            </option>
-                       @endforeach --}}
+                       @endforeach 
                    </select>
                </div>
            </div>
-           {{--
+           
            <!-- Columna 2 -->
            <div class="col-span-1">
                <!-- Filtro por Edad -->
                <div class="mb-4">
                    <label for="age">Edad</label>
-                   <select name="age">
+                   <select wire:model="age">
                        <option value="" selected>Todas las edades</option>
-                       @foreach ($ageOptions as $option)
+                       @foreach (\App\Models\Pet::select('age')->distinct()->get() as $option)
                            <option value="{{ $option->age }}" {{Request::get('age') == $option->age ? 'selected' : ''}}>
                                {{ $option->age }}
                            </option>
                        @endforeach
                    </select>
                </div>
+               
 
                <!-- Filtro por Ubicación -->
                <div class="mb-4">
                    <label for="state">Ubicación</label>
-                   <select name="state">
+                   <select wire:model="state">
                        <option value="" selected>Todas las ubicaciones
                        </option>
-                       @foreach ($stateOptions as $option)
+                        @foreach (\App\Models\State::all() as $option)
                            <option value="{{ $option->name }}" {{Request::get('state') == $option->name ? 'selected' : ''}}>
                                {{ $option->name }}
                            </option>
-                       @endforeach
+                       @endforeach 
                    </select>
                </div>
            </div>
-
+           
            <!-- Columna 3 -->
            <div class="col-span-1">
                <!-- Filtro por Etiqueta (Tag) -->
                <div class="mb-4">
                    <label for="tag">Etiqueta</label>
-                   <select name="tag">
-                       <option value="" selected>Todas las etiquetas
-                       </option>
-                       @foreach ($tagOptions as $option)
+                   <select wire:model="tag">
+                       <option value="" selected>Todas las etiquetas</option>
+                        @foreach (\App\Models\Tag::all() as $option)
                            <option value="{{ $option->name }}" {{Request::get('tag') == $option->name ? 'selected' : ''}}>
                                {{ $option->name }}
                            </option>
-                       @endforeach
+                       @endforeach 
                    </select>
                </div>
 
+               
                <!-- Filtro por Color -->
                <div class="mb-4">
                    <label for="color">Color</label>
                    <select id="color" name="color">
                        <option value="" selected>Todos los colores</option>
-                       @foreach ($colorOptions as $option)
+                       @foreach (\App\Models\Tag::all() as $option)
                            <option value="{{ $option->name }}" {{Request::get('color') == $option->name ? 'selected' : ''}}>
                                {{ $option->name }}
                            </option>
                        @endforeach
                    </select>
                </div>
-           </div> --}}
+           </div>
 
            <!-- Botón de Filtrar -->
            <div class="col-span-3 text-center">

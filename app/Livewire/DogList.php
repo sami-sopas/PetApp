@@ -12,6 +12,11 @@ class DogList extends Component
 
     //opciones de filtro
     public $size;
+    public $sex;
+    public $age;
+    public $state;
+    public $tag;
+    public $color;
 
     public function mount()
     {
@@ -21,12 +26,44 @@ class DogList extends Component
 
     public function filter()
     {
-        //Por defecto aqui siempre buscaremos a los perros en adopcion
+        //Por defecto, aqui siempre buscaremos a los perros en adopcion
         $query = Pet::where('status', 2)
                      ->where('category_id', 2);
 
+        //Tamaño
         if ($this->size != '') {
             $query = $query->where('size', $this->size);
+        }
+
+        //Sexo
+        if ($this->sex != '') {
+            $query = $query->where('sex', $this->sex);
+        }
+
+        //Edad
+        if ($this->age != '') {
+            $query = $query->where('age', $this->age);
+        }
+
+        //Estado (de acuerdo al usuario que creo la publicacion)
+        if ($this->state != '') {
+            $query = $query->whereHas('user.state', function ($q) {
+                $q->where('name', $this->state);
+            });
+        }
+
+        //Tags (tabla de N:N)
+        if ($this->tag != '') {
+            $query = $query->whereHas('tags', function ($q) {
+                $q->where('name', $this->tag);
+            });
+        }
+
+        //Color
+        if ($this->color != '') {
+            $query = $query->whereHas('color', function ($q) {
+                $q->where('name', $this->color);
+            });
         }
 
         $this->dogs = $query->get();
