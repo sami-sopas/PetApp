@@ -1,244 +1,156 @@
 <div>
-    {{--Filtro--}}
-    <form wire:submit="filter">
+    {{-- Filtro --}}
 
-        <!-- Filtros -->
-       <div class="grid grid-cols-3 gap-4 p-4">
-           <!-- Columna 1 -->
-           <div class="col-span-1">
-               <!-- Filtro por Tamaño -->
-               <div class="mb-4">
-                   <label for="size">Tamaño</label>
-                   <select wire:model="size">
-                       <option value="" selected>Todos los tamaños</option>
-                       @foreach (\App\Models\Pet::select('size')->distinct()->get()  as $option)
-                           <option value="{{ $option->size }}" {{Request::get('size') == $option->size ? 'selected' : ''}}>
-                               {{ $option->size }}
-                           </option>
-                       @endforeach
-                   </select>
-               </div>
+    <div class="bg-white w-11/12 border border-gray-200 px-5 mx-auto ">
+        <ul class="shadow-box">
 
-               <!-- Filtro por Sexo -->
-               <div class="mb-4">
-                   <label for="sex">Sexo</label>
-                   <select wire:model="sex">
-                       <option value="" selected>Ambos sexos</option>
-                        @foreach (\App\Models\Pet::select('sex')->distinct()->get() as $option)
-                           <option value="{{ $option->sex }}" {{Request::get('sex') == $option->sex ? 'selected' : ''}}>
-                               {{ $option->sex }}
-                           </option>
-                       @endforeach 
-                   </select>
-               </div>
-           </div>
-           
-           <!-- Columna 2 -->
-           <div class="col-span-1">
-               <!-- Filtro por Edad -->
-               <div class="mb-4">
-                   <label for="age">Edad</label>
-                   <select wire:model="age">
-                       <option value="" selected>Todas las edades</option>
-                       @foreach (\App\Models\Pet::select('age')->distinct()->get() as $option)
-                           <option value="{{ $option->age }}" {{Request::get('age') == $option->age ? 'selected' : ''}}>
-                               {{ $option->age }}
-                           </option>
-                       @endforeach
-                   </select>
-               </div>
-               
+            <div class="relative border-b border-gray-200 text-sm" x-data="{ selected: null }">
 
-               <!-- Filtro por Ubicación -->
-               <div class="mb-4">
-                   <label for="state">Ubicación</label>
-                   <select wire:model="state">
-                       <option value="" selected>Todas las ubicaciones
-                       </option>
-                        @foreach (\App\Models\State::all() as $option)
-                           <option value="{{ $option->name }}" {{Request::get('state') == $option->name ? 'selected' : ''}}>
-                               {{ $option->name }}
-                           </option>
-                       @endforeach 
-                   </select>
-               </div>
-           </div>
-           
-           <!-- Columna 3 -->
-           <div class="col-span-1">
-               <!-- Filtro por Etiqueta (Tag) -->
-               <div class="mb-4">
-                   <label for="tag">Etiqueta</label>
-                   <select wire:model="tag">
-                       <option value="" selected>Todas las etiquetas</option>
-                        @foreach (\App\Models\Tag::all() as $option)
-                           <option value="{{ $option->name }}" {{Request::get('tag') == $option->name ? 'selected' : ''}}>
-                               {{ $option->name }}
-                           </option>
-                       @endforeach 
-                   </select>
-               </div>
-
-               
-               <!-- Filtro por Color -->
-               <div class="mb-4">
-                   <label for="color">Color</label>
-                   <select id="color" name="color">
-                       <option value="" selected>Todos los colores</option>
-                       @foreach (\App\Models\Tag::all() as $option)
-                           <option value="{{ $option->name }}" {{Request::get('color') == $option->name ? 'selected' : ''}}>
-                               {{ $option->name }}
-                           </option>
-                       @endforeach
-                   </select>
-               </div>
-           </div>
-
-           <!-- Botón de Filtrar -->
-           <div class="col-span-3 text-center">
-               <button type="submit"
-                   class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
-                   Filtrar
-               </button>
-           </div>
-       </div>
-
-   </form>
-
-    {{-- ESTA MADRE DESAPARECE AL DAR CLICK AL BOTON XD 
-        <div>
-        <div style="-webkit-transform:translate3d(0, 4EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 4EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 4EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 4EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-        class="section">
-        <div class="container-1440">
-            <div class="accordion-wrapper">
-                <div class="accordion-item">
-                    <div data-w-id="828cfaa3-090e-e241-cc03-3ea597911d62" class="accordion-item-trigger">
-                        <div class="flex-horizontal justify-space-between">
-                            <h4 class="accordion-headline">Filtrar por ...</h4>
-                            <div class="arrow-icon small"><img
-                                    src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a42154384b8_Icons_Adoptable_Purple_Arrow Down.svg"
-                                    width="75" alt="" /></div>
-                        </div>
+                <button type="button" class="w-full pt-4 text-left"
+                    @click="selected !== 1 ? selected = 1 : selected = null">
+                    <div class="flex-horizontal justify-space-between">
+                        <h4 class="accordion-headline">I&#x27;m looking for a dog that...</h4>
+                        <div class="arrow-icon small"><img
+                                src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a42154384b8_Icons_Adoptable_Purple_Arrow Down.svg"
+                                width="75" alt="" /></div>
                     </div>
+                </button>
 
-                    <div style="height: 0px; opacity: 0" class="accordion-item-content">
-                        <div class="collection-list-wrapper w-dyn-list">
-                            <div role="list" class="center-tags-horizontal w-dyn-items">
-
-                                <form wire:submit="filter">
-
-                                     <!-- Filtros -->
-                                    <div class="grid grid-cols-3 gap-4 p-4">
-                                        <!-- Columna 1 -->
-                                        <div class="col-span-1">
-                                            <!-- Filtro por Tamaño -->
-                                            <div class="mb-4">
-                                                <label for="size">Tamaño</label>
-                                                <select wire:model="size">
-                                                    <option value="" selected>Todos los tamaños</option>
-                                                    @foreach (\App\Models\Pet::select('size')->distinct()->get()  as $option)
-                                                        <option value="{{ $option->size }}" {{Request::get('size') == $option->size ? 'selected' : ''}}>
-                                                            {{ $option->size }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-                                            <!-- Filtro por Sexo -->
-                                            <div class="mb-4">
-                                                <label for="sex">Sexo</label>
-                                                <select name="sex">
-                                                    <option value="" selected>Ambos sexos</option>
-                                                     @foreach ($sexOptions as $option)
-                                                        <option value="{{ $option->sex }}" {{Request::get('sex') == $option->sex ? 'selected' : ''}}>
-                                                            {{ $option->sex }}
-                                                        </option>
-                                                    @endforeach 
-                                                </select>
-                                            </div>
-                                        </div>
-                                        {{--
-                                        <!-- Columna 2 -->
-                                        <div class="col-span-1">
-                                            <!-- Filtro por Edad -->
-                                            <div class="mb-4">
-                                                <label for="age">Edad</label>
-                                                <select name="age">
-                                                    <option value="" selected>Todas las edades</option>
-                                                    @foreach ($ageOptions as $option)
-                                                        <option value="{{ $option->age }}" {{Request::get('age') == $option->age ? 'selected' : ''}}>
-                                                            {{ $option->age }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-                                            <!-- Filtro por Ubicación -->
-                                            <div class="mb-4">
-                                                <label for="state">Ubicación</label>
-                                                <select name="state">
-                                                    <option value="" selected>Todas las ubicaciones
-                                                    </option>
-                                                    @foreach ($stateOptions as $option)
-                                                        <option value="{{ $option->name }}" {{Request::get('state') == $option->name ? 'selected' : ''}}>
-                                                            {{ $option->name }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <!-- Columna 3 -->
-                                        <div class="col-span-1">
-                                            <!-- Filtro por Etiqueta (Tag) -->
-                                            <div class="mb-4">
-                                                <label for="tag">Etiqueta</label>
-                                                <select name="tag">
-                                                    <option value="" selected>Todas las etiquetas
-                                                    </option>
-                                                    @foreach ($tagOptions as $option)
-                                                        <option value="{{ $option->name }}" {{Request::get('tag') == $option->name ? 'selected' : ''}}>
-                                                            {{ $option->name }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-                                            <!-- Filtro por Color -->
-                                            <div class="mb-4">
-                                                <label for="color">Color</label>
-                                                <select id="color" name="color">
-                                                    <option value="" selected>Todos los colores</option>
-                                                    @foreach ($colorOptions as $option)
-                                                        <option value="{{ $option->name }}" {{Request::get('color') == $option->name ? 'selected' : ''}}>
-                                                            {{ $option->name }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <!-- Botón de Filtrar -->
-                                        <div class="col-span-3 text-center">
-                                            <button type="submit"
-                                                class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
-                                                Filtrar
-                                            </button>
-                                        </div>
+                <div class="relative overflow-hidden transition-all max-h-0 duration-700" style=""
+                    x-ref="container1"
+                    x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                    <div class="p-6">
+                        <form wire:submit="filter">
+                            <!-- Filtros -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+                                <!-- Columna 1 -->
+                                <div class="col-span-1 flex flex-col h-full">
+                                    <!-- Filtro por Tamaño -->
+                                    <div class="mb-4 flex-grow w-full">
+                                        <label for="size">Tamaño</label>
+                                        <select wire:model="size" class="w-full border border-gray-300 rounded p-2">
+                                            <option value="" selected>Todos los tamaños</option>
+                                            @foreach (\App\Models\Pet::select('size')->distinct()->get() as $option)
+                                                <option value="{{ $option->size }}"
+                                                    {{ Request::get('size') == $option->size ? 'selected' : '' }}>
+                                                    {{ $option->size }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
-                                </form>
+                                    <!-- Filtro por Sexo -->
+                                    <div class="mb-4 flex-grow w-full">
+                                        <label for="sex">Sexo</label>
+                                        <select wire:model="sex" class="w-full border border-gray-300 rounded p-2">
+                                            <option value="" selected>Ambos sexos</option>
+                                            @foreach (\App\Models\Pet::select('sex')->distinct()->get() as $option)
+                                                <option value="{{ $option->sex }}"
+                                                    {{ Request::get('sex') == $option->sex ? 'selected' : '' }}>
+                                                    {{ $option->sex }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Columna 2 -->
+                                <div class="col-span-1 flex flex-col h-full">
+                                    <!-- Filtro por Edad -->
+                                    <div class="mb-4 flex-grow w-full">
+                                        <label for="age">Edad</label>
+                                        <select wire:model="age" class="w-full border border-gray-300 rounded p-2">
+                                            <option value="" selected>Todas las edades</option>
+                                            @foreach (\App\Models\Pet::select('age')->distinct()->get() as $option)
+                                                <option value="{{ $option->age }}"
+                                                    {{ Request::get('age') == $option->age ? 'selected' : '' }}>
+                                                    {{ $option->age }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <!-- Filtro por Ubicación -->
+                                    <div class="mb-4 flex-grow w-full">
+                                        <label for="state">Ubicación</label>
+                                        <select wire:model="state" class="w-full border border-gray-300 rounded p-2">
+                                            <option value="" selected>Todas las ubicaciones</option>
+                                            @foreach (\App\Models\State::all() as $option)
+                                                <option value="{{ $option->name }}"
+                                                    {{ Request::get('state') == $option->name ? 'selected' : '' }}>
+                                                    {{ $option->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Columna 3 -->
+                                <div class="col-span-1 flex flex-col h-full">
+                                    <!-- Filtro por Etiqueta (Tag) -->
+                                    <div class="mb-4 flex-grow w-full">
+                                        <label for="tag">Etiqueta</label>
+                                        <select wire:model="tag" class="w-full border border-gray-300 rounded p-2">
+                                            <option value="" selected>Todas las etiquetas</option>
+                                            @foreach (\App\Models\Tag::all() as $option)
+                                                <option value="{{ $option->name }}"
+                                                    {{ Request::get('tag') == $option->name ? 'selected' : '' }}>
+                                                    {{ $option->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                    <!-- Filtro por Color -->
+                                    <div class="mb-4 flex-grow w-full">
+                                        <label for="color">Color</label>
+                                        <select wire:model="color" class="w-full border border-gray-300 rounded p-2">
+                                            <option value="" selected>Todos los colores</option>
+                                            @foreach (\App\Models\Tag::all() as $option)
+                                                <option value="{{ $option->name }}"
+                                                    {{ Request::get('color') == $option->name ? 'selected' : '' }}>
+                                                    {{ $option->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+
+                            <!-- Botones de Filtrar y Reestablecer -->
+                            <div class="col-span-3 text-center">
+                                <button type="submit"
+                                    class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
+                                    Filtrar
+                                </button>
+                                <button 
+                                    type="button"
+                                    class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 ml-2"
+                                    wire:click="resetFilters">
+                                    Reestablecer
+                                </button>
+                            </div>
+
+                        </form>
+
+
                     </div>
-
                 </div>
+
             </div>
-        </div>
-    </div> --}}
 
 
-    {{--Imprimir doggos --}}
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+    {{-- Imprimir doggos --}}
     <section class="section wide no-padding">
         <div class="w-dyn-list">
             <div role="list" class="pet-profiles-grid w-dyn-items">
@@ -256,19 +168,21 @@
                                         <div class="profile-icon">
                                             {{-- Comparar lo de la lista con lo existente para ver cuales tendran el corazon lleno --}}
                                             @if ($likeItems->contains($dog->id))
-                                                {{-- Cuando coincide, lo marcamos como likeado, pero si ya esta likeado, lo quita--}}
-                                                <a href="#" wire:click.prevent="removeFromLikeList({{$dog->id}})">
+                                                {{-- Cuando coincide, lo marcamos como likeado, pero si ya esta likeado, lo quita --}}
+                                                <a href="#"
+                                                    wire:click.prevent="removeFromLikeList({{ $dog->id }})">
                                                     <i class="fa-solid fa-heart"></i>
                                                 </a>
                                             @else
-                                                {{-- Cuando no coincide, sin marcar--}}
-                                                <a href="#" wire:click.prevent="addToLikeList({{$dog->id}},'{{$dog->name}}')">
+                                                {{-- Cuando no coincide, sin marcar --}}
+                                                <a href="#"
+                                                    wire:click.prevent="addToLikeList({{ $dog->id }},'{{ $dog->name }}')">
                                                     <i class="fa-regular fa-heart"></i>
                                                 </a>
                                             @endif
                                         </div>
                                         <h3 class="profile-descriptor">
-                                            <a href="{{ route('pet.show',$dog) }}">{{ $dog->name }}</a>
+                                            <a href="{{ route('pet.show', $dog) }}">{{ $dog->name }}</a>
                                         </h3>
                                         <div>
                                             <div style="background-color: {{ $dog['badge_color'] }}"

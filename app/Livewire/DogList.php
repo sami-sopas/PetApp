@@ -69,6 +69,21 @@ class DogList extends Component
         $this->dogs = $query->get();
     }
 
+    public function resetFilters()
+    {
+        $this->dogs = Pet::where('status', 2)->where('category_id', 2)->get();
+
+
+        $this->reset([
+            'size',
+            'sex',
+            'age',
+            'state',
+            'tag',
+            'color'
+        ]);
+    }
+
 
     public function addToLikeList($pet_id,$pet_name)
     {
