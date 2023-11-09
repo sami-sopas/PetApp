@@ -21,14 +21,14 @@ class DogList extends Component
     public function mount()
     {
         //Recueperar perros en adopcion
-        $this->dogs = Pet::where('status', 2)->where('category_id', 2)->get();
+        $this->dogs = Pet::where('status', 2)->where('category_id', 1)->get();
     }
 
     public function filter()
     {
         //Por defecto, aqui siempre buscaremos a los perros en adopcion
         $query = Pet::where('status', 2)
-                     ->where('category_id', 2);
+                     ->where('category_id', 1);
 
         //Tamaño
         if ($this->size != '') {
@@ -71,7 +71,7 @@ class DogList extends Component
 
     public function resetFilters()
     {
-        $this->dogs = Pet::where('status', 2)->where('category_id', 2)->get();
+        $this->dogs = Pet::where('status', 2)->where('category_id', 1)->get();
 
 
         $this->reset([
