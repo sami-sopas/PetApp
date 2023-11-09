@@ -143,102 +143,50 @@
     </div>
 
     {{-- Imprimir doggos --}}
-    <section class="grid grid-cols-1 ml-12 sm:grid-cols-2 sm:mr-20 md:grid-cols-3 gap-4">
-                @foreach ($dogs as $dog)
-                <div class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-                    <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
-                        <img class="object-cover" src="{{ Storage::url($dog->images->first()->url) }}" alt="{{$dog->name}}-img" />
-                    </a>
-                    <div class="mt-4 px-5 pb-5">
-                        <div class="flex justify-between items-center">
-                            <a href="#">
-                                <h5 class="text-xl tracking-tight text-slate-900">{{ $dog->name }}</h5>
-                            </a>
-                            <div class="flex items-center text-3xl ">
-                                <a href="#" wire:click.prevent="removeFromLikeList({{ $dog->id }})">
-                                    <i class="fa-solid fa-heart text-red-600 no-underline"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="mt-2 mb-5 flex items-center justify-between">
-                            <p>
-                                <span class="text-3xl font-bold text-slate-900">{{$dog->category->name}}</span>
-                            </p>
-                        </div>
-                        <a href="#" class="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
-                            Ver mascota
-                        </a>
-                    </div>
+    <section class="grid grid-cols-1 ml-12 sm:grid-cols-2 sm:mr-20 md:grid-cols-3 gap-4 mt-5">
+        @php
+            //Rescatar items de la like list
+            $likeItems = Cart::content()->pluck('id');
+        @endphp
+        @foreach ($dogs as $dog)
+            <div style="background-color:hsla(41, 100.00%, 76.34%, 0.65)"
+                class="relative m-5 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 shadow-md">
+                <div class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
+                    <img class="object-cover" src="{{ Storage::url($dog->images->first()->url) }}"
+                        alt="{{ $dog->name }}-img" />
                 </div>
-                  
-                    {{-- <div role="listitem" class="w-dyn-item"><a href="dog/missy.html"
-                            class="profile-card-link-block w-inline-block">
-                            <div class="flex-horizontal">
-                                <div class="profile-card-half">
-                                    <div style="background-color:hsla(41, 100.00%, 76.34%, 1.00)"
-                                        class="content-padding profile-cards">
-                                        <div class="profile-icon">
-    
-                                            <img src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802ae14a438512_Icons_Adoptable_White_Bone.svg"
-                                                width="38" alt="" />
-                                        </div>
-                                        <h3 class="profile-descriptor">Hi I&#x27;m {{ $dog->name }}.</h3>
-                                        <div>
-                                            <div style="background-color:hsla(41, 100.00%, 76.34%, 1.00)"
-                                                class="badge-outline white">
-                                                <h6>{{ $dog->category->name }}</h6>
-                                            </div>
-                                        </div>
-                                        <div class="long-fur-pattern"></div>
-                                    </div>
-                                </div>
-                                
-                                <div style="background-color:hsla(41, 100.00%, 76.34%, 1.00)" class="profile-card-half">
-                                    <img src="{{ Storage::url($dog->images->first()->url) }}" alt=""
-                                        sizes="(max-width: 767px) 50vw, (max-width: 991px) 25vw, 17vw"
-                                        class="pet-thumbnail-image" /></div>
-                            </div>
+                <div class="mt-4 px-5 pb-5">
+                    <div class="flex justify-between items-center">
+                        <a href="#">
+                            <h5 class="text-xl tracking-tight text-slate-900">{{ $dog->name }}</h5>
                         </a>
-                    </div> --}}
-                    {{-- <div role="listitem" class="w-dyn-item my-5 mx-5">
-                        <a href="{{ route('pet.show', $dog) }}" class="profile-card-link-block w-inline-block">
-                            <div class="flex-horizontal">
-                                <div class="profile-card-half">
-                                    <div style="background-color: hsla(41, 100.00%, 76.34%, 1.00)"
-                                        class="content-padding profile-cards">
-                                        <div class="profile-icon">
-                                            {{-- Comparar lo de la lista con lo existente para ver cuáles tendrán el corazón lleno 
-                                            @if ($likeItems->contains($dog->id))
-                                                {{-- Cuando coincide, lo marcamos como likeado, pero si ya está likeado, lo quita 
-                                                <a href="#" wire:click.prevent="removeFromLikeList({{ $dog->id }})">
-                                                    <i class="fa-solid fa-heart"></i>
-                                                </a>
-                                            @else
-                                                {{-- Cuando no coincide, sin marcar 
-                                                <a href="#" wire:click.prevent="addToLikeList({{ $dog->id }}, '{{ $dog->name }}')">
-                                                    <i class="fa-regular fa-heart"></i>
-                                                </a>
-                                            @endif
-                                        </div>
-                                        <h3 class="profile-descriptor">{{ $dog->name }}</h3>
-                                        <div style="background-color:hsla(41, 100.00%, 76.34%, 1.00)" class="badge-outline white">
-                            
-                                                <h6>{{ $dog->age }}</h6>
-                                            
-                                        </div>
-                                        <div class="long-fur-pattern"></div>
-                                    </div>
-                                </div>
-                                <div style="background-color: hsla(41, 100.00%, 76.34%, 1.00)" class="profile-card-half">
-                                    <img src="{{ Storage::url($dog->images->first()->url) }}" alt=""
-                                        sizes="(max-width: 767px) 50vw, (max-width: 991px) 25vw, 17vw"
-                                        srcset="{{ Storage::url($dog->images->first()->url) }}"
-                                        class="pet-thumbnail-image" />
-                                </div>
-                            </div>
-                        </a>
-                    </div> --}}
-                @endforeach
+                        <div class="flex items-center text-3xl text-red-500">
+                            @if ($likeItems->contains($dog->id))
+                                {{-- Cuando coincide, lo marcamos como likeado, pero si ya está likeado, lo quita --}}
+                                <a href="#" wire:click.prevent="removeFromLikeList({{ $dog->id }})">
+                                    <i class="fa-solid fa-heart"></i>
+                                </a>
+                            @else
+                                {{-- Cuando no coincide, sin marcar --}}
+                                <a href="#"
+                                    wire:click.prevent="addToLikeList({{ $dog->id }}, '{{ $dog->name }}')">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="mt-2 mb-5 flex items-center justify-between">
+                        <p>
+                            <span class="text-3xl font-bold text-slate-900">{{ $dog->category->name }}</span>
+                        </p>
+                    </div>
+                    <a href="#"
+                        class="flex items-center justify-center border-4 font-extrabold border-white rounded-lg py-2 text-center text-lg focus:outline-none focus:ring-4 focus:ring-blue-300 hover:border-dashed transition-all duration-500 ease-in-out">
+                        Ver mascota
+                    </a>
+                </div>
+            </div>
+        @endforeach
     </section>
 
 
@@ -270,7 +218,8 @@
                                 <img src="../uploads-ssl.webflow.com/5f4f91ff23802a3d804383e9/5f4f91ff23802a2d1a4384e8_Adoptable-Webflow-Theme_Dog%207_Pic%201_white-samoyed_puppy_Photo%20by_wildlittlethingsphoto.jpg"
                                     alt="" sizes="(max-width: 767px) 50vw, (max-width: 991px) 25vw, 17vw"
                                     srcset="https://uploads-ssl.webflow.com/5f4f91ff23802a3d804383e9/5f4f91ff23802a2d1a4384e8_Adoptable-Webflow-Theme_Dog%25207_Pic%25201_white-samoyed_puppy_Photo%2520by_wildlittlethingsphoto-p-500.jpeg 500w, https://uploads-ssl.webflow.com/5f4f91ff23802a3d804383e9/5f4f91ff23802a2d1a4384e8_Adoptable-Webflow-Theme_Dog%207_Pic%201_white-samoyed_puppy_Photo%20by_wildlittlethingsphoto.jpg 920w"
-                                    class="pet-thumbnail-image" /></div>
+                                    class="pet-thumbnail-image" />
+                            </div>
                         </div>
                     </a>
                 </div>
