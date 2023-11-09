@@ -180,7 +180,7 @@
                             <span class="text-3xl font-bold text-slate-900">{{ $dog->category->name }}</span>
                         </p>
                     </div>
-                    <a href="#"
+                    <a href="{{ route('pet.show',$dog) }}"
                         class="flex items-center justify-center border-4 font-extrabold border-white rounded-lg py-2 text-center text-lg focus:outline-none focus:ring-4 focus:ring-blue-300 hover:border-dashed transition-all duration-500 ease-in-out">
                         Ver mascota
                     </a>

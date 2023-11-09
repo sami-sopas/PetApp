@@ -22,7 +22,14 @@ class PetController extends Controller
 
     public function show(Pet $pet)
     {
-        dd('show');
+        //Mostramos pets similares en base a su estatus y su categoria
+         $similars = Pet::where('status', $pet->status) //lo que estan perdidos
+             ->where('category_id',$pet->category->id)
+             ->where('id', '!=', $pet->id) //mostrar relacionados distintos, al que tenemos actualmente
+             ->latest('id') //traer los ultimos mediante segun su id
+             ->take(3) //solo traer otras 4 opciones
+             ->get();
+        return view('adopt.show',compact('pet','similars'));
     }
 
     public function edit(Pet $pet)
