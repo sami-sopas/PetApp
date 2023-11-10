@@ -22,6 +22,7 @@ class DogList extends Component
     {
         //Recueperar perros en adopcion
         $this->dogs = Pet::where('category_id',1)->where('status',1)->get();
+        
 
     }
 

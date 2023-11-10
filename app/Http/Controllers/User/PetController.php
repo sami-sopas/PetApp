@@ -46,6 +46,8 @@ class PetController extends Controller
         $states = State::all();
         $tags = Tag::all();
         $sexs = Pet::select('sex')->distinct()->get();
+        $bg_colors = Pet::select('bg_color')->distinct()->get();
+        $icons = Pet::select('icon')->distinct()->get();
 
         return view('post.edit', compact(
             'pet',
@@ -56,7 +58,9 @@ class PetController extends Controller
             'ages',
             'states',
             'tags',
-            'sexs'
+            'sexs',
+            'bg_colors',
+            'icons',
         ));
     }
 
@@ -70,6 +74,8 @@ class PetController extends Controller
             'size' => 'required|max:255',
             'sex' => 'required|max:255',
             'age' => 'required|max:255',
+            'bg_color' => 'required',
+            'icon' => 'required',
             'description' => 'required',
             'tags' => 'required',
             'files.*' => 'image|max:2048',

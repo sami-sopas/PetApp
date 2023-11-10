@@ -80,8 +80,6 @@ class AdoptDogController extends Controller
         $icons = Pet::select('icon')->distinct()->get();
 
 
-
-
         return view('adopt-dog.create',compact(
             'colors',
             'sizes',

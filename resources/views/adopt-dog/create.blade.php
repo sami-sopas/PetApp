@@ -12,7 +12,7 @@
             </div>
     </header>
 
-    <div class="container mx-auto mt-10">
+    <div class="container mx-auto my-10">
         {{-- Formulario --}}
         <form method="POST" action="{{ route('adopt-dog.store') }}"
             class="w-full mx-auto p-4 bg-white rounded-lg shadow-lg" enctype="multipart/form-data">
