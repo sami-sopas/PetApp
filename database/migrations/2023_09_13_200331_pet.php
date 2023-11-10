@@ -20,7 +20,9 @@ return new class extends Migration
             $table->longText('description'); //Perro bastardo
             $table->string('age')->nullable(); //cachorro, adulto, adulto mayor
             $table->enum('status',['En Adopcion','En Proceso','Adoptado']); //1-En adopcion 2. En proceso de adopcion 3. Adoptado
-            $table->timestamps();
+            $table->string('icon'); //fas-fa icon etc
+            $table->string('bg_color'); //blue, yellow for post bgcolor
+            $table->timestamps();    
 
             //LLaves foraneas
             $table->unsignedBigInteger('user_id');

@@ -149,7 +149,7 @@
             $likeItems = Cart::content()->pluck('id');
         @endphp
         @foreach ($dogs as $dog)
-            <div style="background-color:hsla(41, 100.00%, 76.34%, 0.65)"
+            <div style="background-color: {{ $dog->bg_color }}"
                 class="relative m-5 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 shadow-md">
                 <div class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
                     <img class="object-cover" src="{{ Storage::url($dog->images->first()->url) }}"
@@ -158,8 +158,12 @@
                 <div class="mt-4 px-5 pb-5">
                     <div class="flex justify-between items-center">
                         <a href="#">
-                            <h5 class="text-xl tracking-tight text-slate-900">{{ $dog->name }}</h5>
+                            <div class="flex items-center">
+                                <h5 class="text-xl tracking-tight text-slate-900">{{ $dog->name }}</h5>
+                                <i class="{{$dog->icon}} pl-4 text-white text-2xl"></i>
+                            </div>
                         </a>
+                        
                         <div class="flex items-center text-3xl text-red-500">
                             @if ($likeItems->contains($dog->id))
                                 {{-- Cuando coincide, lo marcamos como likeado, pero si ya está likeado, lo quita --}}
