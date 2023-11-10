@@ -75,6 +75,12 @@ class AdoptDogController extends Controller
 
         $sexs = Pet::select('sex')->distinct()->get();
 
+        $bg_colors = Pet::select('bg_color')->distinct()->get();
+
+        $icons = Pet::select('icon')->distinct()->get();
+
+
+
 
         return view('adopt-dog.create',compact(
             'colors',
@@ -82,7 +88,9 @@ class AdoptDogController extends Controller
             'ages',
             'states',
             'tags',
-            'sexs'
+            'sexs',
+            'bg_colors',
+            'icons',
         ));
 
     }
@@ -105,6 +113,8 @@ class AdoptDogController extends Controller
             'age' => 'required|max:255',
             'description' => 'required',
             'tags' => 'required',
+            'bg_color' => 'required',
+            'icon' => 'required',
             'files.*' => 'image|max:2048',
             'files' => 'required|max:3'
         ]);

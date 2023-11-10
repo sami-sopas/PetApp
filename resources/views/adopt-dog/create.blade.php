@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <header data-w-id="bea9b7ed-f748-980a-924e-d39fafb4bf59" class="homepage-header h-44">
         <div class="container-1440 full-width">
             <div class="heading-container text-4xl sm:text-5xl md:text-4xl lg:text-6xl xl:text-6xl">
@@ -95,25 +96,51 @@
                     @foreach ($tags as $tag)
                         <div class="flex items-center">
                             <input type="checkbox" id="tag_{{ $tag->id }}" name="tags[]"
-                                value="{{ $tag->id }}" class="mr-2">
+                                value="{{ $tag->id }}" class="mr-2 rounded">
                             <label for="tag_{{ $tag->id }}">{{ $tag->name }}</label>
                         </div>
                     @endforeach
                 </div>
             </div>
 
-            <!--Previsualizacion-->
-            <div class="">
-                <img id="picture"
-                    class="w-32 h-32"
-                    src="https://cdn.dribbble.com/users/1201194/screenshots/7197395/media/d5d300c76b56aa290f34cfc39de99c2d.gif"
-                    alt="">
+            <!-- Campos para la card (color e icono) -->
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Campo Color (Select) -->
+                <div class="mb-4">
+                    <label for="bg_color" class="text-gray-600">Color de fondo</label>
+                    <select id="bg_color" name="bg_color"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
+                        onchange="this.style.backgroundColor = this.options[this.selectedIndex].value;">
+                        <option value="" disabled selected>Select a color</option>
+                        @foreach ($bg_colors as $bg_color)
+                            <option style="background-color: {{ $bg_color->bg_color }};" value="{{ $bg_color->bg_color }}"></option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <!-- Campo Icono (Select) -->
+                <div class="mb-4">
+                    <label for="icon" class="text-gray-600">Icono <i id="selected-icon" class=""></i></label>
+                    <select id="icon" name="icon"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
+                        onchange="document.getElementById('selected-icon').className = this.value;">
+                        <option value="" disabled selected>Select an icon</option>
+                        @foreach ($icons as $icon)
+                            <option value="{{ $icon->icon }}">
+                                {{-- Para que no imprima toda la clase del icono--}}
+                                {{ str_replace(['fa-solid fa-', '-'], ['', ' '], $icon->icon) }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                
+                
             </div>
 
             <!-- Campo Imágenes -->
             <div class="mb-4">
                 <label for="images" class="text-gray-600">Images</label>
-                <input type="file" name="files[]" id="file" multiple>
+                <input type="file" name="files[]" id="file" multiple accept="image/*">
                 <div id="image-preview"></div>
                 @error('files.*')
                     <p class="text-red-500">{{ $message }}</p>
@@ -121,8 +148,12 @@
                 @error('files')
                     <p class="text-red-500">{{ $message }}</p>
                 @enderror
-  
+            </div>
 
+            <!--Previsualizacion-->
+            <div id="image-preview"></div>
+
+            
             <!-- Botón de Enviar -->
             <div class="grid grid-cols-1">
                 <div class="text-center">
@@ -135,17 +166,27 @@
         </form>
 
         <script>
-            // Imagenes
             document.getElementById("file").addEventListener('change', cambiarImagen);
-
+        
             function cambiarImagen(event) {
-                var file = event.target.files[0];
-                var reader = new FileReader();
-                reader.onload = (event) => {
-                    document.getElementById("picture").setAttribute('src', event.target.result)
+                var files = event.target.files;
+                var imagePreview = document.getElementById("image-preview");
+        
+                // Limpiar el div de previsualización
+                imagePreview.innerHTML = '';
+        
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    var reader = new FileReader();
+                    reader.onload = (event) => {
+                        var img = document.createElement('img');
+                        img.src = event.target.result;
+                        img.className = "w-32 h-32 m-1 object-cover inline-block"; // establecer las clases de la imagen
+        
+                        imagePreview.appendChild(img);
+                    }
+                    reader.readAsDataURL(file);
                 }
-
-                reader.readAsDataURL(file);
             }
         </script>
 
