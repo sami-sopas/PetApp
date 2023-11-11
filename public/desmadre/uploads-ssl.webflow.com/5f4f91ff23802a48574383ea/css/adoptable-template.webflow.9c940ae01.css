@@ -5026,7 +5026,6 @@ p {
 }
 
 a {
-  font-weight: 400;
   text-decoration: none;
 }
 
@@ -5038,7 +5037,6 @@ ul {
 li {
   font-size: 1.1rem;
   line-height: 1.8rem;
-  list-style-type: disc;
 }
 
 blockquote {
