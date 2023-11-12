@@ -148,32 +148,32 @@
             //Rescatar items de la like list
             $likeItems = Cart::content()->pluck('id');
         @endphp
-        @foreach ($cats as $dog)
-            <div style="background-color: {{ $dog->bg_color }}"
+        @foreach ($cats as $cat)
+            <div style="background-color: {{ $cat->bg_color }}"
                 class="relative m-5 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 shadow-md">
                 <div class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
-                    <img class="object-cover w-full h-full" src="{{ Storage::url($dog->images->first()->url) }}"
-                        alt="{{ $dog->name }}-img" />
+                    <img class="object-cover w-full h-full" src="{{ Storage::url($cat->images->first()->url) }}"
+                        alt="{{ $cat->name }}-img" />
                 </div>
                 <div class="mt-4 px-5 pb-5">
                     <div class="flex justify-between items-center">
                         <a href="#">
                             <div class="flex items-center">
-                                <h5 class="text-xl tracking-tight text-slate-900">{{ $dog->name }}</h5>
-                                <i class="{{$dog->icon}} pl-4 text-white text-2xl"></i>
+                                <h5 class="text-xl tracking-tight text-slate-900">{{ $cat->name }}</h5>
+                                <i class="{{$cat->icon}} pl-4 text-white text-2xl"></i>
                             </div>
                         </a>
                         
                         <div class="flex items-center text-3xl text-red-500">
-                            @if ($likeItems->contains($dog->id))
+                            @if ($likeItems->contains($cat->id))
                                 {{-- Cuando coincide, lo marcamos como likeado, pero si ya está likeado, lo quita --}}
-                                <a href="#" wire:click.prevent="removeFromLikeList({{ $dog->id }})">
+                                <a href="#" wire:click.prevent="removeFromLikeList({{ $cat->id }})">
                                     <i class="fa-solid fa-heart"></i>
                                 </a>
                             @else
                                 {{-- Cuando no coincide, sin marcar --}}
                                 <a href="#"
-                                    wire:click.prevent="addToLikeList({{ $dog->id }}, '{{ $dog->name }}')">
+                                    wire:click.prevent="addToLikeList({{ $cat->id }}, '{{ $cat->name }}')">
                                     <i class="fa-regular fa-heart"></i>
                                 </a>
                             @endif
@@ -181,10 +181,10 @@
                     </div>
                     <div class="mt-2 mb-5 flex items-center justify-between">
                         <p>
-                            <span class="text-3xl font-bold text-slate-900">{{ $dog->category->name }}</span>
+                            <span class="text-3xl font-bold text-slate-900">{{ $cat->category->name }}</span>
                         </p>
                     </div>
-                    <a href="{{ route('pet.show',$dog) }}"
+                    <a href="{{ route('pet.show',$cat) }}"
                         class="flex items-center justify-center border-4 font-extrabold border-white rounded-lg py-2 text-center text-lg focus:outline-none focus:ring-4 focus:ring-blue-300 hover:border-dashed transition-all duration-500 ease-in-out">
                         Ver mascota
                     </a>

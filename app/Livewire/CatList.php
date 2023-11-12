@@ -10,6 +10,14 @@ class CatList extends Component
 {
     public $cats;
 
+    //opciones de filtro
+    public $size;
+    public $sex;
+    public $age;
+    public $state;
+    public $tag;
+    public $color;
+
     public function mount()
     {
         //Recueperar gatos en adopcion
