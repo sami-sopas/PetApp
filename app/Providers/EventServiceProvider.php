@@ -7,6 +7,12 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
+//Evento login
+use Illuminate\Auth\Events\Login;
+//Evento logout
+use Illuminate\Auth\Events\Logout;
+
+
 use App\Models\Pet;
 use App\Observers\PetObserver;
 
@@ -21,6 +27,18 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+
+        //Evento login
+        Login::class => [
+            //Oyentes que se generan
+            "App\Listeners\MergeTheList"
+        ],
+
+        //Evento logout
+        Logout::class => [
+            //Oyentes que se generan
+            "App\Listeners\MergeTheListLogout"
+        ]
     ];
 
     /**
