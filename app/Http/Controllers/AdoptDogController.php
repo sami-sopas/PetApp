@@ -147,7 +147,7 @@ class AdoptDogController extends Controller
 
 
         //Redirigimos a la publicacion ya hecha
-        return redirect()->route('adopt-dog.index');
+        return redirect()->route('pet.show',$dog)->with('info','Se ha creado la publicación correctamente !');
 
 
     }

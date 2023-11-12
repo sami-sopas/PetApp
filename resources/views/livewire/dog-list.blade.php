@@ -152,7 +152,7 @@
             <div style="background-color: {{ $dog->bg_color }}"
                 class="relative m-5 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 shadow-md">
                 <div class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
-                    <img class="object-cover" src="{{ Storage::url($dog->images->first()->url) }}"
+                    <img class="object-cover w-full h-full" src="{{ Storage::url($dog->images->first()->url) }}"
                         alt="{{ $dog->name }}-img" />
                 </div>
                 <div class="mt-4 px-5 pb-5">

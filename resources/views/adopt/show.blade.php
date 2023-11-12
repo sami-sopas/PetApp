@@ -30,9 +30,9 @@
         rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/" rel="preconnect" />
     <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin="anonymous" />
-    <script src="{{ asset('desmadre/ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js') }}" type="text/javascript">
-        < script
-        type = "text/javascript" > WebFont.load({
+    <script src="{{ asset('desmadre/ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+        WebFont.load({
             google: {
                 families: ["DM Sans:regular,500,700", "Mulish:200,300,regular", "Mali:200,300,regular",
                     "Indie Flower:regular"
@@ -48,20 +48,26 @@
                 .className += t + "touch")
         }(window, document);
     </script>
-    <link
-        href="../../uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f9455f0f9e08cdea3fe58_Adoptable_A_Favicon_32x32.png"
-        rel="shortcut icon" type="image/x-icon" />
-    <link
-        href="../../uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f946c019ce790ae43aa69_Adoptable_A_Favicon_256x256.png"
-        rel="apple-touch-icon" />
+
+
 
     <!-- Styles -->
     @livewireStyles
+    
 </head>
 
 <body>
     <!-- Barra de navegacion -->
-    <x-nav />
+    <x-nav/>
+
+    {{-- Mensaje de exito al guardar publicacion --}}
+    @if(session('info'))
+        <div class="container">
+            <div class="alert alert-success">
+                {{ session('info') }}
+            </div>
+        </div>
+    @endif
 
     {{-- Titulo --}}
     <header data-w-id="2d6e12db-2b97-b54e-5e3d-0bc67710e698" class="header pet-profile">
@@ -149,74 +155,6 @@
                         <h5 class="inline margin-right-1em">Ubicacion:</h5>
                         <div class="inline">{{ $pet->user->state->name }}</div>
                     </div>
-
-                    <!-- AUN PENDIENTE SI METEREMOS ESTO
-          <div class="dotted-divider-container justify-left">
-            <h5 class="stats-heading">health info</h5>
-          </div>
-          <div class="_3-column-grid health-stats margin-top-1em">
-            <div id="w-node-_1490c1fa-2ee2-8bb5-eb7f-b59311d0a209-f800696f" class="flex-vertical centered">
-              <div class="circle-icon brand-color-2"><img
-                  src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a1f95438529_Icons_Adoptable_White_Health Check.svg"
-                  width="50" alt="" />
-                <div class="tick-icon brand-color-4"><img
-                    src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a1ae3438556_Icons_Adoptable_White_Yes Tick.svg"
-                    loading="lazy" alt="" /></div>
-              </div>
-              <div class="health-icon-text">Health<br />Check</div>
-            </div>
-            <div id="w-node-_10c11859-bc13-6f02-0b0b-8c70408dc9f3-f800696f" class="flex-vertical centered">
-              <div class="circle-icon brand-color-2">
-                <div class="tick-icon brand-color-4"><img
-                    src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a1ae3438556_Icons_Adoptable_White_Yes Tick.svg"
-                    loading="lazy" alt="" /></div><img
-                  src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a8abb438536_Icons_Adoptable_White_Microchip.svg"
-                  width="50" alt="" />
-              </div>
-              <div class="health-icon-text">Microchip</div>
-            </div>
-            <div id="w-node-_272b9fb3-4c11-3974-a1b0-a9acce5d29fe-f800696f" class="flex-vertical centered">
-              <div class="circle-icon brand-color-2"><img
-                  src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a866a43855e_Icons_Adoptable_White_Wormed.svg"
-                  width="50" alt="" />
-                <div class="tick-icon brand-color-4"><img
-                    src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a1ae3438556_Icons_Adoptable_White_Yes Tick.svg"
-                    loading="lazy" alt="" /></div>
-              </div>
-              <div class="health-icon-text">Wormed</div>
-            </div>
-            <div id="w-node-_5b1d50de-4eac-4b6d-5c15-df8c72d6313f-f800696f" class="flex-vertical centered">
-              <div class="circle-icon brand-color-2"><img
-                  src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a785c43852a_Icons_Adoptable_White_Heartworm Treated.svg"
-                  width="50" alt="" />
-                <div class="tick-icon brand-color-4"><img
-                    src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a1ae3438556_Icons_Adoptable_White_Yes Tick.svg"
-                    loading="lazy" alt="" /></div>
-              </div>
-              <div class="health-icon-text">Heartworm<br />Treated</div>
-            </div>
-            <div id="w-node-_66d33d47-6376-3342-6dec-fc7af6bb74a0-f800696f" class="flex-vertical centered">
-              <div class="circle-icon brand-color-2"><img
-                  src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a866743854c_Icons_Adoptable_White_Vaccinated.svg"
-                  width="50" alt="" />
-                <div class="tick-icon brand-color-4"><img
-                    src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a1ae3438556_Icons_Adoptable_White_Yes Tick.svg"
-                    loading="lazy" alt="" /></div>
-              </div>
-              <div class="health-icon-text">Vaccinated</div>
-            </div>
-            <div id="w-node-_04f13af1-86c7-0a58-90c1-23cdcf85a84d-f800696f" class="flex-vertical centered">
-              <div class="circle-icon brand-color-2"><img
-                  src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a4c9b43851b_Icons_Adoptable_White_De-sexed Female.svg"
-                  width="50" alt="" /><img
-                  src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a5dbb43851c_Icons_Adoptable_White_De-sexed Male.svg"
-                  width="50" alt="" class="w-condition-invisible" />
-                <div class="tick-icon brand-color-4"><img
-                    src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a1ae3438556_Icons_Adoptable_White_Yes Tick.svg"
-                    loading="lazy" alt="" /></div>
-              </div>
-              <div class="health-icon-text">De-sexed</div>
-            </div> -->
                 </div>
             </div>
         </div>

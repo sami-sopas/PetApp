@@ -221,7 +221,7 @@
                         <ul class="py-2 text-sm px-5" aria-labelledby="dropdownLargeButton">
 
                             <li>
-                                <a href="#"
+                                <a href="{{ route('adopt-dog.create') }}"
                                     class="block my-1.5 rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
                                     Perro en Adopción
                                 </a>
@@ -235,7 +235,7 @@
                             </li>
 
                             <li>
-                                <a href="#"
+                                <a href="{{ route('adoptar.create') }}"
                                     class="block my-1.5 rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
                                     Mascota en Adopción
                                 </a>
