@@ -8,6 +8,6 @@ class AdoptCatController extends Controller
 {
     public function index()
     {
-        return view('adopt-cat');
+        return view('adopt-cat.index');
     }
 }
