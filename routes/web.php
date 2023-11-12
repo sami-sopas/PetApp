@@ -38,8 +38,14 @@ Route::get('adopt-dog/dog/{dog}',[AdoptDogController::class,'show'])->name('adop
 //Formulario de crear publicacion de doggo
 Route::get('adopt-dog/create',[AdoptDogController::class,'create'])->name('adopt-dog.create');
 
-//Guardar lo de form de create
+//Guardar lo de form de create para doggos
 Route::post('adopt-dog', [AdoptDogController::class, 'store'])->name('adopt-dog.store');
+
+//Formulario de crear publicacion de catto
+Route::get('adopt-cat/create',[AdoptCatController::class,'create'])->name('adopt-cat.create');
+
+//Guardar lo de form de create para gattos
+Route::post('adopt-cat',[AdoptCatController::class,'store'])->name('adopt-cat.store');
 
 
 //Mostrar cattos para adoptar

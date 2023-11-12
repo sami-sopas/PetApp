@@ -228,7 +228,7 @@
                             </li>
 
                             <li>
-                                <a href="#"
+                                <a href="{{ route('adopt-cat.create') }}"
                                     class="block my-1.5 rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
                                     Gato en Adopción
                                 </a>
