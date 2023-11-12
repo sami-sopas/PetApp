@@ -49,8 +49,14 @@
                         id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                         data-dropdown-placement="bottom">
                         <span class="sr-only">Open user menu</span>
-                        <img class="w-8 h-8 rounded-full" src="{{ Auth()->user()->profile_photo_url }}"
-                            alt="user-photo">
+                        @if (Auth::user()->profile_photo_path)
+                            <img class="h-8 w-8 rounded-full object-cover"
+                                src="/storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" />
+                        @else
+                            <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
+                                alt="{{ Auth::user()->name }}" />
+                        @endif
+
                     </button>
                 </div>
                 <!-- Dropdown menu -->
