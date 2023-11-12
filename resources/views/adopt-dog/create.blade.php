@@ -23,7 +23,10 @@
             <div class="mb-4">
                 <label for="name" class="text-gray-600">Name</label>
                 <input type="text" name="name" placeholder="Enter your name"
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400" />
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400 @error('name') border-red-500 @enderror" />
+                @error('name')
+                    <p class="text-red-500">{{ $message }}</p>
+                @enderror
             </div>
 
             <!-- Campos Color y Size (en la misma fila) -->
@@ -32,25 +35,31 @@
                 <div class="mb-4">
                     <label for="color" class="text-gray-600">Color</label>
                     <select id="color" name="color_id"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400 @error('color_id') border-red-500 @enderror">
                         <option value="" disabled selected>Select a color</option>
                         @foreach ($colors as $color)
                             <option value="{{ $color->id }}">{{ $color->name }}</option>
                         @endforeach
 
                     </select>
+                    @error('color_id')
+                        <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Campo Size (Select) -->
                 <div class="mb-4">
                     <label for="size" class="text-gray-600">Size</label>
                     <select id="size" name="size"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400 @error('size') border-red-500 @enderror">
                         <option value="" disabled selected>Select a size</option>
                         @foreach ($sizes as $size)
                             <option value="{{ $size->size }}">{{ $size->size }}</option>
                         @endforeach
                     </select>
+                    @error('size')
+                        <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -60,25 +69,31 @@
                 <div class="mb-4">
                     <label for="sex" class="text-gray-600">Sex</label>
                     <select id="sex" name="sex"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400 @error('sex') border-red-500 @enderror">
                         <option value="" disabled selected>Select a sex</option>
                         @foreach ($sexs as $sex)
                             <option value="{{ $sex->sex }}">{{ $sex->sex }}</option>
                         @endforeach
                     </select>
+                    @error('sex')
+                        <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Campo Age (Select) -->
                 <div class="mb-4">
                     <label for="age" class="text-gray-600">Age</label>
                     <select id="age" name="age"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400 @error('age') border-red-500 @enderror">
                         <option value="" disabled selected>Select an age</option>
                         @foreach ($ages as $age)
                             <option value="{{ $age->age }}">{{ $age->age }}</option>
                         @endforeach
 
                     </select>
+                    @error('age')
+                        <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -86,7 +101,10 @@
             <div class="mb-4">
                 <label for="description" class="text-gray-600">Description</label>
                 <textarea name="description" rows="4" placeholder="Enter a description"
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"></textarea>
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400 @error('description') border-red-500 @enderror"></textarea>
+                @error('description')
+                    <p class="text-red-500">{{ $message }}</p>
+                @enderror
             </div>
 
             <!-- Campo Tags (Select múltiple) -->
@@ -96,10 +114,13 @@
                     @foreach ($tags as $tag)
                         <div class="flex items-center">
                             <input type="checkbox" id="tag_{{ $tag->id }}" name="tags[]"
-                                value="{{ $tag->id }}" class="mr-2 rounded">
+                                value="{{ $tag->id }}" class="mr-2 rounded @error('tags') border-red-500 @enderror">
                             <label for="tag_{{ $tag->id }}">{{ $tag->name }}</label>
                         </div>
                     @endforeach
+                    @error('tags')
+                        <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -109,20 +130,23 @@
                 <div class="mb-4">
                     <label for="bg_color" class="text-gray-600">Color de fondo</label>
                     <select id="bg_color" name="bg_color"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400 @error('bg_color') border-red-500 @enderror"
                         onchange="this.style.backgroundColor = this.options[this.selectedIndex].value;">
                         <option value="" disabled selected>Select a color</option>
                         @foreach ($bg_colors as $bg_color)
                             <option style="background-color: {{ $bg_color->bg_color }};" value="{{ $bg_color->bg_color }}"></option>
                         @endforeach
                     </select>
+                    @error('bg_color')
+                        <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Campo Icono (Select) -->
                 <div class="mb-4">
                     <label for="icon" class="text-gray-600">Icono <i id="selected-icon" class=""></i></label>
                     <select id="icon" name="icon"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400 @error('icon') border-red-500 @enderror"
                         onchange="document.getElementById('selected-icon').className = this.value;">
                         <option value="" disabled selected>Select an icon</option>
                         @foreach ($icons as $icon)
@@ -132,6 +156,9 @@
                             </option>
                         @endforeach
                     </select>
+                    @error('icon')
+                        <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
                 
                 
