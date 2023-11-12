@@ -509,12 +509,7 @@ figcaption {
   text-align: center
 }
 
-ul,
-ol {
-  margin-top: 0;
-  margin-bottom: 10px;
-  padding-left: 40px
-}
+
 
 .w-list-unstyled {
   padding-left: 0;

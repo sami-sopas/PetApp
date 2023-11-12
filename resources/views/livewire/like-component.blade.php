@@ -1,4 +1,4 @@
-<a href="{{ route('likelist') }}" class="pr-5 mt-1">
+<a href="{{ route('likelist') }}" class="pr-5 mt-2">
     <span class="relative inline-block">
         <i class="fa-solid fa-heart text-2xl text-red-500"></i>
 

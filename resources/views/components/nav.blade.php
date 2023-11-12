@@ -81,7 +81,7 @@
 
 
 <nav class="sticky-nav" style="background-color: #faf6f2;">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto pb-6 pt-4">
         {{-- Logo --}}
         <a href="/">
             <div data-w-id="46b83a20-f5b0-8a53-a0a5-8f60c71a63c5" data-is-ix2-target="1" class="nav-logo"
@@ -175,7 +175,7 @@
         </div>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
             <ul
-                class="flex flex-col font-semibold p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-3 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                class="flex flex-col font-semibold md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-3 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
 
                 <li class="my-auto">
                     <a href="{{ route('adopt-dog.index') }}"
@@ -217,8 +217,8 @@
                         </svg></button>
                     <!-- Dropdown menu -->
                     <div id="dropdownNavbar" style="background-color: #faf6f2;"
-                        class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-auto px-5 text-center border border-purple-200">
-                        <ul class="py-2 text-sm" aria-labelledby="dropdownLargeButton">
+                        class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-auto text-center border border-purple-200">
+                        <ul class="py-2 text-sm px-5" aria-labelledby="dropdownLargeButton">
 
                             <li>
                                 <a href="#"
