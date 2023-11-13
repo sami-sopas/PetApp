@@ -5529,7 +5529,6 @@ figcaption {
   flex: 0 auto;
   border: 1px none #000;
   border-radius: 0.25em;
-  background-color: #ffe8d0;
   -webkit-transition: background-color 300ms ease-in-out;
   transition: background-color 300ms ease-in-out;
   font-family: 'DM Sans', sans-serif;
@@ -5543,15 +5542,12 @@ figcaption {
 
 .button:hover {
   border-style: none;
-  border-color: #ffdabc;
-  background-color: #ffdabc;
   opacity: 1;
   color: #792f6c;
 }
 
 .button.full-width {
   width: 100%;
-  background-color: #ffe8d0;
 }
 
 .button.brand-color-1 {

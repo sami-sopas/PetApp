@@ -136,13 +136,19 @@
                         <h5 class="ml-3 stats-heading">{{ $pet->name }}</h5>
                     </div>
                     <div class="stats-row-wrapper">
+                        <h5 class="inline margin-right-1em">Categoria:</h5>
+                        <div class="inline">{{ $pet->category->name }}</div>
+                    </div>
+                    <div class="stats-row-wrapper">
                         <h5 class="inline margin-right-1em">Genero:</h5>
                         <div class="inline">{{ $pet->sex }}</div>
                     </div>
+                    @if($pet->age)
                     <div class="stats-row-wrapper">
                         <h5 class="inline margin-right-1em">Edad:</h5>
                         <div class="inline">{{ $pet->age }}</div>
                     </div>
+                    @endif
                     <div class="stats-row-wrapper">
                         <h5 class="inline margin-right-1em">Color:</h5>
                         <div class="inline">{{ $pet->color->name }}</div>
@@ -168,7 +174,7 @@
                 <div id="w-node-d69c77ea-6a6d-0c4a-040c-1b76e9a18c96-f800696f"
                     class="content-padding pet-tags-mobile">
                     <div>
-                        <h4>Si estas buscando un perro que...</h4>
+                        <h4>Si estas buscando una mascota que...</h4>
                         <div class="collection-list-wrapper w-dyn-list">
                             <div role="list" class="tags-collection-list w-dyn-items">
                                 @foreach ($pet->tags as $tag)
@@ -187,9 +193,15 @@
                         <div id="w-node-_4c4ba776-7c2c-f668-c073-e5bf39bedf5c-f800696f">
                             <div class="flex-horizontal get-in-touch-note">
                                 <div class="flex-horizontal centered">
+                                    @auth    
                                     <h3 class="handwriting margin-right-space">Get in touch to meet </h3>
+                                    @endauth
+                                    @guest
+                                    <h3 class="handwriting margin-right-space">Inicia sesion para contactar al dueño de</h3>
+                                    @endguest
                                     <h3 class="handwriting margin-right-space">{{ $pet->name }}</h3>
                                 </div><img
+                                    class="hidden md:block"
                                     src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802aa08a438432_Adoptable_Arrow Style 1_orange.svg"
                                     width="115" alt="" class="rotate-arrow bottom-margin-1em" />
                             </div>
@@ -206,11 +218,29 @@
                         <div class="flex-horizontal">
                             <div class="inline">{{ $pet->user->name }}</div>
                         </div>
-                    </div><a href="#" class="button brand-color-1 full-width w-inline-block">
+                    </div>
+                    @auth    
+                    <a href="mailto:{{ $pet->user->email }}" class="button bg-orange-200 full-width w-inline-block hover:bg-orange-300">
                         <div class="flex-horizontal centered">
                             <div class="inline margin-right-25em">Email to meet me</div>
                         </div>
                     </a>
+                    <a href="tel:{{ $pet->user->phone }}" class="button full-width w-inline-block bg-pink-200 hover:bg-pink-300">
+                        <div class="flex-horizontal centered">
+                            <div class="inline margin-right-25em">Call me</div>
+                        </div>
+                    </a>
+                    @endauth
+
+                    @guest
+                    <div class="mt-10">
+                        <a href="{{ route('login') }}" class="button bg-orange-200 full-width w-inline-block hover:bg-orange-300">
+                            <div class="flex-horizontal centered">
+                                <div class="inline margin-right-25em">Iniciar sesión</div>
+                            </div>
+                        </a>
+                    </div>
+                    @endguest
                 </div>
             </div>
         </div>
