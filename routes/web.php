@@ -53,6 +53,9 @@ Route::get('adoptar',[AdoptPetController::class,'index'])->name('adopt-pet.index
 //Guardar lo de form de create pets
 Route::get('adopt-pet',[AdoptPetController::class,'create'])->name('adopt-pet.create');
 
+//Guardar lo de form de create para pets
+Route::post('adopt-pet',[AdoptPetController::class,'store'])->name('adopt-pet.store');
+
 
 
 //Mostrar esa mascota
