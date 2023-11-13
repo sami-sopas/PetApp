@@ -235,7 +235,7 @@
                             </li>
 
                             <li>
-                                <a href="{{ route('adoptar.create') }}"
+                                <a href="{{ route('adopt-pet.create') }}"
                                     class="block my-1.5 rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
                                     Mascota en Adopción
                                 </a>

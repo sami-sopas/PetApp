@@ -47,9 +47,13 @@ Route::get('adopt-cat/create',[AdoptCatController::class,'create'])->name('adopt
 //Guardar lo de form de create para gattos
 Route::post('adopt-cat',[AdoptCatController::class,'store'])->name('adopt-cat.store');
 
+//Mostrar mascotas en adopcion
+Route::get('adoptar',[AdoptPetController::class,'index'])->name('adopt-pet.index');
 
-//Mostrar otro tipo de mascotas para adoptar
-Route::get('adopt-pet',[AdoptPetController::class,'index'])->name('adopt-pet.index');
+//Guardar lo de form de create pets
+Route::get('adopt-pet',[AdoptPetController::class,'create'])->name('adopt-pet.create');
+
+
 
 //Mostrar esa mascota
 Route::get('adopt-pet/pet/{pet}',[AdoptPetController::class,'show'])->name('adopt-pet.show');
@@ -63,9 +67,6 @@ Route::get('avistamientos',[LostPetController::class,'index'])->name('avistamien
 Route::get('avistamientos/mascota/{pet}',[LostPetController::class,'show'])->name('avistamientos.show');
 
 // RUTAS PARA ADOPCIONES------------------------------------------------------------
-
-//Mostrar mascotas en adopcion
-Route::get('adoptar',[AdoptPetController::class,'index'])->name('adoptar.index');
 
 //Mostrar mostrar detalles de una mascota para adoptar
 Route::get('adoptar/mascota/{pet}',[AdoptPetController::class,'show'])->name('adoptar.show');
