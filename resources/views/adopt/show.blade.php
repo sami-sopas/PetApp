@@ -49,6 +49,10 @@
         }(window, document);
     </script>
 
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <!-- Styles -->
@@ -253,29 +257,30 @@
         </h3>
         <div class="grid grid-cols-1 ml-12 sm:grid-cols-2 sm:mr-20 md:grid-cols-3 gap-4 mt-5">
             @foreach ($similars as $pet)
-                <div style="background-color:hsla(41, 100.00%, 76.34%, 0.65)"
+                <div style="background-color: {{ $pet->bg_color }}"
                   class="relative m-5 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 shadow-md">
                   <div class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
-                    <img class="object-cover" src="{{ Storage::url($pet->images->first()->url) }}"
+                    <img class="object-cover w-full h-full" src="{{ Storage::url($pet->images->first()->url) }}"
                       alt="{{ $pet->name }}-img" />
                   </div>
                   <div class="mt-4 px-5 pb-5">
-                    <div class="flex justify-center items-center">
-                      <a href="#">
-                        <h5 class="text-xl tracking-tight text-slate-900 text-center">{{ $pet->name }}</h5>
-                      </a>
+                    <div class="flex justify-center items-center flex-col">
+                        <a href="#">
+                            <h5 class="text-xl tracking-tight text-slate-900 text-center">{{ $pet->name }}</h5>
+                        </a>
+                        <i class="{{$pet->icon}} text-white text-2xl"></i>
                     </div>
                     <div class="mt-2 mb-5 flex items-center justify-center">
-                      <p>
-                        <span class="text-3xl font-bold text-slate-900 text-center">{{ $pet->category->name }}</span>
-                      </p>
+                        <p>
+                            <span class="text-3xl font-bold text-slate-900 text-center">{{ $pet->category->name }}</span>
+                        </p>
                     </div>
                     <a href="{{ route('pet.show', $pet) }}"
-                      class="flex items-center justify-center border-4 font-bold border-white rounded-lg py-2 text-center text-lg focus:outline-none focus:ring-4 focus:ring-blue-300 hover:border-dashed transition-all duration-500 ease-in-out">
-                      Ver mascota
+                        class="flex items-center justify-center border-4 font-bold border-white rounded-lg py-2 text-center text-lg focus:outline-none focus:ring-4 focus:ring-blue-300 hover:border-dashed transition-all duration-500 ease-in-out">
+                        Ver mascota
                     </a>
-                  </div>
-                </div>
+                    </div>
+                    </div>
             @endforeach
         </div>
     </section>
