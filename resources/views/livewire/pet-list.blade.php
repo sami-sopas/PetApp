@@ -9,7 +9,7 @@
                 <button type="button" class="w-full pt-4 text-left"
                     @click="selected !== 1 ? selected = 1 : selected = null">
                     <div class="flex-horizontal justify-space-between">
-                        <h4 class="accordion-headline">I&#x27;m looking for a dog that...</h4>
+                        <h4 class="accordion-headline">I&#x27;m looking for a pet that...</h4>
                         <div class="arrow-icon small"><img
                                 src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a42154384b8_Icons_Adoptable_Purple_Arrow Down.svg"
                                 width="75" alt="" /></div>
@@ -23,17 +23,18 @@
                         <form wire:submit="filter">
                             <!-- Filtros -->
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+
                                 <!-- Columna 1 -->
                                 <div class="col-span-1 flex flex-col h-full">
-                                    <!-- Filtro por Tamaño -->
+                                    <!-- Filtro por Categoria -->
                                     <div class="mb-4 flex-grow w-full">
-                                        <label for="size">Tamaño</label>
-                                        <select wire:model="size" class="w-full border border-gray-300 rounded p-2">
-                                            <option value="" selected>Todos los tamaños</option>
-                                            @foreach (\App\Models\Pet::select('size')->distinct()->get() as $option)
-                                                <option value="{{ $option->size }}"
-                                                    {{ Request::get('size') == $option->size ? 'selected' : '' }}>
-                                                    {{ $option->size }}
+                                        <label for="category">Categoria</label>
+                                        <select wire:model="category" class="w-full border border-gray-300 rounded p-2">
+                                            <option value="" selected>Todas las categorias</option>
+                                            @foreach (\App\Models\Category::where('id','!=',1)->where('id','!=',2)->get() as $option)
+                                                <option value="{{ $option->name }}"
+                                                    {{ Request::get('size') == $option->name ? 'selected' : '' }}>
+                                                    {{ $option->name }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -56,15 +57,15 @@
 
                                 <!-- Columna 2 -->
                                 <div class="col-span-1 flex flex-col h-full">
-                                    <!-- Filtro por Edad -->
+                                    <!-- Filtro por Tamaño -->
                                     <div class="mb-4 flex-grow w-full">
-                                        <label for="age">Edad</label>
-                                        <select wire:model="age" class="w-full border border-gray-300 rounded p-2">
-                                            <option value="" selected>Todas las edades</option>
-                                            @foreach (\App\Models\Pet::select('age')->distinct()->get() as $option)
-                                                <option value="{{ $option->age }}"
-                                                    {{ Request::get('age') == $option->age ? 'selected' : '' }}>
-                                                    {{ $option->age }}
+                                        <label for="size">Tamaño</label>
+                                        <select wire:model="size" class="w-full border border-gray-300 rounded p-2">
+                                            <option value="" selected>Todos los tamaños</option>
+                                            @foreach (\App\Models\Pet::select('size')->distinct()->get() as $option)
+                                                <option value="{{ $option->size }}"
+                                                    {{ Request::get('size') == $option->size ? 'selected' : '' }}>
+                                                    {{ $option->size }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -142,38 +143,38 @@
         </ul>
     </div>
 
-    {{-- Imprimir doggos --}}
+    {{-- Imprimir pets --}}
     <section class="grid grid-cols-1 ml-12 sm:grid-cols-2 sm:mr-20 md:grid-cols-3 gap-4 mt-5">
         @php
             //Rescatar items de la like list
             $likeItems = Cart::content()->pluck('id');
         @endphp
-        @foreach ($dogs as $dog)
-            <div style="background-color: {{ $dog->bg_color }}"
+        @foreach ($pets as $pet)
+            <div style="background-color: {{ $pet->bg_color }}"
                 class="relative m-5 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 shadow-md">
                 <div class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
-                    <img class="object-cover w-full h-full" src="{{ Storage::url($dog->images->first()->url) }}"
-                        alt="{{ $dog->name }}-img" />
+                    <img class="object-cover w-full h-full" src="{{ Storage::url($pet->images->first()->url) }}"
+                        alt="{{ $pet->name }}-img" />
                 </div>
                 <div class="mt-4 px-5 pb-5">
                     <div class="flex justify-between items-center">
                         <a href="#">
                             <div class="flex items-center">
-                                <h5 class="text-xl tracking-tight text-slate-900">{{ $dog->name }}</h5>
-                                <i class="{{$dog->icon}} pl-4 text-white text-2xl"></i>
+                                <h5 class="text-xl tracking-tight text-slate-900">{{ $pet->name }}</h5>
+                                <i class="{{$pet->icon}} pl-4 text-white text-2xl"></i>
                             </div>
                         </a>
                         
                         <div class="flex items-center text-3xl text-red-500">
-                            @if ($likeItems->contains($dog->id))
+                            @if ($likeItems->contains($pet->id))
                                 {{-- Cuando coincide, lo marcamos como likeado, pero si ya está likeado, lo quita --}}
-                                <a href="#" wire:click.prevent="removeFromLikeList({{ $dog->id }})">
+                                <a href="#" wire:click.prevent="removeFromLikeList({{ $pet->id }})">
                                     <i class="fa-solid fa-heart"></i>
                                 </a>
                             @else
                                 {{-- Cuando no coincide, sin marcar --}}
                                 <a href="#"
-                                    wire:click.prevent="addToLikeList({{ $dog->id }}, '{{ $dog->name }}')">
+                                    wire:click.prevent="addToLikeList({{ $pet->id }}, '{{ $pet->name }}')">
                                     <i class="fa-regular fa-heart"></i>
                                 </a>
                             @endif
@@ -181,10 +182,10 @@
                     </div>
                     <div class="mt-2 mb-5 flex items-center justify-between">
                         <p>
-                            <span class="text-3xl font-bold text-slate-900">{{ $dog->category->name }}</span>
+                            <span class="text-3xl font-bold text-slate-900">{{ $pet->category->name }}</span>
                         </p>
                     </div>
-                    <a href="{{ route('pet.show',$dog) }}"
+                    <a href="{{ route('pet.show',$pet) }}"
                         class="flex items-center justify-center border-4 font-extrabold border-white rounded-lg py-2 text-center text-lg focus:outline-none focus:ring-4 focus:ring-blue-300 hover:border-dashed transition-all duration-500 ease-in-out">
                         Ver mascota
                     </a>
@@ -195,3 +196,4 @@
 
 
 </div>
+

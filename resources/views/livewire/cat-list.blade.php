@@ -106,7 +106,7 @@
                                         <label for="color">Color</label>
                                         <select wire:model="color" class="w-full border border-gray-300 rounded p-2">
                                             <option value="" selected>Todos los colores</option>
-                                            @foreach (\App\Models\Tag::all() as $option)
+                                            @foreach (\App\Models\Color::all() as $option)
                                                 <option value="{{ $option->name }}"
                                                     {{ Request::get('color') == $option->name ? 'selected' : '' }}>
                                                     {{ $option->name }}
@@ -142,7 +142,7 @@
         </ul>
     </div>
 
-    {{-- Imprimir doggos --}}
+    {{-- Imprimir cattos --}}
     <section class="grid grid-cols-1 ml-12 sm:grid-cols-2 sm:mr-20 md:grid-cols-3 gap-4 mt-5">
         @php
             //Rescatar items de la like list
