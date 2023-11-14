@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Pet;
 use Livewire\Component;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class PetList extends Component
 {
@@ -96,6 +97,27 @@ class PetList extends Component
             'tag',
             'color'
         ]);
+    }
+
+    public function addToLikeList($pet_id,$pet_name)
+    {
+        Cart::add($pet_id, $pet_name, 1, 1)->associate(Pet::class);
+
+        //Emitir evento para que se actualize el icono
+        $this->dispatch('render')->to(LikeComponent::class);
+    }
+
+    public function removeFromLikeList($pet_id)
+    {
+        foreach(Cart::content() as $likeItem)
+        {
+            if($likeItem->id == $pet_id){
+                Cart::remove($likeItem->rowId);
+                $this->dispatch('render')->to(LikeComponent::class);
+                return;
+            }
+        }
+
     }
 
     public function render()
