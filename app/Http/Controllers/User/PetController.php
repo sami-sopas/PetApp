@@ -37,8 +37,19 @@ class PetController extends Controller
         //Aplicando la policy
         $this->authorize('author',$pet);
 
+        /* Determinar si las mascota es cat o dog, o de otro tipo
+          para de ahi saber las categorias que mostraremos */
+        if($pet->category_id == 1 or $pet->category_id == 2){
+            $categories = Category::whereIn('id', [1, 2])->get();
+
+        }
+        else{ //Categorias para otro tipo de mascotas
+            $categories = Category::where('id','!=',1)->where('id','!=',2)->get();  
+        }
+
+
         //Informacion a mostrar en el form
-        $categories = Category::all();
+
         $colors = Color::all();
         $statuses = Pet::select('status')->distinct()->get();
         $sizes = Pet::select('size')->distinct()->get();
@@ -66,6 +77,7 @@ class PetController extends Controller
 
     public function update(Request $request, Pet $pet)
     {
+
         $this->authorize('author',$pet);
 
         $request->validate([
@@ -73,7 +85,7 @@ class PetController extends Controller
             'color_id' => 'required|integer',
             'size' => 'required|max:255',
             'sex' => 'required|max:255',
-            'age' => 'required|max:255',
+            //'age' => 'required|max:255',
             'bg_color' => 'required',
             'icon' => 'required',
             'description' => 'required',
@@ -81,6 +93,13 @@ class PetController extends Controller
             'files.*' => 'image|max:2048',
             'files' => 'max:3'
         ]);
+
+        //En caso de que se envia age, lo validamos
+        if($request->has('age')){
+            $request->validate([
+                'age' => 'required|max:255',
+            ]);
+        }
 
         //Actualizar info
         $pet->update($request->all());
