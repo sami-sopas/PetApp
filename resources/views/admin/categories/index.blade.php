@@ -47,8 +47,7 @@
 
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                            <thead
-                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
                                         ID
@@ -56,24 +55,27 @@
                                     <th scope="col" class="px-6 py-3">
                                         Nombre
                                     </th>
-                                    <th scope="col" class="px-6 py-3"></th>
+                                    <th scope="col" class="px-4 py-3">
+                                        Acciones
+                                    </th>
                                     <th scope="col" class="px-6 py-3"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($categories as $category)
                                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                        <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $category->id }}
                                         </th>
                                         <td class="px-6 py-4">
                                             {{ $category->name }}
                                         </td>
+                                        {{-- Quitamos las opciones de editar/eliminar para porque si quita esas el programa truena--}}
+                                        @if($category->id != 1 and $category->id != 2)
                                         <td class="px-6 py-4 w-3">
                                             <a href="{{ route('categories.edit', $category) }}"
                                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                                Edit
+                                                Editar
                                             </a>
                                         </td>
                                         <td class="px-6 py-4 w-3">
@@ -86,6 +88,7 @@
                                                 </button>
                                             </form>
                                         </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>

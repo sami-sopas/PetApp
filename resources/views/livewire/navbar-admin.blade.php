@@ -19,30 +19,7 @@
                 </a>
             </div>
             <div class="flex items-center md:order-2">
-                <div class="flex items-center">
-                    <!-- Dropdown de publicacion -->
-                    <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                        class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 border border-dashed border-gray-500 rounded-lg p-2  md:w-auto mr-6">
-                        Publicar
-                    </button>
-                    <!-- Dropdown menu opciones -->
-                    <div id="dropdownNavbar"
-                        class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                    Dar en adopcion
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                    Perdi mi mascota
-                                </a>
-                            </li>
-
-                    </div>
+                <div
                     <!-- Icono de usuario -->
                     <button type="button"
                         class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
