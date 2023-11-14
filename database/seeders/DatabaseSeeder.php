@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         //LLamamos al user seeder (a cada uno se le asigna un estado)
         $this->call(UserSeeder::class);
 
-        //Crear las dos categorias iniciales (perro y gato)
+        //Crear categorias principales
         Category::create([
             'name' => 'Perros'
         ]);
@@ -39,6 +39,9 @@ class DatabaseSeeder extends Seeder
         ]);
         Category::create([
             'name' => 'Pajaros'
+        ]);
+        Category::create([
+            'name' => 'Roedores'
         ]);
 
         //Generar colores
