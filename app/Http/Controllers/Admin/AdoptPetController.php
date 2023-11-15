@@ -48,7 +48,7 @@ class AdoptPetController extends Controller
      */
     public function edit(Pet $pet)
     {
-        return view('admin.pets.adopt.edit',compact('pet'));
+        //return view('admin.pets.adopt.edit',compact('pet'));
     }
 
     /**

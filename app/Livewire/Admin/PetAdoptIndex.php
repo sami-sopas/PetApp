@@ -34,8 +34,7 @@ class PetAdoptIndex extends Component
 
 
         return view('livewire.admin.pet-adopt-index',[
-            'pets' => Pet::where('status',2)
-                        ->where('name','like', '%'.$this->search.'%')
+            'pets' => Pet::where('name','like', '%'.$this->search.'%')
                         ->paginate(10),
         ]);
     }

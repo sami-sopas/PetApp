@@ -81,10 +81,10 @@ Breadcrumbs::for('adopciones', function (BreadcrumbTrail $trail) {
 });
 
 // Mascotas > En adopcion
-Breadcrumbs::for('adopciones-index', function (BreadcrumbTrail $trail) {
-    $trail->parent('adopciones');
-    $trail->push('En adopcion', route('pets-adopt.index'));
-});
+// Breadcrumbs::for('adopciones-index', function (BreadcrumbTrail $trail) {
+//     $trail->parent('adopciones');
+//     $trail->push('En adopcion', route('pets-adopt.index'));
+// });
 
 /* Tags > Editar > [Color]
 Breadcrumbs::for('tags-edit', function (BreadcrumbTrail $trail,Tag $tag) {

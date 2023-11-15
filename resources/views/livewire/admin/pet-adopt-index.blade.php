@@ -37,9 +37,11 @@
                     <th scope="col" class="px-6 py-3">
                         Sexo
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                        Acciones
+                    </th>
                     <th scope="col" class="px-6 py-3"></th>
-                    <th scope="col" class="px-6 py-3"></th>
-                    <th scope="col" class="px-6 py-3"></th>
+
                 </tr>
             </thead>
             <tbody>
@@ -61,15 +63,9 @@
                             {{ $pet->sex }}
                         </td>
                         <td class="px-6 py-4 w-3">
-                            <a href="{{ route('pets-adopt.show', $pet) }}"
-                                class="font-medium text-black dark:text-white hover:underline">
-                                Detalles
-                            </a>
-                        </td>
-                        <td class="px-6 py-4 w-3">
-                            <a href="{{ route('pets-adopt.edit', $pet) }}"
+                            <a href="#"
                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                Edit
+                                Detalles
                             </a>
                         </td>
                         <td class="px-6 py-4 w-3">
@@ -88,7 +84,7 @@
 
         <!-- Paginacion -->
         <div class="p-5">
-            {{-- $pets->links() --}}
+            {{ $pets->links() }}
         </div>
     @else
         <!-- Mensaje a mostrar cuando no encuentre registros -->
