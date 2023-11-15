@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdoptPetController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -26,5 +27,8 @@ Route::middleware(['web', 'auth', 'checkRole:admin'])->group(function () {
 
     //Resource route para los pets en adopcion (admin)
     Route::resource('pets-adopt',AdoptPetController::class);
+
+    //Resorce route para los usuarios
+    Route::resource('users',UserController::class);
 
 });
