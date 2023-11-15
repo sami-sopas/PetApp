@@ -14,8 +14,20 @@
                     </svg>
                 </button>
                 <a href="https://flowbite.com" class="flex ml-2 md:mr-24">
-                    <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Buenos
-                        dias {{ Auth()->user()->name }}</span>
+                    @php
+                        $hour = date('H');
+                        if ($hour >= 5 && $hour < 12) {
+                            $greeting = 'Buenos días';
+                        } elseif ($hour >= 12 && $hour < 19) {
+                            $greeting = 'Buenas tardes';
+                        } else {
+                            $greeting = 'Buenas noches';
+                        }
+                    @endphp
+
+                    <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
+                        {{ $greeting }}, {{ Auth()->user()->name }}
+                    </span>
                 </a>
             </div>
             <div class="flex items-center md:order-2">
