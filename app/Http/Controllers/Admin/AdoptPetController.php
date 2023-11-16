@@ -62,8 +62,11 @@ class AdoptPetController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pet $pet)
+    public function destroy($id)
     {
-        //
+        $pet = Pet::find($id);
+        $pet->delete();
+
+        return redirect()->route('pets-adopt.index')->with('info','La mascota fue eliminada correctamente');
     }
 }

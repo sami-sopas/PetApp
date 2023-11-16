@@ -70,7 +70,7 @@
                             </button>
                         </td>
                         <td class="px-6 py-4 w-3">
-                            <form action="{{ route('pets-adopt.destroy', $pet) }}" method="POST">
+                            <form action="{{ route('pets-adopt.destroy', $pet->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="font-medium text-red-500 dark:text-blue-500 hover:underline">
