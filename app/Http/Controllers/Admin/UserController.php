@@ -12,7 +12,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.users.index');
+        //return view('admin.users.index');
+    }
+
+    public function active()
+    {
+        return view('admin.users.active');
+    }
+
+    public function inactive()
+    {
+        return view('admin.users.inactive');
     }
 
     /**
