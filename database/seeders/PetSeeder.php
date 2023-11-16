@@ -16,7 +16,7 @@ class PetSeeder extends Seeder
     public function run(): void
     {
         //Crear los registros de pets, los almacenamos en una variable
-        $pets = Pet::factory(1)->create();
+        $pets = Pet::factory(5)->create();
 
         //Recorrer para que por cada pet, se agrege su imagen y se almacenen en esa tabla
         foreach($pets as $pet)

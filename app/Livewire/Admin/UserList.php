@@ -10,6 +10,9 @@ class UserList extends Component
     public $users;
     public $isAdmin = [];
 
+    public $open = false;
+    public $userModal;
+
     public function mount()
     {
         $this->users = User::where('id', '!=', auth()->user()->id)->get();
@@ -26,6 +29,13 @@ class UserList extends Component
         $user = User::find($userId);
         $user->role = $isChecked ? 'admin' : 'user';
         $user->save();
+    }
+
+    //Mostrar modal con la informacion de la usuario
+    public function openModal($userId)
+    {
+        $this->userModal = User::find($userId);
+        $this->open = true;
     }
 
     public function render()

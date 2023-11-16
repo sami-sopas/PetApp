@@ -30,7 +30,8 @@ Route::middleware(['web', 'auth', 'checkRole:admin'])->group(function () {
 
     //Resorce route para los usuarios
     Route::resource('users',UserController::class);
-    Route::addRoute('GET','users/active',[UserController::class, 'active'])->name('users.active');
-    Route::addRoute('GET','users/inactive',[UserController::class, 'inactive'])->name('users.inactive');
+   // Route::get('users/active','UserController@active')->name('users.active');
+   //Route::addRoute(['GET'],'users/active', [UserController::class, 'active'])->name('users.active');
+   // Route::addRoute('GET','users/inactive',[UserController::class, 'inactive'])->name('users.inactive');
 
 });

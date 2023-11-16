@@ -32,10 +32,10 @@
             
 
                 <td class="px-6 py-4 w-3">
-                    <a href="#"
+                    <button type="button" wire:click="openModal({{ $user->id }})"
                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                         Detalles
-                    </a>
+                    </button>
                 </td>
                 <td class="px-6 py-4 w-3">
                     <form action="{{ route('categories.destroy', $user) }}" method="POST">
@@ -53,4 +53,51 @@
     </table>
 
 
+    {{-- Modal --}}
+    <x-dialog-modal wire:model="open">
+        <x-slot name="title">
+            Detalles del usuario
+        </x-slot>
+
+        <x-slot name="content">
+            <div class="max-w-md mx-auto bg-white rounded-xl overflow-hidden shadow-md">
+                <div class="bg-blue-300 text-white text-center p-4">
+                    <!-- Imagen de perfil en un círculo -->
+                    <img class="h-20 w-20 rounded-full mx-auto" src="{{ $userModal->profile_photo_url ?? 'hola'}}" alt="Imagen de perfil">
+                </div>
+                <div class="p-4">
+                    <!-- Información del usuario -->
+                    <div class="mb-4">
+                        <x-label value="Nombre" class="mb-2"/>
+                        <x-input type="text" class="w-full text-center" value="{{ $userModal->name ?? '' }}" disabled />
+                    </div> 
+
+                    <div class="mb-4">
+                        <x-label value="Email" class="mb-2"/>
+                        <x-input type="text" class="w-full text-center" value="{{ $userModal->email ?? '' }}" disabled />
+                    </div>
+
+                    <div class="mb-4">
+                        <x-label value="Rol" class="mb-2"/>
+                        <x-input type="text" class="w-full text-center" value="{{ $userModal->role ?? '' }}" disabled />
+                    </div>
+
+                    <div class="mb-4">
+                        <x-label value="Telefono" class="mb-2"/>
+                        <x-input type="text" class="w-full text-center" value="{{ $userModal->phone ?? '' }}" disabled />
+                    </div>
+
+                    <div class="mb-4">
+                        <x-label value="Ubicacion" class="mb-2"/>
+                        <x-input type="text" class="w-full text-center" value="{{ $userModal->state->name ?? '' }}" disabled />
+                    </div>
+
+                </div>
+            </div>
+        </x-slot>
+
+        <x-slot name="footer" class="mb-2">
+            <x-button wire:click="$set('open', false)">Cerrar</x-button>
+        </x-slot>
+    </x-dialog-modal>
 </div>
