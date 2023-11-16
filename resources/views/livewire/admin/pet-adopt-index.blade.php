@@ -16,6 +16,7 @@
                 placeholder="Buscar...">
         </div>
     </div>
+    
 
     @if ($pets->count())
         <!-- Tabla -->
@@ -62,11 +63,11 @@
                         <td class="px-6 py-4">
                             {{ $pet->sex }}
                         </td>
-                        <td class="px-6 py-4 w-3">
-                            <a href="#"
+                        <td class="px-6 py-4 w-3">         
+                            <button type="button" wire:click="openModal({{ $pet->id }})"
                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                 Detalles
-                            </a>
+                            </button>
                         </td>
                         <td class="px-6 py-4 w-3">
                             <form action="{{ route('pets-adopt.destroy', $pet) }}" method="POST">
@@ -92,4 +93,68 @@
             <strong>Ups! Paraece que no hay registros</strong>
         </div>
     @endif
+
+    {{-- Modal --}}
+    <x-dialog-modal wire:model="open">
+        <x-slot name="title">
+            Detalles de la mascota
+        </x-slot>
+
+        <x-slot name="content">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="mb-4">
+                    <x-label value="Nombre" class="mb-2"/>
+                    <x-input type="text" class="w-full" value="{{ $petModal->name ?? '' }}" disabled />
+                </div>
+                @if ($petModal && $petModal->age != null)
+                <div class="mb-4">
+                    <x-label value="Edad" class="mb-2"/>
+                    <x-input type="text" class="w-full" value="{{ $petModal->age }}" disabled />
+                </div>
+                @endif
+                <div class="mb-4">
+                    <x-label value="Sexo" class="mb-2"/>
+                    <x-input type="text" class="w-full" value="{{ $petModal->sex ?? '' }}" disabled />
+                </div>
+                <div class="mb-4">
+                    <x-label value="Categoría" class="mb-2"/>
+                    <x-input type="text" class="w-full" value="{{ $petModal->category->name ?? '' }}" disabled />
+                </div>
+                <div class="mb-4">
+                    <x-label value="Autor" class="mb-2"/>
+                    <x-input type="text" class="w-full" value="{{ $petModal->user->name ?? '' }}" disabled />
+                </div>
+                <div class="mb-4">
+                    <x-label value="Estado" class="mb-2"/>
+                    <x-input type="text" class="w-full" value="{{ $petModal->status ?? '' }}" disabled />
+                </div>
+            </div>
+            <div class="mb-4">
+                <x-label value="Descripción" class="mb-2"/>
+                <textarea class="w-full rounded border border-gray-300" rows="3" disabled>{{ $petModal->description ?? '' }}</textarea>
+            </div>
+            <div class="mb-4">
+                <x-label value="Etiquetas" class="mb-2"/>
+                <div class="flex flex-wrap">
+                    @foreach ($petModal->tags ?? [] as $tag)
+                        <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800 mr-2 mb-2">
+                            {{ $tag->name }}
+                        </span>
+                    @endforeach
+                </div>
+            </div>
+            <div class="mb-4">
+                <x-label value="Imagenes" class="mb-2"/>
+                <div class="flex flex-wrap justify-center items-center">
+                    @foreach ($petModal->images ?? [] as $image)
+                        <img src="{{ Storage::url($image->url) }}" alt="" class="w-32 h-32 object-cover mr-2 mb-2">
+                    @endforeach
+                </div>
+        </x-slot>
+
+        <x-slot name="footer" class="mb-2">
+            <x-button wire:click="$set('open', false)">Cerrar</x-button>
+        </x-slot>
+    </x-dialog-modal>
+
 </div>

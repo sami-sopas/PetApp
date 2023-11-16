@@ -14,11 +14,22 @@ class PetAdoptIndex extends Component
     //Vinculamos esta propiedad con el input
     public $search = '';
 
+    //Vinculado al modal
+    public $open = false;
+    public $petModal;
+
     //Metodo para que cuando busque, se retorne a la pagina 1 y busque desde ahi
     public function updatingSearch()
     {
         //El metodo se activa cuando la propiedad search cambia
         $this->resetPage();
+    }
+
+    //Mostrar modal con la informacion de la mascot
+    public function openModal($petId)
+    {
+        $this->petModal = Pet::find($petId);
+        $this->open = true;
     }
 
     public function render()

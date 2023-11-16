@@ -12,7 +12,7 @@ class UserList extends Component
 
     public function mount()
     {
-        $this->users = User::all();
+        $this->users = User::where('id', '!=', auth()->user()->id)->get();
 
         //Mostrar en checkboxes los admins marcados
         foreach ($this->users as $user) {

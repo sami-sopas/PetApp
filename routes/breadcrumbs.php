@@ -80,6 +80,11 @@ Breadcrumbs::for('adopciones', function (BreadcrumbTrail $trail) {
     $trail->push('Mascotas');
 });
 
+//Usuarios
+Breadcrumbs::for('usuarios', function (BreadcrumbTrail $trail) {
+    $trail->push('Usuarios');
+});
+
 // Mascotas > En adopcion
 // Breadcrumbs::for('adopciones-index', function (BreadcrumbTrail $trail) {
 //     $trail->parent('adopciones');
