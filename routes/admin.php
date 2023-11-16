@@ -28,10 +28,12 @@ Route::middleware(['web', 'auth', 'checkRole:admin'])->group(function () {
     //Resource route para los pets en adopcion (admin)
     Route::resource('pets-adopt',AdoptPetController::class);
 
-    //Resorce route para los usuarios
-    Route::resource('users',UserController::class);
-   // Route::get('users/active','UserController@active')->name('users.active');
-   //Route::addRoute(['GET'],'users/active', [UserController::class, 'active'])->name('users.active');
-   // Route::addRoute('GET','users/inactive',[UserController::class, 'inactive'])->name('users.inactive');
+    //Rutas para los usuarios
+    Route::get('users/active',[UserController::class, 'active'])->name('users.active');
+    Route::get('users/inactive',[UserController::class, 'inactive'])->name('users.inactive');
+    Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.delete');
+    Route::put('users/{user}', [UserController::class, 'restore'])->name('users.restore');
+    Route::get('forceDelete/{id}', [UserController::class, 'deleteForever'])->name('users.deleteForever');
+
 
 });

@@ -43,14 +43,13 @@
                     <span class="flex-1 ml-3 whitespace-nowrap">Mascotas</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="{{ route('users.index') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <i class="fa-solid fa-user-group text-gray-500 group-hover:text-gray-900"></i>
                     <span class="flex-1 ml-3 whitespace-nowrap">Usuarios</span>
                 </a>
-            </li>
-            {{-- lo q no jalo 
+            </li> --}}
                 <li>
                 <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
                      <i class="fa-solid fa-user-group text-gray-500 group-hover:text-gray-900"></i>
@@ -61,7 +60,7 @@
                 </button>
                 <ul id="dropdown-example" class="hidden py-2 space-y-2">
                       <li>
-                         <a href="{{ route('users.index') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                         <a href="{{ route('users.active') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                             Activos
                         </a>
                       </li>
@@ -71,7 +70,7 @@
                         </a>
                       </li>
                 </ul>
-             </li> --}}
+             </li> 
             <li>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

@@ -85,11 +85,18 @@ Breadcrumbs::for('usuarios', function (BreadcrumbTrail $trail) {
     $trail->push('Usuarios');
 });
 
-// Mascotas > Activos
+// Usuarios > Activos
  Breadcrumbs::for('usuarios-activos', function (BreadcrumbTrail $trail) {
      $trail->parent('usuarios');
      $trail->push('Activos', route('users.active'));
  });
+
+ // Usuarios > Activos
+ Breadcrumbs::for('usuarios-inactivos', function (BreadcrumbTrail $trail) {
+    $trail->parent('usuarios');
+    $trail->push('Inactivos', route('users.inactive'));
+});
+
 
 // Mascotas > En adopcion
 // Breadcrumbs::for('adopciones-index', function (BreadcrumbTrail $trail) {

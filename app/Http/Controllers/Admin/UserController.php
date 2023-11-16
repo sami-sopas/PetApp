@@ -2,74 +2,54 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return view('admin.users.index');
-    }
-
     public function active()
     {
-        //return view('admin.users.active');
+        //Recuperar usuarios que esten activos
+
+        $users = User::where('id', '!=', auth()->user()->id)->get();
+
+        return view('admin.users.active',compact('users'));
     }
 
     public function inactive()
     {
-        //return view('admin.users.inactive');
+        //Recuperar usuarios que estan con softdelete
+
+        $users = User::onlyTrashed()->get();
+
+        return view('admin.users.inactive',compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function destroy(User $user)
     {
-        //
+        //Eliminar usuario
+        //$user = User::find($id);
+        $user->delete();
+
+
+        return redirect()->route('users.active')->with('info','El usuario fue dado de baja correctamente');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function deleteForever($id)
     {
-        //
+        $user = User::withTrashed()->find($id);
+
+        $user->forceDelete();
+
+        return redirect()->route('users.inactive')->with('info','El usuario fue eliminado para siempre correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function restore($id)
     {
-        //
-    }
+        //Recuperar usuario
+        $user = User::withTrashed()->where('id',$id)->first()->restore();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->route('users.inactive')->with('info','El usuario ' . $user->name . ' fue dado de alta correctamente');
     }
 }

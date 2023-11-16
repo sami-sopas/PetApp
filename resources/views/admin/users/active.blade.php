@@ -1,7 +1,7 @@
 <x-admin-layout>
     <div class="p-4 sm:ml-64">
         <div class="p-4 mt-10">
-            <span>{{ Breadcrumbs::render('usuarios') }}</span>  
+            <span>{{ Breadcrumbs::render('usuarios-activos') }}</span>  
 
             <!-- Tarjeta donde iran las tablas -->
             <div class="pt-4">
@@ -9,7 +9,7 @@
                     class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
                     <h5 class="mb-5 text-3xl font-bold text-gray-900 dark:text-white">
-                        Usuarios
+                        Usuarios activos
                     </h5>
 
                     <!-- Sesion para cuando se elimina un registro -->
@@ -40,7 +40,7 @@
 
 
                     {{-- Componente de livewire para mostrar el modal --}}
-                    @livewire('admin.user-list')
+                    @livewire('admin.user-list', ['users' => $users])
 
 
 

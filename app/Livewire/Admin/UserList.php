@@ -13,9 +13,9 @@ class UserList extends Component
     public $open = false;
     public $userModal;
 
-    public function mount()
+    public function mount($users)
     {
-        $this->users = User::where('id', '!=', auth()->user()->id)->get();
+        $this->users = $users;
 
         //Mostrar en checkboxes los admins marcados
         foreach ($this->users as $user) {
