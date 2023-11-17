@@ -42,8 +42,8 @@
                             </a>
                         </div>
                         @empty
-                        <div>
-                            No tienes nada imbecil
+                        <div class="button full-width w-inline-block bg-pink-200 hover:bg-pink-300">
+                            No tiene mascotas en tus me gusta :3
                         </div>
                     @endforelse
                 </div>

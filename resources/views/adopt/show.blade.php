@@ -66,8 +66,8 @@
 
     {{-- Mensaje de exito al guardar publicacion --}}
     @if(session('info'))
-        <div class="container">
-            <div class="alert alert-success">
+        <div class="container" style="width: 100%">
+            <div {{--class="alert alert-success"--}} class="button full-width w-inline-block bg-pink-200 hover:bg-pink-300" style="text-align: center; width:100%">
                 {{ session('info') }}
             </div>
         </div>
@@ -79,7 +79,7 @@
             <div class="heading-container bottom-margin-3em">
                 <div style="-webkit-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-5DEG) skew(0, 0);-moz-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-5DEG) skew(0, 0);-ms-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-5DEG) skew(0, 0);transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-5DEG) skew(0, 0);opacity:0"
                     class="heading-row-1">
-                    <h1 class="pet-page-heading margin-right-25em"> Ola, soy </h1>
+                    <h1 class="pet-page-heading margin-right-25em"> Hola, soy </h1>
                     <h1 class="pet-page-heading">{{ $pet->name }}</h1>
                     <h1 class="spark-right"><span>,</span></h1>
                 </div>
