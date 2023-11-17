@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ThankYou;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DonateController extends Controller
 {
@@ -25,8 +27,14 @@ class DonateController extends Controller
         return view('donate.show',compact('opc'));
     }
 
-    public function donated()
+    public function donated($opc)
     {
+
+        //Enviar correo de agradecimiento a usuario autenticado (si es el caso)
+        if(auth()->user()){
+            Mail::to(auth()->user())->send(new ThankYou(auth()->user(),$opc));
+        }
+
         return view('donate.thank-you');
     }
 

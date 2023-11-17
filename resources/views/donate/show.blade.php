@@ -151,7 +151,7 @@
               },
               onApprove: function(data, actions) {
                 console.log('Pago aprobado');
-                window.location.href = "{{ route('donate.finished') }}"; // Reemplaza 'nombre-de-tu-ruta' con el nombre de tu ruta
+                window.location.href = "{{ route('donate.finished',$opc) }}"; 
               }
             }).render('#paypal-button-container');
         </script>

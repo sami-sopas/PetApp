@@ -93,7 +93,7 @@ Route::resource('pet',PetController::class); //name('pet.algo')
 //Manejar el pedo de las donaciones
 Route::get('donate',[DonateController::class,'index'])->name('donate.index');
 Route::get('donate/{opc}',[DonateController::class,'show'])->name('donate.show');
-Route::get('thank-you',[DonateController::class,'donated'])->name('donate.finished');
+Route::get('thank-you/{opc}',[DonateController::class,'donated'])->name('donate.finished');
 
 //Ver mascotas likeadas
 Route::get('likes',LikeListComponent::class)->name('likelist');
