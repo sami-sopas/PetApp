@@ -55,7 +55,7 @@
                                     <th scope="col" class="px-6 py-3">
                                         Nombre
                                     </th>
-                                    <th scope="col" class="px-4 py-3" style="text-align: center">
+                                    <th scope="col" class="px-4 py-3 text-center">
                                         Acciones
                                     </th>
                                 </tr>
@@ -81,7 +81,7 @@
                                                         </a>    
                                                     </td>
                                                     <td>
-                                                        <form action="{{ route('categories.destroy', $category) }}" method="POST" style="margin-left:30%">
+                                                        <form action="{{ route('categories.destroy', $category) }}" method="POST" class="ml-2">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit"

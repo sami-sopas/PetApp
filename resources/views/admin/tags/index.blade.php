@@ -81,7 +81,7 @@
                                                         </a>
                                                     </td>
                                                     <td>
-                                                        <form action="{{ route('tags.destroy', $tag) }}" method="POST" style="margin-left:30%">
+                                                        <form action="{{ route('tags.destroy', $tag) }}" method="POST" class="ml-2">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit"

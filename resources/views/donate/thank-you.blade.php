@@ -3,7 +3,7 @@
     <div>
         <section class="section negative-bottom-margin-padding">
             <div class="container-1100 negative-bottom-margin-padding">
-                <div class="content-padding centered-content" style="">
+                <div class="content-padding centered-content">
                     <h1> Gracias por tu donacion </h1>
                     <p> Tu donación ayudará a mantener esta página vigente y nos ayudará a seguir
                         dándole un hogar a muchos diferentes animales que lo necesitan.

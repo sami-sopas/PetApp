@@ -14,7 +14,7 @@
                 <th scope="col" class="w-3/12 px-6 py-3">
                     Cuenta dada de baja
                 </th>
-                <th scope="col" class="w-1/12 px-4 py-3" style="text-align: center">
+                <th scope="col" class="w-1/12 px-4 py-3 text-center">
                     Acciones
                 </th>
                 
@@ -39,7 +39,7 @@
                     <table>
                         <tr>
                             <td>
-                    <form action="{{ route('users.restore', $user->id) }}" method="POST" style="margin-right:10px">
+                    <form action="{{ route('users.restore', $user->id) }}" method="POST" class="mr-3">
                         @csrf
                         @method('PUT')
                         <button type="submit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">

@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="bg-gray-100 text-gray-900 flex justify-center" style="padding: 2.3%">
+    <div class="bg-gray-100 text-gray-900 flex justify-center p-8">
         <div class="max-w-screen-xl m-0 sm:m-5 bg-white shadow sm:rounded-lg flex justify-center flex-1">
             <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-6">
                 <div>

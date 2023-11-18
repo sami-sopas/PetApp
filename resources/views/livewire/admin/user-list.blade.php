@@ -11,7 +11,7 @@
                 <th scope="col" class="px-6 py-3">
                     Admin
                 </th>
-                <th scope="col" class="px-4 py-3" style="text-align: center">
+                <th scope="col" class="px-4 py-3 text-center">
                     Acciones
                 </th>
                 
@@ -41,7 +41,7 @@
                                 </button>
                             </td>
                             <td>
-                                <form action="{{ route('users.delete', $user->id) }}" method="POST" style="margin-left:30%">
+                                <form action="{{ route('users.delete', $user->id) }}" method="POST" class="ml-2">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit"
