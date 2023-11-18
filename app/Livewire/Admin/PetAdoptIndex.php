@@ -45,7 +45,12 @@ class PetAdoptIndex extends Component
 
 
         return view('livewire.admin.pet-adopt-index',[
+            //Con esta query ya no muestran las publicaciones de usuarios inactivos
             'pets' => Pet::where('name','like', '%'.$this->search.'%')
+                        ->whereHas('user', function ($query) {
+                            $query->whereNull('deleted_at');
+                        })
+                        ->orderBy('id')
                         ->paginate(10),
         ]);
     }
