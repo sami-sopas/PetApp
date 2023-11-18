@@ -40,6 +40,10 @@ class AdminController extends Controller
 
         //Para el segundo chart----------------------------------------------------------------------------
 
+        $enAdopcion = Pet::where('status', 'En Adopcion')->count();
+        $adoptado = Pet::where('status', 'Adoptado')->count();
+        $enProceso = Pet::where('status', 'En Proceso')->count();
+
 
 
         return view('admin.index', compact(
@@ -48,7 +52,10 @@ class AdminController extends Controller
             'posts',
             'adoptions',
             'usersPerDay',
-            'averageUsersPerWeek'
+            'averageUsersPerWeek',
+            'enAdopcion',
+            'adoptado',
+            'enProceso'
         ));
     }
 }
