@@ -11,10 +11,9 @@
                 <th scope="col" class="px-6 py-3">
                     Admin
                 </th>
-                <th scope="col" class="px-4 py-3">
+                <th scope="col" class="px-4 py-3" style="text-align: center">
                     Acciones
                 </th>
-                <th scope="col" class="px-6 py-3"></th>
                 
             </tr>
         </thead>
@@ -33,20 +32,26 @@
             
 
                 <td class="px-6 py-4 w-3">
-                    <button type="button" wire:click="openModal({{ $user->id }})"
-                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                        Detalles
-                    </button>
-                </td>
-                <td class="px-6 py-4 w-3">
-                    <form action="{{ route('users.delete', $user->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit"
-                            class="font-medium text-red-500 dark:text-blue-500 hover:underline">
-                            Eliminar
-                        </button>
-                    </form>
+                    <table>
+                        <tr>
+                            <td>
+                                <button type="button" wire:click="openModal({{ $user->id }})"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                    Detalles
+                                </button>
+                            </td>
+                            <td>
+                                <form action="{{ route('users.delete', $user->id) }}" method="POST" style="margin-left:30%">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="font-medium text-red-500 dark:text-blue-500 hover:underline">
+                                        Eliminar
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         @endforeach 

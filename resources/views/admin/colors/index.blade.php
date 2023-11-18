@@ -56,10 +56,9 @@
                                     <th scope="col" class="px-6 py-3">
                                         Nombre
                                     </th>
-                                    <th scope="col" class="px-4 py-3">
+                                    <th scope="col" class="px-4 py-3" style="text-align: center">
                                         Acciones
                                     </th>
-                                    <th scope="col" class="px-6 py-3"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -73,20 +72,26 @@
                                             {{ $color->name }}
                                         </td>
                                         <td class="px-6 py-4 w-3">
-                                            <a href="{{ route('colors.edit', $color) }}"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                                Edit
-                                            </a>
-                                        </td>
-                                        <td class="px-6 py-4 w-3">
-                                            <form action="{{ route('colors.destroy', $color) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    class="font-medium text-red-500 dark:text-blue-500 hover:underline">
-                                                    Eliminar
-                                                </button>
-                                            </form>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <a href="{{ route('colors.edit', $color) }}"
+                                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                                            Edit
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                    <form action="{{ route('colors.destroy', $color) }}" method="POST" style="margin-left:30%">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                            class="font-medium text-red-500 dark:text-blue-500 hover:underline">
+                                                            Eliminar
+                                                        </button>
+                                                    </form>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -14,10 +14,8 @@
                 <th scope="col" class="w-3/12 px-6 py-3">
                     Cuenta dada de baja
                 </th>
-                <th scope="col" class="w-1/12 px-4 py-3">
+                <th scope="col" class="w-1/12 px-4 py-3" style="text-align: center">
                     Acciones
-                </th>
-                <th scope="col" class="w-1/12 px-4 py-3">
                 </th>
                 
             </tr>
@@ -38,18 +36,24 @@
                     {{ $user->deleted_at->diffForHumans() }}
                 </td>
                 <td class="w-3/12 px-6 py-4">
-                    <form action="{{ route('users.restore', $user->id) }}" method="POST">
+                    <table>
+                        <tr>
+                            <td>
+                    <form action="{{ route('users.restore', $user->id) }}" method="POST" style="margin-right:10px">
                         @csrf
                         @method('PUT')
                         <button type="submit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                             Recuperar
                         </button>
                     </form>
-                </td>
-                <td class="w-2/12 px-6 py-4">
+                            </td>
+                            <td>
                     <a href=" {{ route('users.deleteForever', $user->id )}}" class="font-medium text-red-500 dark:text-blue-500 hover:underline">
-                        Eliminar para siempre
+                        Eliminar
                     </a>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         @endforeach 
