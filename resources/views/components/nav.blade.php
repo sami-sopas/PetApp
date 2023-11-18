@@ -152,7 +152,7 @@
 
                     @if(Auth()->user()->role == 'admin')
                     <li>
-                        <a href="admin"
+                        <a href="{{ route('admin.index') }}"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">
                             Dashboard
                         </a>

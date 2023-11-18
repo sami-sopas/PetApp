@@ -13,7 +13,7 @@
                         </path>
                     </svg>
                 </button>
-                <a href="https://flowbite.com" class="flex ml-2 md:mr-24">
+                <a href="{{ route('admin.index') }}" class="flex ml-2 md:mr-24">
                     @php
                         $hour = date('H');
                         if ($hour >= 5 && $hour < 12) {
