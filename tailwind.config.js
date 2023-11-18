@@ -17,10 +17,12 @@ export default {
                 // sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
-    },
+        },
 
-    plugins: [
-        require('flowbite/plugin'),
-        forms, typography
-    ],
-};
+        plugins: [
+            require('flowbite/plugin')({
+                charts: true,
+            }),
+            forms, typography
+        ],
+    };

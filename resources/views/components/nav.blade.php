@@ -150,6 +150,15 @@
                         </a>
                     </li>
 
+                    @if(Auth()->user()->role == 'admin')
+                    <li>
+                        <a href="{{ route('admin.index') }}"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">
+                            Dashboard
+                        </a>
+                    </li>
+                    @endif
+
                     <li>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
