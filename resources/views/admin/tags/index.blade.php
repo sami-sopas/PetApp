@@ -56,7 +56,7 @@
                                     <th scope="col" class="px-6 py-3">
                                         Nombre
                                     </th>
-                                    <th scope="col" class="px-6 py-3" style="text-align: center">
+                                    <th scope="col" class="px-6 py-3 text-center">
                                         Acciones
                                     </th>
                                 </tr>
