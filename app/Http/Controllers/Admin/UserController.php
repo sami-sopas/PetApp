@@ -28,8 +28,10 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+        //Eliminar publicaciones relacionadas al usuario
+        $user->pets()->delete();
+
         //Eliminar usuario
-        //$user = User::find($id);
         $user->delete();
 
 
@@ -50,6 +52,6 @@ class UserController extends Controller
         //Recuperar usuario
         $user = User::withTrashed()->where('id',$id)->first()->restore();
 
-        return redirect()->route('users.inactive')->with('info','El usuario ' . $user->name . ' fue dado de alta correctamente');
+        return redirect()->route('users.inactive')->with('info','El usuario fue dado de alta correctamente');
     }
 }

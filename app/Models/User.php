@@ -66,7 +66,7 @@ class User extends Authenticatable
     ];
 
     //Relacion de uno a muchos 
-    public function pet()
+    public function pets()
     {
         return $this->hasMany(Pet::class);
     }
