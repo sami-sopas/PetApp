@@ -38,10 +38,9 @@
                     <th scope="col" class="px-6 py-3">
                         Sexo
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 text-center">
                         Acciones
                     </th>
-                    <th scope="col" class="px-6 py-3"></th>
 
                 </tr>
             </thead>
@@ -63,20 +62,26 @@
                         <td class="px-6 py-4">
                             {{ $pet->sex }}
                         </td>
-                        <td class="px-6 py-4 w-3">         
-                            <button type="button" wire:click="openModal({{ $pet->id }})"
-                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                Detalles
-                            </button>
-                        </td>
-                        <td class="px-6 py-4 w-3">
-                            <form action="{{ route('pets-adopt.destroy', $pet->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="font-medium text-red-500 dark:text-blue-500 hover:underline">
-                                    Eliminar
-                                </button>
-                            </form>
+                        <td class="px-6 py-4 w-3">     
+                            <table>
+                                <tr>
+                                    <td>    
+                                        <button type="button" wire:click="openModal({{ $pet->id }})"
+                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                            Detalles
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('pets-adopt.destroy', $pet->id) }}" method="POST" class="ml-2">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="font-medium text-red-500 dark:text-blue-500 hover:underline">
+                                                Eliminar
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
                     </tr>
                 @endforeach
