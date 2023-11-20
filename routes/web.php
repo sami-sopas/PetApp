@@ -1,14 +1,17 @@
 <?php
 
+use App\Livewire\LikeListComponent;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
+use App\Http\Controllers\DomPdfController;
+use App\Http\Controllers\DonateController;
 use App\Http\Controllers\LostPetController;
 use App\Http\Controllers\AdoptCatController;
 use App\Http\Controllers\AdoptDogController;
 use App\Http\Controllers\AdoptPetController;
-use App\Http\Controllers\DonateController;
 use App\Http\Controllers\User\PetController;
 use App\Http\Controllers\User\UserController;
-use App\Livewire\LikeListComponent;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -98,6 +101,8 @@ Route::get('thank-you/{opc}',[DonateController::class,'donated'])->name('donate.
 //Ver mascotas likeadas
 Route::get('likes',LikeListComponent::class)->name('likelist');
 
+//Genera PDF
+Route::post('/pdf', [PDFController::class, 'getPdf'])->name('pdf');
 
 Route::middleware([
     'auth:sanctum',
