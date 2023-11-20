@@ -4,6 +4,7 @@ import typography from '@tailwindcss/typography';
 
 /** @type {import('tailwindcss').Config} */
 export default {
+    mode: 'jit', 
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/laravel/jetstream/**/*.blade.php',
@@ -17,12 +18,12 @@ export default {
                 // sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
-        },
+    },
 
-        plugins: [
-            require('flowbite/plugin')({
-                charts: true,
-            }),
-            forms, typography
-        ],
-    };
+    plugins: [
+        require('flowbite/plugin')({
+            charts: true,
+        }),
+        forms, typography
+    ],
+};

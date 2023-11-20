@@ -11,7 +11,7 @@ use App\Http\Controllers\AdoptDogController;
 use App\Http\Controllers\AdoptPetController;
 use App\Http\Controllers\User\PetController;
 use App\Http\Controllers\User\UserController;
-
+use App\Livewire\Chat\Index;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,6 +103,9 @@ Route::get('likes',LikeListComponent::class)->name('likelist');
 
 //Genera PDF
 Route::post('/pdf', [PDFController::class, 'getPdf'])->name('pdf');
+
+//Desmadre
+Route::get('/chat',Index::class)->name('chat.index');
 
 Route::middleware([
     'auth:sanctum',
