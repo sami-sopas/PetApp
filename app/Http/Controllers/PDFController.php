@@ -12,10 +12,13 @@ class PDFController extends Controller
         date_default_timezone_set('America/Mexico_City');
 
         $info = [
-
-            'titulo' => 'REPORTE DE USUARIOS',
-
-            'Numero_Usuarios' => $request->averageUsersPerWeek,
+            'Usuarios_Prom' => $request->Usuarios,
+            'PostPDF' => $request->Posts,
+            'AdoptPDF' =>$request->Adopciones,
+            'UsersPDF' =>$request->Usuario_General,
+            'AdoptPDF' =>$request->Disponible,
+            'ProcessPDF' =>$request->Proceso,
+            'AdoptedPDF' =>$request->Adoptado,
         ];
 
         $pdf = PDF::loadView('pdfReporte', $info);

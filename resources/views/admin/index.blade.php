@@ -126,9 +126,25 @@
                                         {{--Menjurje para el pdf--}}
                                         <form method="post" action="{{route('pdf') }}">
                                             @csrf
-                                            <input type="hidden" name="Numero_Usuarios" value="{{ $averageUsersPerWeek }}">
-                                            <button type="submit">Comprobante</button>
-                                         </form>
+                                            <input type="hidden" name="Usuarios" value="{{$averageUsersPerWeek}}">
+                                            <input type="hidden" name="Posts" value="{{$posts}}">
+                                            <input type="hidden" name="Adopciones" value="{{$adoptions}}">
+                                            <input type="hidden" name="Usuario_General" value="{{$users}}">
+
+                                            <input type="hidden" name="Disponible" value="{{$enAdopcion}}">
+                                            <input type="hidden" name="Proceso" value="{{$enProceso}}">
+                                            <input type="hidden" name="Adoptado" value="{{$adoptado}}">
+
+                                            <button type="submit">
+                                                <p class="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500  hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 px-3 py-2">Descargar reporte
+                                                    <svg class="w-2.5 h-2.5 ms-1.5 rtl:rotate-180" aria-hidden="true"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                                    </svg>
+                                                </p>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -354,15 +370,28 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <a href="#"
-                                            class="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500  hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 px-3 py-2">
-                                            Descargar reporte
-                                            <svg class="w-2.5 h-2.5 ms-1.5 rtl:rotate-180" aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                                <path stroke="currentColor" stroke-linecap="round"
-                                                    stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                                            </svg>
-                                        </a>
+                                        {{--Menjurje para el pdf--}}
+                                        <form method="post" action="{{route('pdf') }}">
+                                            @csrf
+                                            <input type="hidden" name="Usuarios" value="{{$averageUsersPerWeek}}">
+                                            <input type="hidden" name="Posts" value="{{$posts}}">
+                                            <input type="hidden" name="Adopciones" value="{{$adoptions}}">
+                                            <input type="hidden" name="Usuario_General" value="{{$users}}">
+
+                                            <input type="hidden" name="Disponible" value="{{$enAdopcion}}">
+                                            <input type="hidden" name="Proceso" value="{{$enProceso}}">
+                                            <input type="hidden" name="Adoptado" value="{{$adoptado}}">
+
+                                            <button type="submit">
+                                                <p class="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500  hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 px-3 py-2">Descargar reporte
+                                                    <svg class="w-2.5 h-2.5 ms-1.5 rtl:rotate-180" aria-hidden="true"
+                                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                                    </svg>
+                                                </p>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
