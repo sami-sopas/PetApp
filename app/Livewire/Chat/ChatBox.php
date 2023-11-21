@@ -3,6 +3,7 @@
 namespace App\Livewire\Chat;
 
 use App\Models\Message;
+use App\Notifications\MessageSent;
 use Livewire\Component;
 
 class ChatBox extends Component
@@ -71,8 +72,20 @@ class ChatBox extends Component
         //Emitir evento para refescar la chatlist
         $this->dispatch('render-chat-list');
 
+        //Broadcast la notificacion
+        $this->selectedConversation->getReceiver()
+                    ->notify(new MessageSent(
+                        Auth()->user(),
+                        $createdMessage,
+                        $this->selectedConversation,
+                        $this->selectedConversation->getReceiver()->id
+                    ));
+
         //dd($createdMessage);
+
+
     }
+
 
     public function render()
     {
