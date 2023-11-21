@@ -40,6 +40,16 @@
                     @this.call('loadMore');
                 }
             "   
+
+            @update-chat-height.window="
+
+                newHeight = $el.scrollHeight
+
+                oldHeight = height;
+                $el.scrollTop = newHeight - oldHeight;
+
+                height = newHeight;
+                "
             id="conversartion"
             class="flex flex-col gap-3 p-2.5 overflow-y-auto flex-grow overscroll-contain overflow-x-hidden w-full my-auto">
 

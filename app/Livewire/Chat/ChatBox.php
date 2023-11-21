@@ -26,6 +26,9 @@ class ChatBox extends Component
         //Cargar los mensajes pero con la nueva cantidad
         $this->loadMessages();
 
+        //Actualizar la altura del chat
+        $this->dispatch('update-chat-height');
+
     }
 
     public function loadMessages()
