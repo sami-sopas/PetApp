@@ -65,6 +65,12 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+
+    public function conversation()
+    {
+        return $this->hasMany(Conversation::class,'sender_id')->orWhere('receiver_id',$this->id);
+    }
+
     //Relacion de uno a muchos 
     public function pets()
     {
