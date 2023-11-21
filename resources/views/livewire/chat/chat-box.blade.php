@@ -4,13 +4,22 @@
     conversationElement: document.getElementById('conversation'),
     markAsRead: null
     }" 
-    x-init="height = conversationElement.scrollHeight;
-    $nextTick(() => conversationElement.scrollTop = height);"
-    @scroll-bottom.window="
-    $nextTick(()=>
-    conversationElement.scrollTop= conversationElement.scrollHeight
-    );
-    "
+    x-init="
+    
+    height= conversationElement.scrollHeight;
+    $nextTick(()=>conversationElement.scrollTop= height);
+    
+
+    Echo.private('users.{{Auth()->User()->id}}')
+    .notification((notification)=>{
+        if(notification['type']== 'App\\Notifications\\MessageRead' && notification['conversation_id']== {{$this->selectedConversation->id}})
+        {
+            
+            alert('message readed');
+            //markAsRead=true;
+        }
+    });
+"
     class="w-full overflow-hidden">
     <div class="border-b flex flex-col overflow-y-scroll grow h-full "> {{-- h-full para q se vaya pa bajo --}}
 
@@ -53,7 +62,7 @@
 
                 height = newHeight;
                 "
-            id="conversartion"
+            id="conversation"
             class="flex flex-col gap-3 p-2.5 overflow-y-auto flex-grow overscroll-contain overflow-x-hidden w-full my-auto">
 
             @if ($loadedMessages)
@@ -70,7 +79,8 @@
                         @endphp
                     @endif
 
-                    <div @class([
+                    <div wire:key="{{time().$key}}"
+                    @class([
                         'max-w-[85%] md:max-w-[78%] flex w-auto gap-2 relative mt-2',
                         'ml-auto' => $message->sender_id == auth()->id(),
                     ])>
