@@ -1,4 +1,12 @@
-<div class="w-full overflow-hidden">
+<div
+    x-init="
+        height= conversationElement.scrollHeight;
+        $nextTick(()=>{
+            conversationElement.scrollTop = height;
+            document.getElementById('message-' + {{ $loadedMessages->last()->id }}).scrollIntoView();
+        });
+    "
+    class="w-full overflow-hidden">
     <div class="border-b flex flex-col overflow-y-scroll grow h-full "> {{-- h-full para q se vaya pa bajo --}}
 
 
@@ -25,6 +33,7 @@
 
         {{-- Body --}}
         <main
+            id="conversartion"
             class="flex flex-col gap-3 p-2.5 overflow-y-auto flex-grow overscroll-contain overflow-x-hidden w-full my-auto">
 
             @if($loadedMessages)
@@ -46,7 +55,8 @@
                 </div>
 
                 {{-- Cuerpo del mensaje --}}
-                <div @class([
+                <div id="message-{{$message->id}}" 
+                    @class([
                     'flex flex-wrap text-[15px] rounded-xl p-2.5 flex flex-col text-black bg-[#f6f6f8fb]',
                     'rounded-bl-none border border-gray-200/40' => !($message->sender_id == auth()->id()),
                     'rounded-br-none bg-blue-500/80 text-white' => $message->sender_id == auth()->id(),
@@ -63,7 +73,7 @@
                             'text-gray-500' => !($message->sender_id == auth()->id()),
                             'text-white' => $message->sender_id == auth()->id(),
                             ])>
-                            4:20 am
+                            {{ $message->created_at->format('g:i a') }}
                         </p>
 
                         {{-- Status del mensaje, solo se muestra si pertenece al usuario autenticado --}}
@@ -141,4 +151,17 @@
         </footer>
 
     </div>
+
+    <script>
+        //Para que se vayya al ultimo mensaje al cargar la pagina
+        window.onload = function() {
+            var conversationElement = document.getElementById('conversation');
+            var lastMessageId = 'message-' + {{ $loadedMessages->last()->id }};
+            var lastMessageElement = document.getElementById(lastMessageId);
+
+            if (lastMessageElement) {
+                lastMessageElement.scrollIntoView();
+            }
+        }
+    </script>
 </div>

@@ -37,6 +37,9 @@ class ChatBox extends Component
 
         $this->reset('body');
 
+        //Renderizar el nuevo mensaje
+        $this->loadedMessages->push($createdMessage);
+        
         //dd($createdMessage);
     }
 
