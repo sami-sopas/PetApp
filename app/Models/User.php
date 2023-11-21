@@ -65,6 +65,20 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+
+    public function conversations()
+    {
+        return $this->hasMany(Conversation::class,'sender_id')->orWhere('receiver_id',$this->id)->whereNotDeleted();
+    }
+
+    /**
+     * The channels the user receives notification broadcasts on.
+    */
+    public function receivesBroadcastNotificationsOn(): string
+    {
+        return 'users.'.$this->id;
+    }
+
     //Relacion de uno a muchos 
     public function pets()
     {
