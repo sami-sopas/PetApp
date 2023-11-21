@@ -17,25 +17,34 @@
                         <form method="POST" action="{{ route('login')}}">
                             @csrf
 
-                        <div class="mx-auto max-w-xs">
-                            <input
-                                class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                type="email" placeholder="Correo" name="email" />
-                            <input
-                                class="w-full mt-6 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                type="password" placeholder="Contraseña" name="password"/>
-                            <button
-                                class="mt-8 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                                <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                                    <circle cx="8.5" cy="7" r="4" />
-                                    <path d="M20 8v6M23 11h-6" />
-                                </svg>
-                                <span class="ml-3">
-                                    Iniciar Sesión
-                                </span>
-                            </button>
+                            <div class="mx-auto max-w-xs">
+                                <input
+                                    required
+                                    class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                                    type="email" placeholder="Correo" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+                                @error('email')
+                                    <span class="text-red-500 text-xs">{{ $message }}</span>
+                                @enderror
+                                <input
+                                    required
+                                    class="w-full mt-6 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                                    type="password" placeholder="Contraseña" name="password"/>
+                                @error('password')
+                                    <span class="text-red-500 text-xs">{{ $message }}</span>
+                                @enderror
+                                <button
+                                    class="mt-8 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                                    <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                                        <circle cx="8.5" cy="7" r="4" />
+                                        <path d="M20 8v6M23 11h-6" />
+                                    </svg>
+                                    <span class="ml-3">
+                                        Iniciar Sesión
+                                    </span>
+                                </button>
+                            </div>
                         </form>
                         <div class="mb-7 mt-3 border-b text-center">
                             <div
