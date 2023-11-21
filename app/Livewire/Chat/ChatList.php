@@ -10,6 +10,8 @@ class ChatList extends Component
     public $selectedConversation;
     public $query;
 
+    
+
     #[On('render-chat-list')]
     public function render()
     {

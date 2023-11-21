@@ -94,13 +94,15 @@
                             </span> --}}
 
                             <p class="grow truncate text-sm">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, vel architecto. Accusamus nisi, maxime, aspernatur totam, tempore omnis architecto at consequatur obcaecati iusto reprehenderit maiores modi error. Optio, voluptate iure!
+                                {{$conversation->messages?->last()?->body?? ''}}
                             </p>
 
                             {{-- Mensajes sin leer --}}
-                            <span class="font-bold p-px px-2 text-xs shrink-0 rounded-full bg-blue-500 text-white">
-                                6
-                            </span>
+                            @if ($conversation->unreadMessagesCount() > 0)
+                                <span class="font-bold p-px px-2 text-xs shrink-0 rounded-full bg-blue-500 text-white">
+                                    {{ $conversation->unreadMessagesCount() }}
+                                </span>
+                            @endif
                         </div>
                     </a>
 
