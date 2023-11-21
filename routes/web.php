@@ -13,6 +13,7 @@ use App\Http\Controllers\User\PetController;
 use App\Http\Controllers\User\UserController;
 use App\Livewire\Chat\Chat;
 use App\Livewire\Chat\Index;
+use App\Livewire\Users;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,6 +109,7 @@ Route::post('/pdf', [PDFController::class, 'getPdf'])->name('pdf');
 //Desmadre
 Route::get('/chat',Index::class)->name('chat.index');
 Route::get('/chat/{query}',Chat::class)->name('chat');
+Route::get('/users',Users::class)->name('users');
 
 Route::middleware([
     'auth:sanctum',

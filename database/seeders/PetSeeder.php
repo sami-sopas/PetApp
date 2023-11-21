@@ -4,9 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Image;
 use App\Models\Pet;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use PhpParser\Node\Expr\PostDec;
+
 
 class PetSeeder extends Seeder
 {
@@ -16,7 +15,7 @@ class PetSeeder extends Seeder
     public function run(): void
     {
         //Crear los registros de pets, los almacenamos en una variable
-        $pets = Pet::factory(40)->create();
+        $pets = Pet::factory(30)->create();
 
         foreach($pets as $pet)
         {
