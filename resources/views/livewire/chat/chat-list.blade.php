@@ -17,6 +17,16 @@
      }
  
      },200);
+
+     Echo.private('users.{{Auth()->User()->id}}')
+     .notification((notification)=>{
+         if(notification['type']== 'App\\Notifications\\MessageRead' || notification['type']== 'App\\Notifications\\MessageSent')
+         {
+             
+            //Cuando se ejecute la notificacion, refrescamos la lista de chats, para que ahi tambien se actualizen las ticks
+            Livewire.dispatch('render-chat-list');
+         }
+     });
      "
     class="flex flex-col transition-all h-full overflow-hidden">
     <header class="px-3 z-10 bg-white sticky top-0 w-full py-2 ">
