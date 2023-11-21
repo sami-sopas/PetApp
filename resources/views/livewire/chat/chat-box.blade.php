@@ -15,8 +15,8 @@
         if(notification['type']== 'App\\Notifications\\MessageRead' && notification['conversation_id']== {{$this->selectedConversation->id}})
         {
             
-            alert('message readed');
-            //markAsRead=true;
+            //alert('message readed');
+            markAsRead=true;
         }
     });
 "
@@ -124,10 +124,12 @@
                                 {{-- Status del mensaje, solo se muestra si pertenece al usuario autenticado --}}
 
                                 @if ($message->sender_id == auth()->id())
-                                    <div>
+
+                                    <div x-data="{markAsRead:@json($message->isRead())}">
+
                                         {{-- doble tick --}}
-                                        @if ($message->isRead())
-                                            <span @class('text-white')>
+                                       
+                                            <span x-cloak x-show="markAsRead" @class('text-white')>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-check2-all" viewBox="0 0 16 16">
                                                     <path
@@ -136,19 +138,16 @@
                                                         d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708z" />
                                                 </svg>
                                             </span>
-                                        @else
+                                      
                                             {{-- tick sola --}}
-                                            <span @class('text-white')>
+                                            <span x-show="!markAsRead" @class('text-white')>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
                                                     <path
                                                         d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
                                                 </svg>
                                             </span>
-                                        @endif
-
-
-
+                           
                                     </div>
                                 @endif
                             </div>
