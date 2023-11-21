@@ -29,24 +29,29 @@
 
     <main class="overflow-y-scroll overflow-hidden grow h-full relative" style="contain: content">
         {{-- ChatList--}}
-        <ul-p-2 class="grid w-full space-y-2">
-            <li class="py-3 hover:bg-gray-50 rounded-2xl dark:hover:bg-gray-700 transition-colors duration-150 flex gap-4 relative w-full cursor-pointer px-2">
+        <ul class="p-2 grid w-full space-y-2">
+
+            @if ($conversations)
+
+            @foreach ($conversations as $key => $conversation)
+
+            <li class="py-3 hover:bg-gray-50 rounded-2xl dark:hover:bg-gray-700 transition-colors duration-150 flex gap-4 relative w-full cursor-pointer px-2 {{$conversation->id==$selectedConversation->id ? 'bg-gray-200' : ''}}">
                 <a href="#" class="shrink-0">
-                    <x-avatar/>
+                    <x-avatar src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png"/>
 
                 </a>
 
                 <aside class="grid grid-cols-12 w-full">
-                    <a href="#" class="col-span-11 border-b pb-2 border-gray-200 relative overflow-hidden truncate leading-5 w-full flex-nowrap p-1">
+                    <a href="{{route('chat',$conversation->id)}}" class="col-span-11 border-b pb-2 border-gray-200 relative overflow-hidden truncate leading-5 w-full flex-nowrap p-1">
                         
                         {{-- Nombre y datos --}}
                         <div class="flex justify-between w-full items-center">
-                            <h6 class="truncate font-medium tracking-wider.text-gray-500">
-                                Juanito
+                            <h6 class="truncate font-medium tracking-wider text-gray-900">
+                                {{$conversation->getReceiver()->name}}
                             </h6>
 
                             <small class="text-gray-700">
-                                3d
+                                {{$conversation->messages?->last()?->created_at?->shortAbsoluteDiffForHumans()}}
                             </small>
 
                         </div>
@@ -114,6 +119,12 @@
                     </div>
                 </aside>
             </li>
-        </ul-p-2>
+
+            @endforeach
+
+            @else
+
+            @endif
+        </ul>
     </main>
 </div>
