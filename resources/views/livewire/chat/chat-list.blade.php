@@ -37,14 +37,15 @@
                 </h5>
             </div>
 
+            {{-- Icono de filtro
             <button>
                 <i class="fa-solid fa-filter w-7 h-7"></i>
-            </button>
+            </button> --}}
 
         </div>
 
         {{-- Filtros --}}
-        <div class="flex gap-3 items-center overflow-x-scroll p-2 bg-white">
+        {{-- <div class="flex gap-3 items-center overflow-x-scroll p-2 bg-white">
             <button @click="type='all'" :class="{'bg-blue-100 border-0 text-black':type=='all'}" class="inline-flex justify-center items-center rounded-full gap-x-1 text-xs font-medium px-3 lg:px-5 py-1  lg:py-2.5 border ">
                 All
             </button>
@@ -52,7 +53,7 @@
             <button @click="type='deleted'" :class="{'bg-blue-100 border-0 text-black':type=='deleted'}" class="inline-flex justify-center items-center rounded-full gap-x-1 text-xs font-medium px-3 lg:px-5 py-1  lg:py-2.5 border ">
                 Deleted
             </button>
-        </div>
+        </div> --}}
     </header>
 
     <main class="overflow-y-scroll overflow-hidden grow h-full relative" style="contain: content">
