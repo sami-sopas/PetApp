@@ -39,7 +39,14 @@ class ChatBox extends Component
 
         //Renderizar el nuevo mensaje
         $this->loadedMessages->push($createdMessage);
-        
+
+        //Actualizar la conversacion
+        $this->selectedConversation->updated_at = now();
+        $this->selectedConversation->save();
+
+        //Emitir evento para refescar la chatlist
+        $this->dispatch('render-chat-list');
+
         //dd($createdMessage);
     }
 
