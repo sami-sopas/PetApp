@@ -76,7 +76,7 @@
         <!-- State -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="state_id" value="{{ __('State') }}" />
-            <select id="state_id" class="block mt-1 w-full rounded-md border border-gray-300" name="state_id" required>
+            <select id="state_id" class="block mt-1 w-full rounded-md border border-gray-300" name="state_id" wire:model="state.state_id" required>
                 <option value="" disabled>Selecciona un estado</option>
                 @foreach (\App\Models\State::all() as $state)
                     <option value="{{ $state->id }}" {{ $state->id == auth()->user()->state_id ? 'selected' : '' }}>{{ $state->name }}</option>
