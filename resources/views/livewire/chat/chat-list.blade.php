@@ -55,7 +55,7 @@
 
             <li
             id="conversation-{{$conversation->id}}" wire:key="{{$conversation->id}}" 
-            class="py-3 hover:bg-gray-50 rounded-2xl dark:hover:bg-gray-700 transition-colors duration-150 flex gap-4 relative w-full cursor-pointer px-2 {{$conversation->id==$selectedConversation->id ? 'bg-gray-200' : ''}}">
+            class="py-3 hover:bg-gray-50 rounded-2xl dark:hover:bg-gray-700 transition-colors duration-150 flex gap-4 relative w-full cursor-pointer px-2 {{$conversation->id==$selectedConversation?->id ? 'bg-gray-200' : ''}}">
                 <a href="#" class="shrink-0">
                     <x-avatar src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png"/>
 
