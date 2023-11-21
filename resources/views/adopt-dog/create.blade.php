@@ -23,6 +23,7 @@
             <div class="mb-4">
                 <label for="name" class="text-gray-600">Name</label>
                 <input type="text" name="name" placeholder="Enter your name"
+                    value="{{ old('name') }}"
                     class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400 @error('name') border-red-500 @enderror" />
                 @error('name')
                     <p class="text-red-500">{{ $message }}</p>
@@ -38,9 +39,8 @@
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400 @error('color_id') border-red-500 @enderror">
                         <option value="" disabled selected>Select a color</option>
                         @foreach ($colors as $color)
-                            <option value="{{ $color->id }}">{{ $color->name }}</option>
+                            <option value="{{ $color->id }}" {{ old('color_id') == $color->id ? 'selected' : '' }}>{{ $color->name }}</option>
                         @endforeach
-
                     </select>
                     @error('color_id')
                         <p class="text-red-500">{{ $message }}</p>
