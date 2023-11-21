@@ -147,7 +147,10 @@
                                     </button>
 
                                     {{-- Borrar--}}
-                                    <button class="items-center gap-3 flex w-full px-4 py-2 text-left text-sm leading-5 text-gray-500 hover:bg-gray-100 transition-all duration-150 ease-in-out focus:outline-none focus:bg-gray-100">
+                                    <button 
+                                        onclick="confirm('¿Estas seguro de borrar este chat?') || event.stopImmediatePropagation()"
+                                        wire:click="deleteByUser('{{encrypt($conversation->id)}}')"
+                                        class="items-center gap-3 flex w-full px-4 py-2 text-left text-sm leading-5 text-gray-500 hover:bg-gray-100 transition-all duration-150 ease-in-out focus:outline-none focus:bg-gray-100">
                                         <span>
                                             <i class="fa-solid fa-trash text-red-500"></i>
                                         </span>
