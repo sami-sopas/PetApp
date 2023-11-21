@@ -3,7 +3,7 @@
         height= conversationElement.scrollHeight;
         $nextTick(()=>{
             conversationElement.scrollTop = height;
-            document.getElementById('message-' + {{ $loadedMessages->last()->id }}).scrollIntoView();
+            document.getElementById('message-' + {{ $loadedMessages?->last()?->id }}).scrollIntoView();
         });
     "
     class="w-full overflow-hidden">
@@ -38,9 +38,18 @@
 
             @if($loadedMessages)
 
-            @foreach ($loadedMessages as $message)
-                
+            @php
+                $previousMessage = null;
+            @endphp
 
+            @foreach ($loadedMessages as $key=> $message)
+                
+            {{-- Tener a la mano el mensaje anterior--}}
+            @if($key > 0)
+                @php
+                    $previousMessage = $loadedMessages->get($key - 1);
+                @endphp
+            @endif
 
             <div @class([
                 'max-w-[85%] md:max-w-[78%] flex w-auto gap-2 relative mt-2',
@@ -48,7 +57,11 @@
                 ])>
             
                 {{-- Avatar --}}
-                <div @class(['shrink-0'])>
+                <div @class(['
+                    shrink-0',
+                    'invisible' => $previousMessage?->sender_id == $message->sender_id,
+                    'hidden' => $message->sender_id == auth()->id(),
+                    ])>
 
                     <x-avatar />
 
@@ -156,7 +169,7 @@
         //Para que se vayya al ultimo mensaje al cargar la pagina
         window.onload = function() {
             var conversationElement = document.getElementById('conversation');
-            var lastMessageId = 'message-' + {{ $loadedMessages->last()->id }};
+            var lastMessageId = 'message-' + {{ $loadedMessages?->last()?->id }};
             var lastMessageElement = document.getElementById(lastMessageId);
 
             if (lastMessageElement) {
