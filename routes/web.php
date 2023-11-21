@@ -107,9 +107,12 @@ Route::get('likes',LikeListComponent::class)->name('likelist');
 Route::post('/pdf', [PDFController::class, 'getPdf'])->name('pdf');
 
 //Desmadre
-Route::get('/chat',Index::class)->name('chat.index');
-Route::get('/chat/{query}',Chat::class)->name('chat');
-Route::get('/users',Users::class)->name('users');
+Route::middleware('auth')->group(function (){
+    Route::get('/chat',Index::class)->name('chat.index');
+    Route::get('/chat/{query}',Chat::class)->name('chat');
+    Route::get('/users',Users::class)->name('users');
+});
+
 
 Route::middleware([
     'auth:sanctum',
