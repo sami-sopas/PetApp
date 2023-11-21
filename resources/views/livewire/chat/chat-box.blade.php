@@ -27,8 +27,17 @@
         <main
             class="flex flex-col gap-3 p-2.5 overflow-y-auto flex-grow overscroll-contain overflow-x-hidden w-full my-auto">
 
-            <div @class(['max-w-[85%] md:max-w-[78%] flex w-auto gap-2 relative mt-2'])>
+            @if($loadedMessages)
 
+            @foreach ($loadedMessages as $message)
+                
+
+
+            <div @class([
+                'max-w-[85%] md:max-w-[78%] flex w-auto gap-2 relative mt-2',
+                'ml-auto' => $message->sender_id == auth()->id(),
+                ])>
+            
                 {{-- Avatar --}}
                 <div @class(['shrink-0'])>
 
@@ -39,19 +48,21 @@
                 {{-- Cuerpo del mensaje --}}
                 <div @class([
                     'flex flex-wrap text-[15px] rounded-xl p-2.5 flex flex-col text-black bg-[#f6f6f8fb]',
-                    'rounded-bl-none border border-gray-200/40' => false,
-                    'rounded-br-none bg-blue-500/80 text-white' => true,
+                    'rounded-bl-none border border-gray-200/40' => !($message->sender_id == auth()->id()),
+                    'rounded-br-none bg-blue-500/80 text-white' => $message->sender_id == auth()->id(),
                 ])>
 
                     <p class="whitespace-normal truncate text-sm md:text-base tracking-wide lg:tracking-normal">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. At voluptatem incidunt pariatur
-                        dignissimos, nihil eius maxime possimus? Praesentium ratione necessitatibus esse reiciendis
-                        provident quia. Et culpa voluptas nisi provident obcaecati.
+                        {{ $message->body }}
                     </p>
 
                     <div class="ml-auto flex gap-2">
 
-                        <p @class(['text-xs', 'text-gray-500' => false, 'text-white' => true])>
+                        <p @class([
+                            'text-xs', 
+                            'text-gray-500' => !($message->sender_id == auth()->id()),
+                            'text-white' => $message->sender_id == auth()->id(),
+                            ])>
                             4:20 am
                         </p>
 
@@ -78,6 +89,9 @@
 
                 </div>
             </div>
+            
+            @endforeach
+            @endif
         </main>
 
         {{-- Send message --}}
