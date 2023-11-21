@@ -1,23 +1,32 @@
 # PetApp 
 
-I'm going to kill myself
+PASOS PARA COMPILAR EL PROGRAMA CON LARAGON
 
-## Prerequisites
+## Pasos
 
-Before you begin, ensure you have  following requirements:
+1. En **C:\laragon\www** hacer un ```git clone https://github.com/sami-sopas/PetApp.git```
 
-- [PHP](https://www.php.net/) 
-- [Composer](https://getcomposer.org/)
-- [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/)
-- [Git](https://git-scm.com/)
+2. Moverse a la ruta ```cd PetApp```
 
-## Project Setup
+3.  ```composer install```
 
-1. Clone the repository into the folder **C:\laragon\www**:
+4. ```cp .env.example .env```
 
-   ```git clone https://github.com/sami-sopas/PetApp.git```
-2. Navigate to the cloned repository
+5. ```php artisan key:generate```
 
-3. Execute the install file: ```bash install.sh```
+6. ```php artisan storage:link```
+
+7. ```php artisan migrate --seed```
+
+8. ```npm install```
+
+9. ```npm run dev```
+
+10. ```php artisan queue:work```
+
+# Credenciales a llenar en el .env
+
+1. Paypal
+2. Pusher
+3. Base de datos
 
