@@ -24,8 +24,11 @@
                 <!-- Campo Name -->
                 <div class="mb-4">
                     <label for="name" class="text-gray-600">Name</label>
-                    <input type="text" name="name" placeholder="Enter your name" value="{{ $pet->name }}"
+                    <input type="text" name="name" placeholder="Enter your name" value="{{ old('name', $pet->name) }}"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400" />
+                    @error('name')
+                        <span class="text-red-500 text-xs">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Campos Categoria y Status (en la misma fila) -->
@@ -37,12 +40,14 @@
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}"
-                                    {{ $category->id == $pet->category->id ? 'selected' : '' }}>
+                                    {{ old('category_id', $category->id == $pet->category->id ? 'selected' : '') }}>
                                     {{ $category->name }}
                                 </option>
                             @endforeach
-
                         </select>
+                        @error('category_id')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Campo Status (Select) -->
@@ -57,8 +62,10 @@
                             @endforeach
                             <option value="{{ $pet->status }}" selected>{{ $pet->status }}</option>
                         </select>
+                        @error('status')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
-
                 </div>
 
                 <!-- Campos Color y Size (en la misma fila) -->
@@ -70,12 +77,14 @@
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
                             @foreach ($colors as $color)
                                 <option value="{{ $color->id }}"
-                                    {{ $color->id == $pet->color->id ? 'selected' : '' }}>
+                                    {{ old('color_id', $color->id == $pet->color->id ? 'selected' : '') }}>
                                     {{ $color->name }}
                                 </option>
                             @endforeach
-
                         </select>
+                        @error('color_id')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Campo Size (Select) -->
@@ -84,11 +93,14 @@
                         <select id="size" name="size"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
                             @foreach ($sizes as $size)
-                                <option value="{{ $size->size }}" {{ $size->size == $pet->size ? 'selected' : '' }}>
+                                <option value="{{ $size->size }}" {{ old('size', $size->size) == $pet->size ? 'selected' : '' }}>
                                     {{ $size->size }}
                                 </option>
                             @endforeach
                         </select>
+                        @error('size')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
 
                 </div>
@@ -101,11 +113,14 @@
                         <select id="sex" name="sex"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
                             @foreach ($sexs as $sex)
-                                <option value="{{ $sex->sex }}" {{ $sex->sex == $pet->sex ? 'selected' : '' }}>
+                                <option value="{{ $sex->sex }}" {{ old('sex', $sex->sex) == $pet->sex ? 'selected' : '' }}>
                                     {{ $sex->sex }}
                                 </option>
                             @endforeach
                         </select>
+                        @error('sex')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
 
 
@@ -115,11 +130,14 @@
                         <select id="age" name="age"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
                             @foreach ($ages as $age)
-                                <option value="{{ $age->age }}" {{ $age->age == $pet->age ? 'selected' : '' }}>
+                                <option value="{{ $age->age }}" {{ old('age', $age->age) == $pet->age ? 'selected' : '' }}>
                                     {{ $age->age }}
                                 </option>
                             @endforeach
                         </select>
+                        @error('age')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
 
                 </div>
@@ -128,7 +146,10 @@
                 <div class="mb-4">
                     <label for="description" class="text-gray-600">Description</label>
                     <textarea name="description" rows="4" placeholder="Enter a description"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">{{ $pet->description }}</textarea>
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">{{ old('description', $pet->description) }}</textarea>
+                    @error('description')
+                        <span class="text-red-500 text-xs">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Campo Tags (Select múltiple) -->
@@ -144,6 +165,9 @@
                             </div>
                         @endforeach
                     </div>
+                    @error('tags')
+                        <span class="text-red-500 text-xs">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Campos para la card (color e icono) -->
@@ -158,10 +182,13 @@
                             @foreach ($bg_colors as $bg_color)
                                 <option style="background-color: {{ $bg_color->bg_color }};"
                                     value="{{ $bg_color->bg_color }}"
-                                    @if ($bg_color->bg_color == $pet->bg_color) selected @endif>
+                                    @if (old('bg_color', $bg_color->bg_color) == $pet->bg_color) selected @endif>
                                 </option>
                             @endforeach
                         </select>
+                        @error('bg_color')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <script>
@@ -181,13 +208,17 @@
                             onchange="document.getElementById('selected-icon').className = this.value;">
                             <option value="" disabled>Select an icon</option>
                             @foreach ($icons as $icon)
-                                <option value="{{ $icon->icon }}" @if ($icon->icon == $pet->icon) selected @endif>
+                                <option value="{{ $icon->icon }}" @if (old('icon', $icon->icon) == $pet->icon) selected @endif>
                                     {{-- Para que no imprima toda la clase del icono --}}
                                     {{ str_replace(['fa-solid fa-', '-'], ['', ' '], $icon->icon) }}
                                 </option>
                             @endforeach
                         </select>
+                        @error('icon')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
+
                     <!-- Campo Imágenes -->
                     <div class="mb-4">
                         <label for="images" class="text-gray-600">Images</label>
@@ -233,8 +264,11 @@
                     <!-- Campo Categoria (Select) -->
                     <div class="mb-4">
                         <label for="name" class="text-gray-600">Name</label>
-                        <input type="text" name="name" placeholder="Enter your name" value="{{ $pet->name }}"
+                        <input type="text" name="name" placeholder="Enter your name" value="{{ old('name', $pet->name) }}"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400" />
+                        @error('name')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Campo Categoria (Select) -->
@@ -244,11 +278,14 @@
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}"
-                                    {{ $category->id == $pet->category->id ? 'selected' : '' }}>
+                                    {{ old('category_id', $category->id) == $pet->category->id ? 'selected' : '' }}>
                                     {{ $category->name }}
                                 </option>
                             @endforeach
                         </select>
+                        @error('category_id')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
 
                 </div>
@@ -262,12 +299,15 @@
                         <select id="status" name="status"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
                             @foreach ($statuses as $statusOption)
-                                @if ($statusOption->status != $pet->status)
-                                    <option value="{{ $statusOption->status }}">{{ $statusOption->status }}</option>
-                                @endif
+                                <option value="{{ $statusOption->status }}"
+                                    {{ old('status', $statusOption->status) == $pet->status ? 'selected' : '' }}>
+                                    {{ $statusOption->status }}
+                                </option>
                             @endforeach
-                            <option value="{{ $pet->status }}" selected>{{ $pet->status }}</option>
                         </select>
+                        @error('status')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Campo Color (Select) -->
@@ -277,12 +317,14 @@
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
                             @foreach ($colors as $color)
                                 <option value="{{ $color->id }}"
-                                    {{ $color->id == $pet->color->id ? 'selected' : '' }}>
+                                    {{ old('color_id', $color->id) == $pet->color->id ? 'selected' : '' }}>
                                     {{ $color->name }}
                                 </option>
                             @endforeach
-
                         </select>
+                        @error('color_id')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
 
                 </div>
@@ -297,11 +339,14 @@
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
                             @foreach ($sizes as $size)
                                 <option value="{{ $size->size }}"
-                                    {{ $size->size == $pet->size ? 'selected' : '' }}>
+                                    {{ old('size', $size->size) == $pet->size ? 'selected' : '' }}>
                                     {{ $size->size }}
                                 </option>
                             @endforeach
                         </select>
+                        @error('size')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <!-- Campo Sex (Select) -->
@@ -310,11 +355,14 @@
                         <select id="sex" name="sex"
                             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">
                             @foreach ($sexs as $sex)
-                                <option value="{{ $sex->sex }}" {{ $sex->sex == $pet->sex ? 'selected' : '' }}>
+                                <option value="{{ $sex->sex }}" {{ old('sex', $sex->sex) == $pet->sex ? 'selected' : '' }}>
                                     {{ $sex->sex }}
                                 </option>
                             @endforeach
                         </select>
+                        @error('sex')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
 
                 </div>
@@ -324,7 +372,10 @@
                 <div class="mb-4">
                     <label for="description" class="text-gray-600">Description</label>
                     <textarea name="description" rows="4" placeholder="Enter a description"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">{{ $pet->description }}</textarea>
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400">{{ old('description', $pet->description) }}</textarea>
+                    @error('description')
+                        <span class="text-red-500 text-xs">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Campo Tags (Select múltiple) -->
@@ -335,11 +386,14 @@
                             <div class="flex items-center">
                                 <input type="checkbox" id="tag_{{ $tag->id }}" name="tags[]"
                                     value="{{ $tag->id }}" class="mr-2"
-                                    @if (in_array($tag->id, $pet->tags->pluck('id')->toArray())) checked @endif>
+                                    @if (in_array($tag->id, old('tags', $pet->tags->pluck('id')->toArray()))) checked @endif>
                                 <label for="tag_{{ $tag->id }}">{{ $tag->name }}</label>
                             </div>
                         @endforeach
                     </div>
+                    @error('tags')
+                        <span class="text-red-500 text-xs">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Campos para la card (color e icono) -->
@@ -354,10 +408,13 @@
                             @foreach ($bg_colors as $bg_color)
                                 <option style="background-color: {{ $bg_color->bg_color }};"
                                     value="{{ $bg_color->bg_color }}"
-                                    @if ($bg_color->bg_color == $pet->bg_color) selected @endif>
+                                    @if (old('bg_color', $bg_color->bg_color) == $pet->bg_color) selected @endif>
                                 </option>
                             @endforeach
                         </select>
+                        @error('bg_color')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <script>
@@ -377,12 +434,15 @@
                             onchange="document.getElementById('selected-icon').className = this.value;">
                             <option value="" disabled>Select an icon</option>
                             @foreach ($icons as $icon)
-                                <option value="{{ $icon->icon }}" @if ($icon->icon == $pet->icon) selected @endif>
+                                <option value="{{ $icon->icon }}" @if (old('icon', $icon->icon) == $pet->icon) selected @endif>
                                     {{-- Para que no imprima toda la clase del icono --}}
                                     {{ str_replace(['fa-solid fa-', '-'], ['', ' '], $icon->icon) }}
                                 </option>
                             @endforeach
                         </select>
+                        @error('icon')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                        @enderror
                     </div>
                     <!-- Campo Imágenes -->
                     <div class="mb-4">
