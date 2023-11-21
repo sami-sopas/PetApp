@@ -10,15 +10,36 @@ class ChatBox extends Component
     public $selectedConversation;
     public $body;
     public $loadedMessages;
+    public $paginate_var = 10;
 
     public function mount()
     {
         $this->loadMessages();
     }
 
+    public function loadMore() : void
+    {
+        //dd('carga al subir el scroll');
+        //Incrementar la cantidad de mensajes
+        $this->paginate_var += 10;
+
+        //Cargar los mensajes pero con la nueva cantidad
+        $this->loadMessages();
+
+    }
+
     public function loadMessages()
     {
-        $this->loadedMessages = Message::where('conversation_id', $this->selectedConversation->id)->get();
+        //Obtener el total de mensajes de la conversacion
+        $count = Message::where('conversation_id', $this->selectedConversation->id)->count();
+
+        //Obtener solo cierta cantidad de msj (NO TODOS PORQUE NMS PUEDEN SER UN CHINGO)
+        $this->loadedMessages = Message::where('conversation_id', $this->selectedConversation->id)
+            ->skip($count - $this->paginate_var)
+            ->take($this->paginate_var)
+            ->get();
+
+            return $this->loadedMessages;
     }
 
     public function sendMessage()

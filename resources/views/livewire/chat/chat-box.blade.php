@@ -33,6 +33,13 @@
 
         {{-- Body --}}
         <main
+            {{-- Cuando se sube hasta arriba el scroll, cargamos mas mensajes --}}
+            @scroll="
+                scropTop = $el.scrollTop;
+                if(scropTop <= 0){
+                    @this.call('loadMore');
+                }
+            "   
             id="conversartion"
             class="flex flex-col gap-3 p-2.5 overflow-y-auto flex-grow overscroll-contain overflow-x-hidden w-full my-auto">
 
