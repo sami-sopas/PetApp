@@ -143,7 +143,7 @@
     </div>
 
     {{-- Imprimir cattos --}}
-    <section class="grid grid-cols-1 ml-12 sm:grid-cols-2 sm:mr-20 md:grid-cols-3 gap-4 mt-5">
+    <section class="grid grid-cols-1 ml-12 sm:grid-cols-2 sm:mr-20 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-5">
         @php
             //Rescatar items de la like list
             $likeItems = Cart::content()->pluck('id');

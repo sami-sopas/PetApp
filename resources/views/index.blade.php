@@ -220,7 +220,7 @@
                                                 width="150" alt="" class="squiggle" /></div>
                                         <div style="opacity:0" class="large-text">
                                             <strong>
-
+                                                Chivapanas
                                             </strong>
                                         </div>
                                     </div>
