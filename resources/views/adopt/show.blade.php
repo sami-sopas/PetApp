@@ -208,11 +208,12 @@
                             <div class="flex-horizontal get-in-touch-note">
                                 <div class="flex-horizontal centered">
                                     @auth    
-                                    <h3 class="handwriting margin-right-space">Get in touch to meet </h3>
+                                    <h3 class="handwriting margin-right-space">Contactate para conocer a </h3>
                                     @endauth
                                     @guest
                                     <h3 class="handwriting margin-right-space">Inicia sesion para contactar al dueño de</h3>
                                     @endguest
+                                    
                                     <h3 class="handwriting margin-right-space">{{ $pet->name }}</h3>
                                 </div><img
                                     class="hidden md:block"
@@ -236,14 +237,15 @@
                     @auth    
                     <a href="mailto:{{ $pet->user->email }}" class="button bg-orange-200 full-width w-inline-block hover:bg-orange-300">
                         <div class="flex-horizontal centered">
-                            <div class="inline margin-right-25em">Email to meet me</div>
+                            <div class="inline margin-right-25em">Mandame un correo</div>
                         </div>
                     </a>
                     <a href="tel:{{ $pet->user->phone }}" class="button full-width w-inline-block bg-pink-200 hover:bg-pink-300">
                         <div class="flex-horizontal centered">
-                            <div class="inline margin-right-25em">Call me</div>
+                            <div class="inline margin-right-25em">LLamame</div>
                         </div>
                     </a>
+                    @livewire('send-message', ['userId' => $pet->user->id])
                     @endauth
 
                     @guest

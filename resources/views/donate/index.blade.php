@@ -19,7 +19,7 @@
             <div class="content-padding centered-content bottom-margin-3em">
                 <p>Las historias de adopción de mascotas son conmovedoras y revelan la transformación de vidas, tanto de
                     los animales como de quienes los adoptan. Estos relatos reflejan la importancia de dar segundas
-                    oportunidades, desde perros que salvan vidas hasta la inspiradora La adopción no solo rescata a los
+                    oportunidades, desde perros que salvan vidas hasta la inspiradora metaformosis. La adopción no solo rescata a los
                     animales, sino que también crea lazos
                     indestructibles entre las mascotas y sus dueños, mostrando cómo el amor y la compasión pueden
                     superar las adversidades.

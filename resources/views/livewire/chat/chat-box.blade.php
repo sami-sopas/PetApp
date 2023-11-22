@@ -35,7 +35,11 @@
 
                 {{-- Avatar --}}
                 <div class="flex-shrink-0">
-                    <x-avatar class="h-9 w-9 lg:w-11 lg:h-11" />
+                    @if ($selectedConversation->getReceiver()->profile_photo_path)
+                        <x-avatar src="/storage/{{ $selectedConversation->getReceiver()->profile_photo_path }}" class="h-9 w-9 lg:w-11 lg:h-11"/>
+                    @else
+                        <x-avatar src="{{ $selectedConversation->getReceiver()->profile_photo_url }}" class="h-9 w-9 lg:w-11 lg:h-11"/>
+                    @endif
                 </div>
 
                 <h6 class="font bold truncate">
@@ -87,13 +91,10 @@
 
                         {{-- Avatar --}}
                         <div @class([
-                            '
-                                            shrink-0',
+                            'shrink-0',
                             'invisible' => $previousMessage?->sender_id == $message->sender_id,
                             'hidden' => $message->sender_id == auth()->id(),
                         ])>
-
-                            <x-avatar />
 
                         </div>
 

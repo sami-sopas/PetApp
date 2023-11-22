@@ -43,7 +43,7 @@
         </header>
         <section class="section wide white flex justify-center align-items-center text-center end">
             <div class="container-1440 text-lg">
-                <div class="_4-column-grid big-buttons"><a href="{{ route('adopt-dog.index') }}"
+                <div class="_3-column-grid big-buttons"><a href="{{ route('adopt-dog.index') }}"
                         class="big-buttons-wrapper w-inline-block">
                         <div data-w-id="a2b159e3-7b93-6b8e-545a-468b0003a824" class="lottie-animation">
                             <div class="content-padding">

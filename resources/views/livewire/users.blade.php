@@ -9,8 +9,16 @@
         @foreach ($users as $key => $user)
             <div class="w-full bg-white border border-gray-200 rounded-lg p-5 shadow">
                 <div class="flex flex-col items-center pb-10">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt=""
-                        class="w-24 h-24 mb-2 5 rounded-full shadow-lg">
+
+
+                    @if ($user->profile_photo_path)
+                    <img class="w-24 h-24 mb-2 5 rounded-full shadow-lg" src="/storage/{{ $user->profile_photo_path }}"
+                        alt="{{ $user->name }}" />
+                    @else
+                    <img class="w-24 h-24 mb-2 5 rounded-full shadow-lg" src="{{ $user->profile_photo_url }}"
+                        alt="{{ $user->name }}" />
+                    @endif
+
 
                     <h5 class="mb-1 text-xl font-medium text-gray-900">
                         {{ $user->name }}

@@ -68,7 +68,12 @@
             id="conversation-{{$conversation->id}}" wire:key="{{$conversation->id}}" 
             class="py-3 hover:bg-gray-50 rounded-2xl dark:hover:bg-gray-700 transition-colors duration-150 flex gap-4 relative w-full cursor-pointer px-2 {{$conversation->id==$selectedConversation?->id ? 'bg-gray-200' : ''}}">
                 <a href="#" class="shrink-0">
-                    <x-avatar src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png"/>
+                    
+                    @if ($conversation->getReceiver()->profile_photo_path)
+                        <x-avatar src="/storage/{{ $conversation->getReceiver()->profile_photo_path }}"/>
+                    @else
+                        <x-avatar src="{{ $conversation->getReceiver()->profile_photo_url }}"/>
+                    @endif
 
                 </a>
 
@@ -139,13 +144,13 @@
                                 <div class="w-full p-1">
 
                                     {{-- Ver perfil--}}
-                                    <button class="items-center gap-3 flex w-full px-4 py-2 text-left text-sm leading-5 text-gray-500 hover:bg-gray-100 transition-all duration-150 ease-in-out focus:outline-none focus:bg-gray-100">
+                                    {{-- <button class="items-center gap-3 flex w-full px-4 py-2 text-left text-sm leading-5 text-gray-500 hover:bg-gray-100 transition-all duration-150 ease-in-out focus:outline-none focus:bg-gray-100">
                                         <span>
                                             <i class="fa-solid fa-circle-user"></i>
                                         </span>
 
                                         Ver perfil
-                                    </button>
+                                    </button> --}}
 
                                     {{-- Borrar--}}
                                     <button 
@@ -156,7 +161,7 @@
                                             <i class="fa-solid fa-trash text-red-500"></i>
                                         </span>
 
-                                        Borrar
+                                        Eliminar
                                     </button>
                                 </div>
                             </x-slot>
