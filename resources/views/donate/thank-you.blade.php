@@ -10,7 +10,7 @@
     <div>
         <section class="section negative-bottom-margin-padding">
             <div class="container-1100 negative-bottom-margin-padding">
-                <div class="content-padding centered-content">
+                <div class="content-padding centered-content mb-8">
                     <h1 class="text-5xl mb-7">
                          Gracias por tu donacion 
                     </h1>
