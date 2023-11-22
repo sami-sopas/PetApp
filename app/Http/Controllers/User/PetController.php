@@ -126,7 +126,7 @@ class PetController extends Controller
         //Actualizar de la tabla M:M
         $pet->tags()->sync($request->tags);
 
-        return redirect()->route('pet.edit',$pet)->with('info','La publicacion fue actualizada correctamente !');
+        return redirect()->route('pet.edit',$pet)->with('info','La publicación fue actualizada correctamente !');
     }
 
     public function destroy(Pet $pet)
@@ -136,6 +136,6 @@ class PetController extends Controller
         //Nota: Las imagenes asociadas se eliminan con un observer
         $pet->delete();
 
-        return redirect()->route('posts.index')->with('info','La publicacion fue eliminada correctamente !');
+        return redirect()->route('posts.index')->with('info','La publicación fue eliminada correctamente !');
     }
 }
