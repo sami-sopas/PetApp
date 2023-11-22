@@ -72,7 +72,7 @@ class AdoptCatController extends Controller
             'bg_color' => 'required',
             'icon' => 'required',
             'files.*' => 'image|max:2048',
-            'files' => 'required|max:3'
+            'files' => 'array|min:3|max:3'
         ]);
 
         //Definir que sera publicacion para gato

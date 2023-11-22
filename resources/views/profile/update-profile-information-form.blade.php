@@ -65,6 +65,25 @@
             <x-input-error for="name" class="mt-2" />
         </div>
 
+        <!-- Telefono -->
+        <div class="col-span-6 sm:col-span-4 ">
+            <x-label for="phone" value="{{ __('Phone') }}" />
+            <x-input id="phone" type="text" class="mt-1 block w-full" wire:model="state.phone" required
+                autocomplete="phone" />
+            <x-input-error for="phone" class="mt-2" />
+        </div>
+        
+        <!-- State -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="state_id" value="{{ __('State') }}" />
+            <select id="state_id" class="block mt-1 w-full rounded-md border border-gray-300" name="state_id" wire:model="state.state_id" required>
+                <option value="" disabled>Selecciona un estado</option>
+                @foreach (\App\Models\State::all() as $state)
+                    <option value="{{ $state->id }}" {{ $state->id == auth()->user()->state_id ? 'selected' : '' }}>{{ $state->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="email" value="{{ __('Email') }}" />

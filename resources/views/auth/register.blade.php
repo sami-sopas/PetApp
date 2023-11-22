@@ -21,7 +21,7 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="phone" value="{{ __('Phone') }}" />
+                <x-label for="phone" value="{{ __('Phone') }}"  />
                 <x-input id="phone" class="block mt-1 w-full" type="tel" name="phone" :value="old('phone')" required />
             </div>
 
@@ -30,7 +30,7 @@
                 <select id="state_id" class="block mt-1 w-full rounded-md border border-gray-300" name="state_id" required>
                     <option value="" disabled selected>Selecciona un estado</option>
                     @foreach (\App\Models\State::all() as $state)
-                        <option value="{{ $state->id }}">{{ $state->name }}</option>
+                        <option value="{{ $state->id }}" {{ old('state_id') == $state->id ? 'selected' : '' }}>{{ $state->name }}</option>
                     @endforeach
                 </select>
             </div>
