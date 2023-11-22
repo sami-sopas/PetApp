@@ -11,7 +11,7 @@
                     <div data-w-id="df8ba497-8e89-eee6-5eb6-a66803c31144" class="heading-row-2 text-5xl">
                         <h1 class="headline tilt-right">Una Adopcion a la vez</h1>
                     </div>
-                    <div class="static-badge top-margin font-bold text-xl mt-4 p-4">
+                    <div class="static-badge top-margin font-bold text-xl my-4 p-4">
                         <h5>No compres, Adopta</h5>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
             </div>
         </header>
         <section class="section wide white flex justify-center align-items-center text-center end">
-            <div class="container-1440 text-lg">
+            <div class="container-1440 text-2xl">
                 <div class="_3-column-grid big-buttons"><a href="{{ route('adopt-dog.index') }}"
                         class="big-buttons-wrapper w-inline-block">
                         <div data-w-id="a2b159e3-7b93-6b8e-545a-468b0003a824" class="lottie-animation">
@@ -89,10 +89,11 @@
         <section class="section negative-bottom-margin-padding">
             <div class="container-1100">
                 <div class="content-padding centered-content">
-                    <h2 class="text-4xl mb-3">
+                    <h2 class="text-4xl mb-4">
                         Acerca <span class="underline-sketchy brand-color-5 h2"> de </span>Nosotros.
                     </h2>
-                    <p>Facilitar el encuentro entre mascotas necesitadas de hogar y familias amorosas,
+                    <p class="text-2xl">
+                        Facilitar el encuentro entre mascotas necesitadas de hogar y familias amorosas,
                         promoviendo la adopción responsable y contribuyendo al bienestar animal. Nos
                         comprometemos a rescatar, rehabilitar y encontrar hogares permanentes para animales
                         abandonados, fomentando la conciencia sobre la importancia de brindar cuidado y amor a estos
@@ -103,7 +104,7 @@
                 </div>
             </div>
         </section>
-        <section class="section wide">
+        <section class="section wide mt-6">
             <div class="flex-horizontal left-notes">
                 <h2 class="handwriting margins">Ultimas máscotas</h2>
                 <img src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a365c43846d_Adoptable_Arrow Style 1_green.svg"

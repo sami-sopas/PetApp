@@ -1,11 +1,21 @@
 <x-app-layout>
 
+    <style>
+        .espaciado {
+            line-height: 2.1; /* Ajusta este valor según tus necesidades */
+        }
+    </style>
+    
+
     <div>
         <section class="section negative-bottom-margin-padding">
             <div class="container-1100 negative-bottom-margin-padding">
                 <div class="content-padding centered-content">
-                    <h1> Gracias por tu donacion </h1>
-                    <p> Tu donación ayudará a mantener esta página vigente y nos ayudará a seguir
+                    <h1 class="text-5xl mb-7">
+                         Gracias por tu donacion 
+                    </h1>
+                    <p class="text-xl espaciado">
+                         Tu donación ayudará a mantener esta página vigente y nos ayudará a seguir
                         dándole un hogar a muchos diferentes animales que lo necesitan.
                         Tal vez parezca poco, pero esto enserio nos ayuda a mantenernos haciendo esto.
                         A veces es muy difícil realizar buenas acciones sin tener nada y uno pierde su motivación,

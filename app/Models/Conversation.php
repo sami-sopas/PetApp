@@ -73,4 +73,5 @@ class Conversation extends Model
     {
         return $this->hasMany(Message::class);
     }
+    
 }

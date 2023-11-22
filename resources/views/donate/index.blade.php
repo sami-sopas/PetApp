@@ -17,7 +17,8 @@
     <div data-w-id="ea005efb-f598-8c37-fe43-0560f45dbd36" class="section wide">
         <div class="container-1100 bottom-padding-1em">
             <div class="content-padding centered-content bottom-margin-3em">
-                <p>Las historias de adopción de mascotas son conmovedoras y revelan la transformación de vidas, tanto de
+                <p class="text-2xl">
+                    Las historias de adopción de mascotas son conmovedoras y revelan la transformación de vidas, tanto de
                     los animales como de quienes los adoptan. Estos relatos reflejan la importancia de dar segundas
                     oportunidades, desde perros que salvan vidas hasta la inspiradora metaformosis. La adopción no solo rescata a los
                     animales, sino que también crea lazos
