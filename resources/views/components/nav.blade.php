@@ -183,33 +183,36 @@
             </button>
         </div>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+            <div class="justify-center">
+                
+            </div>
             <ul
                 class="flex flex-col font-semibold md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-3 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
 
                 <li class="my-auto">
                     <a href="{{ route('adopt-dog.index') }}"
-                        class="block py-2 px-3  rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
+                        class="py-2 px-3  rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
                         Adopt a Dog
                     </a>
                 </li>
 
                 <li class="my-auto">
                     <a href="{{ route('adopt-cat.index') }}"
-                        class="block py-2 px-3  rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
+                        class="py-2 px-3  rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
                         Adopt a Cat
                     </a>
                 </li>
 
                 <li class="my-auto">
                     <a href="{{ route('adopt-pet.index') }}"
-                        class="block py-2 px-3  rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
+                        class="py-2 px-3  rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
                         Adopt a Pet
                     </a>
                 </li>
 
                 <li class="my-auto">
                     <a href="{{ route('donate.index') }}"
-                        class="block py-2 px-3  rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
+                        class="py-2 px-3  rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
                         Donar
                     </a>
                 </li>
@@ -231,21 +234,21 @@
 
                             <li>
                                 <a href="{{ route('adopt-dog.create') }}"
-                                    class="block my-1.5 rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
+                                    class="my-1.5 rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
                                     Perro en Adopción
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{ route('adopt-cat.create') }}"
-                                    class="block my-1.5 rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
+                                    class="my-1.5 rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
                                     Gato en Adopción
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{{ route('adopt-pet.create') }}"
-                                    class="block my-1.5 rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
+                                    class="my-1.5 rounded md:hover:bg-transparent md:hover:opacity-75 transition-opacity ease-in-out duration-200 md:p-0">
                                     Mascota en Adopción
                                 </a>
                             </li>

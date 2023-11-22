@@ -1,8 +1,9 @@
-<x-guest-layout>
+<x-app-layout>
+
+    
     <x-authentication-card>
         <x-slot name="logo">
-            {{-- <x-authentication-card-logo /> --}}
-            LOGO
+            <h1 class="text-2xl font-bold text-center my-6">Crear cuenta</h1>
         </x-slot>
 
         <x-validation-errors class="mb-4" />
@@ -11,7 +12,7 @@
             @csrf
 
             <div>
-                <x-label for="name" value="{{ __('Name') }}" />
+                <x-label for="name" value="{{ __('Nombre') }}" />
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
@@ -21,12 +22,12 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="phone" value="{{ __('Phone') }}"  />
+                <x-label for="phone" value="{{ __('Telefono') }}"  />
                 <x-input id="phone" class="block mt-1 w-full" type="tel" name="phone" :value="old('phone')" required />
             </div>
 
             <div class="mt-4">
-                <x-label for="state_id" value="{{ __('State') }}" />
+                <x-label for="state_id" value="{{ __('Estado') }}" />
                 <select id="state_id" class="block mt-1 w-full rounded-md border border-gray-300" name="state_id" required>
                     <option value="" disabled selected>Selecciona un estado</option>
                     @foreach (\App\Models\State::all() as $state)
@@ -36,12 +37,12 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
+                <x-label for="password" value="{{ __('Contraseña') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-label for="password_confirmation" value="{{ __('Confirmar Contraseña') }}" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
@@ -64,13 +65,13 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('Ya tienes cuenta?') }}
                 </a>
 
                 <x-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('Registrar') }}
                 </x-button>
             </div>
         </form>
     </x-authentication-card>
-</x-guest-layout>
+</x-app-layout>

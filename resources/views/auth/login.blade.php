@@ -1,5 +1,5 @@
-<x-guest-layout>
-    <div class="bg-gray-100 text-gray-900 flex justify-center p-6">
+<x-app-layout>
+    <div class="text-gray-900 flex justify-center p-6">
         <div class="max-w-screen-xl m-0 sm:m-5 bg-white shadow sm:rounded-lg flex justify-center flex-1">
             <div class="lg:w-1/2 xl:w-5/12  p-6">
                 <div>
@@ -79,8 +79,8 @@
                 </div>
             </div>
             <div class="flex-1 bg-indigo-100 text-center hidden lg:flex">
-                <div class="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
-                    style="background-image: url('https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg');">
+                <div class="w-full h-full">
+                    <img src="{{ asset('imgs/login-image.png') }}" alt="login-image" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
@@ -135,4 +135,4 @@
             </div>
         </form>
     </x-authentication-card> --}}
-</x-guest-layout>
+</x-app-layout>

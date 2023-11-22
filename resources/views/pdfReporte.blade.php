@@ -40,9 +40,9 @@
             <h3>PET APP: REPORTE GENERAL</h3>
             <pre>
                 Adoptable
-                Blvd. Marcelino García Barragán #1421, esq Calzada Olímpica, C.P. 44430
-                Guadalajara, Jalisco, México.
-                52 (33) 1378 5900.
+                4894B C. Othón Blanco Cáceres 44980 Guadalajara, Jal. MX
+                {{ Auth()->user()->state->name}}, México.
+                {{ Auth()->user()->phone }}
             </pre>
         </td>
     </tr>
