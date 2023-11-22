@@ -24,7 +24,6 @@ hgroup,
 main,
 menu,
 nav,
-section,
 summary {
   display: block
 }
@@ -5957,7 +5956,6 @@ figcaption {
   position: relative;
   z-index: 3;
   margin-right: auto;
-  margin-bottom: 3em;
   margin-left: auto;
   text-align: center;
 }

@@ -4,15 +4,15 @@
             <div class="container-1440 full-width">
                 <div class="heading-container">
                     <div data-w-id="df8ba497-8e89-eee6-5eb6-a66803c3113f" class="heading-row-1 text-5xl">
-                        <h1 class="headline tilt-left"><span class="spark-left">Connecting</span> vulnerable animals </h1>
-                        <h1 class="headline">with their <span class="underline-wavey brand-color-2">forever</span> <span
-                                class="underline-wavey brand-color-2">families</span>, </h1>
+                        <h1 class="headline tilt-left"><span class="spark-left">Conectando</span> mascotas vulnerables</h1>
+                        <h1 class="headline">con sus <span class="underline-wavey brand-color-2">familias</span> <span
+                                class="underline-wavey brand-color-2">para siempre</span>. </h1>
                     </div>
                     <div data-w-id="df8ba497-8e89-eee6-5eb6-a66803c31144" class="heading-row-2 text-5xl">
-                        <h1 class="headline tilt-right">one adoption at a time.</h1>
+                        <h1 class="headline tilt-right">Una Adopcion a la vez</h1>
                     </div>
                     <div class="static-badge top-margin font-bold text-xl mt-4 p-4">
-                        <h5>adopt, don&#x27;t shop</h5>
+                        <h5>No compres, Adopta</h5>
                     </div>
                 </div>
                 <div class="home-header-images-grid"><img
@@ -41,9 +41,9 @@
                 <div class="long-fur-pattern bigger"></div>
             </div>
         </header>
-        <section class="section wide white">
-            <div class="container-1440">
-                <div class="_4-column-grid big-buttons"><a href="adopt-a-dog.html"
+        <section class="section wide white flex justify-center align-items-center text-center end">
+            <div class="container-1440 text-lg">
+                <div class="_4-column-grid big-buttons"><a href="{{ route('adopt-dog.index') }}"
                         class="big-buttons-wrapper w-inline-block">
                         <div data-w-id="a2b159e3-7b93-6b8e-545a-468b0003a824" class="lottie-animation">
                             <div class="content-padding">
@@ -54,10 +54,10 @@
                                         data-loop="1" data-direction="1" data-autoplay="0" data-renderer="svg"
                                         data-default-duration="1" data-duration="0"></div>
                                 </div>
-                                <h3 class="cta-text">I&#x27;d like to adopt a dog.</h3>
+                                <h3 class="cta-text">Me interesan los perros.</h3>
                             </div>
                         </div>
-                    </a><a href="adopt-a-cat.html" class="big-buttons-wrapper w-inline-block">
+                    </a><a href="{{ route('adopt-cat.index') }}" class="big-buttons-wrapper w-inline-block">
                         <div class="lottie-animation">
                             <div class="content-padding">
                                 <div class="big-lottie-icons-wrapper">
@@ -67,23 +67,10 @@
                                         data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg"
                                         data-default-duration="1" data-duration="0"></div>
                                 </div>
-                                <h3 class="cta-text">I&#x27;m more of a cat person.</h3>
+                                <h3 class="cta-text">Me interesan los gatos</h3>
                             </div>
                         </div>
-                    </a><a href="ways-to-help.html" class="big-buttons-wrapper w-inline-block">
-                        <div class="lottie-animation">
-                            <div class="content-padding">
-                                <div class="big-lottie-icons-wrapper">
-                                    <div data-is-ix2-target="1" class="big-lottie-icon"
-                                        data-w-id="5906aa4f-658d-435f-20de-ea658b59ec88" data-animation-type="lottie"
-                                        data-src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a66024384a4_Adoptable_Volunteer.json"
-                                        data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg"
-                                        data-default-duration="1" data-duration="0"></div>
-                                </div>
-                                <h3 class="cta-text">I&#x27;m interested in volunteering.</h3>
-                            </div>
-                        </div>
-                    </a><a href="donate.html" class="big-buttons-wrapper w-inline-block">
+                    </a><a href="{{ route('donate.index') }}" class="big-buttons-wrapper w-inline-block">
                         <div class="lottie-animation">
                             <div class="content-padding">
                                 <div class="big-lottie-icons-wrapper">
@@ -93,7 +80,7 @@
                                         data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg"
                                         data-default-duration="1" data-duration="0"></div>
                                 </div>
-                                <h3 class="cta-text">I&#x27;d like to make a donation.</h3>
+                                <h3 class="cta-text">Me gustaria realizar una donacion.</h3>
                             </div>
                         </div>
                     </a></div>
@@ -102,23 +89,17 @@
         <section class="section negative-bottom-margin-padding">
             <div class="container-1100">
                 <div class="content-padding centered-content">
-                    <h2>A little bit <span class="underline-sketchy brand-color-5 h2">about</span> us.</h2>
-                    <p>When I was fifteen, sixteen, when I really started to play guitar
-                        I definitely wanted to become a musician
-                        It was almost impossible because—it was—the dream was so big
-                        That I didn't see any chance because
-                        I was living in a little town; was studying
-                        And when I finally broke away from school and became a musician
-                        I thought: Well, now I may have a little bit of a chance
-                        Because all I really wanted to do is music
-                        And not only play music, but compose music
-                        At that time, in Germany, in '69, '70, they had already discotheques
-                        So, I would take my car, would go to a discotheque
-                        Sing maybe thirty minutes
-                        I think I had about seven, eight songs
-                        I would partially sleep in the car
-                        Because I didn't want to drive home and that helped me for about
-                    </p><a href="contact-us.html" class="button large w-button">contact us</a>
+                    <h2 class="text-4xl mb-3">
+                        Acerca <span class="underline-sketchy brand-color-5 h2"> de </span>Nosotros.
+                    </h2>
+                    <p>Facilitar el encuentro entre mascotas necesitadas de hogar y familias amorosas,
+                        promoviendo la adopción responsable y contribuyendo al bienestar animal. Nos
+                        comprometemos a rescatar, rehabilitar y encontrar hogares permanentes para animales
+                        abandonados, fomentando la conciencia sobre la importancia de brindar cuidado y amor a estos
+                        seres vulnerables. Nuestra misión se sustenta en valores de ética, responsabilidad y respeto
+                        hacia los animales, trabajando activamente para reducir la población de mascotas sin hogar y
+                        mejorar la calidad de vida de cada adoptante y adoptado
+                    </p>
                 </div>
             </div>
         </section>
@@ -130,8 +111,8 @@
             </div>
 
             <!-- Slider con ultimas mascotas -->
-            <x-slider/>
-        
+            <x-slider />
+
             <!-- Fin slider -->
 
 
@@ -146,7 +127,7 @@
 
         <section class="section wide">
             <div class="centered-text bottom-margin-3em">
-                <h2>Success Stories</h2>
+                <h2 class="text-4xl">Historias de Adopciones </h2>
             </div>
             <div class="slider-container">
                 <div data-delay="6000" data-animation="slide" class="testimonial-slider w-slider"
@@ -159,26 +140,21 @@
                                         src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802ac511438495_Adoptable_Spark Right_green.svg"
                                         alt="" class="slider-spark" />
                                     <div class="circle-image-mask"><img
-                                            src="../uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a7dc14384b2_Adobtable_Testimonial_Image-1.jpg"
+                                            src="https://i.kym-cdn.com/photos/images/original/002/417/178/59d"
                                             width="390" loading="lazy" alt="" /></div>
                                 </div>
                                 <div id="w-node-f5939f72-e415-e0ff-65d2-daf64258a811-9000696c"
                                     class="card slider-offset">
                                     <div class="centered-text slider-offset">
-                                        <p style="opacity:0" class="large-text">The first day we brought Miso home, he
-                                            didn’t cry at all on
-                                            the car ride home. He was incredibly curious, and wanted to explore
-                                            absolutely everything. Since I
-                                            already had an adult cat at home, I tried to keep Miso secluded in our
-                                            study, but he had other
-                                            plans! As soon as my partner opened the door, Miso came dashing out, right
-                                            up to Katsu, and nose
-                                            kissed him. <br />Best friends for life.</p>
+                                        <p style="opacity:0" class="large-text">
+                                            Relato de Oliver, un gatito blanco rescatado en Halloween,
+                                            destacando casos exitosos de adopción en la ciudad Best friends for life.
+                                        </p>
                                         <div style="opacity:0" class="squiggle-container"><img
                                                 src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a377743846b_Adoptable_Wiggle Style 1_green.svg"
                                                 width="150" loading="lazy" alt="" class="squiggle" />
                                         </div>
-                                        <div style="opacity:0" class="large-text"><strong>The Dorian Family &amp; Miso
+                                        <div style="opacity:0" class="large-text"><strong>Juanito y su Prole
                                             </strong></div>
                                     </div>
                                 </div>
@@ -190,25 +166,29 @@
                                         src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a688b438493_Adoptable_Spark Right_orange.svg"
                                         alt="" class="slider-spark" />
                                     <div class="circle-image-mask"><img
-                                            src="../uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a23b24384b3_Adobtable_Testimonial_Image-2.jpg"
+                                            src="https://i.pinimg.com/736x/59/11/bf/5911bf3118417fc66fb7d584ed7bd805.jpg"
                                             width="390" loading="lazy" alt="" /></div>
                                 </div>
                                 <div id="w-node-_75bed33a-2617-a42b-d44a-a7c68ddca047-9000696c"
                                     class="card slider-offset">
                                     <div class="centered-text slider-offset">
-                                        <p style="opacity:0" class="large-text">We visited your shelter not knowing
-                                            that we would leave with a
-                                            puppy (well, I knew but my fiancé needed a little persuading). She changed
-                                            our lives and instantly
-                                            brought us such joy, that we decided to return to save her baby brother,
-                                            Jackson. Nothing can
-                                            compare to the unconditional love you will receive from a rescue animal.</p>
+                                        <p style="opacity:0" class="large-text">Kuro y Dante
+                                            En diciembre de 2017, la mamá de Mariana informó sobre dos gatitos viviendo
+                                            bajo un carro, hijos de una linda siamesa envenenada. En su segundo intento
+                                            de rescate, lograron atrapar a Kuro, una hembra. Sin embargo, el hermano
+                                            tardó semanas en confiar. Durante la espera, descubrieron aluminio en la
+                                            boca de Kuro, lo que aumentó la urgencia por rescatar al macho. Con
+                                            refuerzos, la operación fue un éxito, pero el miedo lo dejó sin comer por
+                                            días.
+                                            Han pasado dos años; los hermanitos, ahora llamados Cosmo (antes Dante) y
+                                            Kuro, viven en hogares diferentes, más sociables y amados. La historia
+                                            destaca la importancia de salvar a los animales abandonados y ofrece un</p>
                                         <div style="opacity:0" class="squiggle-container"><img
                                                 src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a3966438468_Adoptable_Wiggle Style 1_orange.svg"
                                                 width="150" alt="" class="squiggle" /></div>
-                                        <div style="opacity:0" class="large-text"><strong>The Gibbs Family &amp;
-                                                Missy... and also
-                                                Jackson</strong></div>
+                                        <div style="opacity:0" class="large-text">
+                                            <strong>Carlos y su Prole</strong>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -219,24 +199,30 @@
                                         src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a6cdd4384aa_Adoptable_Spark Right_light blue.svg"
                                         alt="" class="slider-spark" />
                                     <div class="circle-image-mask"><img
-                                            src="../uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802af2b14384b4_Adobtable_Testimonial_Image-3.jpg"
+                                            src="https://pbs.twimg.com/media/FvuGCxAWwAI_oWp.jpg"
                                             width="390" loading="lazy" alt="" /></div>
                                 </div>
                                 <div id="w-node-_0a8a8612-7b4c-4680-6340-4c824661ce05-9000696c"
                                     class="card slider-offset">
                                     <div class="centered-text slider-offset">
-                                        <p style="opacity:0" class="large-text">This is our beloved Miro, adopted from
-                                            Adoptable just six
-                                            weeks ago. With the support of your lovely foster carers and now with a
-                                            permanent home she has come
-                                            out of her shell and absolutely adores her new life. Frank and I are so
-                                            thankful you saved her and
-                                            the stars aligned so we could welcome her into our family.</p>
+                                        <p style="opacity:0" class="large-text">Max
+                                            Ángela sufre de depresión y su psiquiatra le recomendó adoptar una mascota
+                                            como terapia. Ella no se arrepiente de haber seguido su recomendación al pie
+                                            de la letra.
+                                            Encontró a Max en una página de internet, él fue uno de los cinco bebés que
+                                            dio a luz una perrita que quedó preñada después de escaparse de su casa por
+                                            solo quince minutos.
+                                            “Yo le diría a toda la gente que adopte porque ellos son unos seres muy
+                                            fieles y te sacan una sonrisa cuando más lo necesitas, adoptar es una de las
+                                            mejores cosas que les va a poder pasar en la vida”, dice.</p>
                                         <div style="opacity:0" class="squiggle-container"><img
                                                 src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a8be14384a6_Adoptable_Wiggle Style 1_light blue.svg"
                                                 width="150" alt="" class="squiggle" /></div>
-                                        <div style="opacity:0" class="large-text"><strong>The Marshall Family and
-                                                Miro</strong></div>
+                                        <div style="opacity:0" class="large-text">
+                                            <strong>
+
+                                            </strong>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -258,6 +244,6 @@
                 </div>
             </div>
         </section>
-        
+
     </div>
 </x-app-layout>

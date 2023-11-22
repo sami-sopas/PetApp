@@ -14,14 +14,12 @@
                     </div>
                 </div>
                 <div id="w-node-e390ad44-2592-9581-74e8-99c94401d84c-4401d838" class="footer-links-container"><a
-                        href="adopt-a-dog.html" class="nav-link footer">Adopt a Dog</a><a href="adopt-a-cat.html"
-                        class="nav-link footer">Adopt a Cat</a><a href="ways-to-help.html"
-                        class="nav-link footer">Ways to Help</a>
+                        href="{{ route('adopt-dog.index') }}" class="nav-link footer">Adopta un Perro</a><a href="{{ route('adopt-cat.index') }}"
+                        class="nav-link footer">Adopta un Gato</a><a href="{{ route('donate.index') }}"
+                        class="nav-link footer">Formas de ayudar</a>
                 </div>
-                <div id="w-node-e390ad44-2592-9581-74e8-99c94401d853-4401d838" class="footer-links-container"><a
-                        href="blog.html" class="nav-link footer">Blog</a><a href="contact-us.html"
-                        class="nav-link footer">Contact
-                        Us</a>
+                <div id="w-node-e390ad44-2592-9581-74e8-99c94401d853-4401d838" class="footer-links-container"><a>
+                      </a>
                     <div class="flex-horizontal socials-padding"><a href="https://www.facebook.com/webflow/"
                             target="_blank" class="social-links w-inline-block"><img
                                 src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a1b17438524_Icons_Adoptable_White_Facebook.svg"
@@ -44,15 +42,15 @@
         <div class="container-1440 full-width">
             <div class="footer-grid">
                 <div id="w-node-_31f2d73d-efea-3de6-87d8-c6dfbca6b7c5-bca6b7c3">
-                    <div class="small-text reversed">Designed by Hollagraphica</div>
+                    <div class="small-text reversed"></div>
                 </div>
                 <div id="w-node-_31f2d73d-efea-3de6-87d8-c6dfbca6b7c8-bca6b7c3"><a
-                        href="template/style-guide.html" class="small-footer-link reverse">Style Guide</a><a
-                        href="template/licences.html" class="small-footer-link reverse">Licences</a><a
-                        href="template/changelog.html" class="small-footer-link reverse">Changelog</a></div>
+                        href="template/style-guide.html" class="small-footer-link reverse"></a><a
+                        href="template/licences.html" class="small-footer-link reverse"></a><a
+                        href="template/changelog.html" class="small-footer-link reverse"></a></div>
                 <div id="w-node-_31f2d73d-efea-3de6-87d8-c6dfbca6b7cf-bca6b7c3">
-                    <div class="small-text reversed">Powered by <a href="https://webflow.com/" target="_blank"
-                            class="small-text reversed">Webflow</a></div>
+                    <div class="small-text reversed"> <a target="_blank"
+                            class="small-text reversed"></a></div>
                 </div>
             </div>
         </div>

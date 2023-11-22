@@ -7,17 +7,17 @@
         <div
           style="-webkit-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-5DEG) skew(0, 0);-moz-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-5DEG) skew(0, 0);-ms-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-5DEG) skew(0, 0);transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-5DEG) skew(0, 0);opacity:0"
           class="heading-row-1">
-          <h1><span class="spark-left brand-color-5 text-6xl">Your</span> <span class="text-6xl">generous</span><span class="underline-sketchy"></span></h1>
+          <h1><span class="spark-left brand-color-5 text-6xl">Tu   </span> <span class="text-6xl"> generosa </span><span class="underline-sketchy"></span></h1>
         </div>
         <div
           style="-webkit-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(6DEG) skew(0, 0);-moz-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(6DEG) skew(0, 0);-ms-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(6DEG) skew(0, 0);transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(6DEG) skew(0, 0);opacity:0"
           class="heading-row-2">
-          <h1><span class="underline-sketchy text-6xl">donation</span></h1>
+          <h1><span class="underline-sketchy text-6xl">donacion</span></h1>
         </div>
         <div
           style="-webkit-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-8DEG) skew(0, 0);-moz-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-8DEG) skew(0, 0);-ms-transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-8DEG) skew(0, 0);transform:translate3d(0, 2EM, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-8DEG) skew(0, 0);opacity:0"
           class="heading-row-3">
-          <h1 class="text-6xl">can <span class="underline-wavey brand-color-2 text-6xl">help us...</span></h1>
+          <h1 class="text-6xl mb-12">nos <span class="underline-wavey brand-color-2 text-6xl">ayuda con...</span></h1>
         </div>
       </div>
     </div>
@@ -83,36 +83,31 @@
                 <div class="circle-icon white-bullets"><img
                     src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a098a438502_Icons_Adoptable_Purple_Volunteer.svg"
                     loading="lazy" alt="" /></div>
-                <div>Utporttitor Pomeagle leo a diam sollicitudin tempor id. Purus non enimpraesent Chihuahua elementum
-                  facilisis leo vel.</div>
+                <div>Dar apoyo a los animales que necesitan ayuda y darles una segunda oportunidad de disfrutar una buena vida.</div>
               </div>
               <div class="dotted-row-container big-bullets">
                 <div class="circle-icon white-bullets"><img
                     src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802ab69e4384c9_Icons_Adoptable_Purple_Dog%20House.svg"
                     loading="lazy" alt="" /></div>
-                <div>Est Turkish Angora lorem ipsum dolor sit amet. Elementum Ragamuffin tempus egestas sed sed risus
-                  Turkish Van pretium.</div>
+                <div>La adopción es un acto de amor. Construyamos puentes hacia hogares llenos de afecto y cuidado para aquellos que lo necesitan.</div>
               </div>
               <div class="dotted-row-container big-bullets">
                 <div class="circle-icon white-bullets"><img
                     src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a3b634384be_Icons_Adoptable_Purple_Bowl.svg"
                     loading="lazy" alt="" /></div>
-                <div>Ac Tonkinese turpis egestas Egyptian Mau maecenas pharetra convallis posuere European Burmese morbi
-                  leo.</div>
+                <div>Todos estamos aquí para ayudarnos mutuamente. Tu donación es un acto de solidaridad que impulsa el bienestar animal.</div>
               </div>
               <div class="dotted-row-container big-bullets">
                 <div class="circle-icon white-bullets"><img
                     src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802acdaf4384f0_Icons_Adoptable_Purple_Scissors.svg"
                     loading="lazy" alt="" /></div>
-                <div>Euturpis Sheltie egestas Basenji pretium aenean pharetra magna acplacerat. Amet tellus cras Bull
-                  Terrier adipiscing enim eu turpisegestas.</div>
+                <div>Cambiar la vida de esas mascotas que más lo necesitan. Descubre cómo puedes apoyar con nuestra pagina.</div>
               </div>
               <div class="dotted-row-container big-bullets">
                 <div class="circle-icon white-bullets"><img
                     src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802ac1f74384d6_Icons_Adoptable_Purple_Health%20Check.svg"
                     loading="lazy" alt="" /></div>
-                <div>Sapieneget mi proin sed libero enim sed faucibus. Arcu Manx non odio euismodlacinia at quis risus.
-                  Curabitur Russian Blue gravida Scottish Fold arcuac tortor dignissim.</div>
+                <div>Promover y facilitar la adopción de mascotas en México porque los verdaderos amigos no se compran. </div>
               </div>
             </li>
           </ol>

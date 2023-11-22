@@ -9,7 +9,7 @@
                 <button type="button" class="w-full pt-4 text-left"
                     @click="selected !== 1 ? selected = 1 : selected = null">
                     <div class="flex-horizontal justify-space-between">
-                        <h4 class="accordion-headline">I&#x27;m looking for a cat that...</h4>
+                        <h4 class="accordion-headline">Estoy buscando un michi que...</h4>
                         <div class="arrow-icon small"><img
                                 src="https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a42154384b8_Icons_Adoptable_Purple_Arrow Down.svg"
                                 width="75" alt="" /></div>

@@ -10,10 +10,11 @@
                 <div class="relative h-96">
                     <img src="{{ Storage::url($pet->images->first()->url) }}" class="absolute w-1/3 h-full object-cover rounded-lg" alt="{{ $pet->name }}">
                 </div>
-                <div class="absolute top-0 right-0 w-2/3 h-full p-8 text-left flex flex-col justify-center bg-white">
-                    <h2 class="text-2xl font-bold">Soy {{ $pet->name }}</h2>
-                    <p class="mt-5">{{ $pet->sex }}</p>
-                    <p>Y soy de {{ $pet->user->state->name }}</p>
+                <div class="absolute text-center top-0 right-0 w-2/3 h-full p-8  flex flex-col justify-center bg-white">
+                    <h2 class="text-4xl font-bold">Hola ! Soy {{ $pet->name }}</h2>
+                    <p class="mt-5 text-3xl">{{ $pet->sex }}</p>
+                    <p class="mt-5 text-3xl">Vengo de {{ $pet->user->state->name }}</p>
+                    <p class="mt-5 text-3xl">Y soy muy {{ $pet->tags->first()->name }}</p>
                 </div>
             </div>
             @endforeach
