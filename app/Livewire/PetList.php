@@ -24,6 +24,7 @@ class PetList extends Component
         $this->pets = Pet::where('category_id','!=',1)
                          ->where('category_id','!=',2)
                          ->where('status',1)
+                         ->with('category','images')
                          ->get();
     }
 

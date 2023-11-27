@@ -50,6 +50,7 @@ class PetAdoptIndex extends Component
                         ->whereHas('user', function ($query) {
                             $query->whereNull('deleted_at');
                         })
+                        ->with(['user','category'])
                         ->orderBy('id')
                         ->paginate(10),
         ]);

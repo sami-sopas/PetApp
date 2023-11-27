@@ -21,7 +21,10 @@ class DogList extends Component
     public function mount()
     {
         //Recueperar perros en adopcion
-        $this->dogs = Pet::where('category_id',1)->where('status',1)->get();
+        $this->dogs = Pet::where('category_id',1)
+                            ->where('status',1)
+                            ->with('category','images')
+                            ->get();
         
 
     }

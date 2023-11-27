@@ -23,7 +23,16 @@ class slider extends Component
     public function render(): View|Closure|string
     {
         //Recuperamos los ultimos pets en adopcion en base a su ID
-         $pets = Pet::orderBy('id','desc')->where('status',2)->take(5)->get();
+
+        //Aplicando eager loading
+         $pets = Pet::orderBy('id','desc')
+                    ->where('status',2)
+                    ->take(5)
+                    ->with('images','category','tags')
+                    ->with(['user' => function($query){
+                        $query->with('state');
+                    }])
+                    ->get();
 
         return view('components.slider',compact('pets'));
     }

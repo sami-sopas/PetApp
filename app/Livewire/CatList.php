@@ -21,7 +21,10 @@ class CatList extends Component
     public function mount()
     {
         //Recueperar gatos en adopcion
-        $this->cats = Pet::where('category_id',2)->where('status',1)->get();
+        $this->cats = Pet::where('category_id',2)
+                            ->where('status',1)
+                            ->with('category','images')
+                            ->get();
     }
 
     public function filter()
