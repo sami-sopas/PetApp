@@ -30,10 +30,10 @@
                     {{ $user->name }}
                 </td>
                 <td class="w-3/12 px-6 py-4 ">
-                    {{ $user->created_at->diffForHumans() }}
+                    {{ $user->created_at }}
                 </td>
                 <td class="w-3/12 px-6 py-4">
-                    {{ $user->deleted_at->diffForHumans() }}
+                    {{ $user->deleted_at }}
                 </td>
                 <td class="w-3/12 px-6 py-4">
                     <table>

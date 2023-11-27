@@ -41,4 +41,10 @@ class Pet extends Model
         //Se le pasa el parametro y el nombre del metodo al que hace referencia
         return $this->morphMany(Image::class,'imageable');
     }
+
+    //Accesor para que el nombre tenga la primera letra en Mayuscula
+    public function getNameAttribute($value)
+    {
+        return ucfirst(strtolower($value));
+    }
 }

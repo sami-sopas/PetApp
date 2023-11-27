@@ -91,4 +91,21 @@ class User extends Authenticatable
     }
 
 
+    //Accesors para las fechas
+    public function getCreatedAtAttribute($value)
+    {
+        return date('d-m-Y H:i', strtotime($value));
+    }
+
+    public function getDeletedAtAttribute($value)
+    {
+        return date('d-m-Y H:i', strtotime($value));
+    }
+
+    //Guardar primera letra del nombre en mayus
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = ucfirst(strtolower($value));
+    }
+
 }
