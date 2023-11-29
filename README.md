@@ -29,6 +29,8 @@ PASOS PARA COMPILAR EL PROGRAMA CON LARAGON (DE PREFERENCIA USAR EL VIRTUAL HOST
 
 12. ```php artisan queue:work```
 
+12. ```php artisan schedule:work```
+
 # Credenciales a llenar en el .env
 
 1. Paypal
