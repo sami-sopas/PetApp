@@ -106,7 +106,7 @@
         </div>
         <div class="container-1440 full-width">
             <div class="pet-header-images-grid">
-
+                
                 <img style="-webkit-transform:translate3d(21VW, 3VW, 0VW) scale3d(1, 1, 1) rotateX(0DEG) rotateY(0DEG) rotateZ(0DEG) skew(0, 0);-moz-transform:translate3d(21VW, 3VW, 0VW) scale3d(1, 1, 1) rotateX(0DEG) rotateY(0DEG) rotateZ(0DEG) skew(0, 0);-ms-transform:translate3d(21VW, 3VW, 0VW) scale3d(1, 1, 1) rotateX(0DEG) rotateY(0DEG) rotateZ(0DEG) skew(0, 0);transform:translate3d(21VW, 3VW, 0VW) scale3d(1, 1, 1) rotateX(0DEG) rotateY(0DEG) rotateZ(0DEG) skew(0, 0);transform-style:preserve-3d"
                     id="w-node-fbff08ae-59a6-0c4f-3634-dd1fe7210177-f800696f"
                     src="{{ Storage::url($pet->images->first()->url) }}" alt="" class="pet-image-mask-left" />
@@ -240,11 +240,15 @@
                             <div class="inline margin-right-25em">Mandame un correo</div>
                         </div>
                     </a>
+
+                    @if(Auth::user()->phone != null)
                     <a href="tel:{{ $pet->user->phone }}" class="button full-width w-inline-block bg-pink-200 hover:bg-pink-300">
                         <div class="flex-horizontal centered">
                             <div class="inline margin-right-25em">LLamame</div>
                         </div>
                     </a>
+                    @endif
+
                     @livewire('send-message', ['userId' => $pet->user->id])
                     @endauth
 
@@ -263,6 +267,7 @@
     </div>
 
     {{-- Mascotas Similares --}}
+    @if($similars->count() > 3)
     <section class="section wide no-padding">
         <h3 class="text-center font-semibold">
             Tambien podra interesarte...
@@ -296,6 +301,7 @@
             @endforeach
         </div>
     </section>
+    @endif
 
     <x-footer />
 

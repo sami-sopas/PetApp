@@ -1,11 +1,11 @@
 # PetApp 
 
-PASOS PARA COMPILAR EL PROGRAMA CON LARAGON
+PASOS PARA COMPILAR EL PROGRAMA CON LARAGON (DE PREFERENCIA USAR EL VIRTUAL HOST QUE ESTE TRAE)
 
 ## Pasos
 
 
-1. En laragon, ir a las configuraciones y cambiar el Hostname a esto: {name}.mx (Esto es para el google login, en caso de que el dominio sea petapp.mx, si no se va usar, se puede usar el .test, no olvidar cambiarlo en el .env)
+1. (EN CASO DE USAR LA AUTENTICACION DE GOOGLE) En laragon, ir a las configuraciones y cambiar el Hostname a esto: {name}.mx/com/uk (lo que quieras) (Esto es para el google login ya que al agregar un dominio no se puede poner un .test) Si no es el caso, puedes dejarlo como esta
 
 2. En **C:\laragon\www** hacer un ```git clone https://github.com/sami-sopas/PetApp.git```
 
@@ -19,13 +19,15 @@ PASOS PARA COMPILAR EL PROGRAMA CON LARAGON
 
 7. ```php artisan storage:link```
 
-8. ```php artisan migrate --seed```
+8. ```LLena las credenciales del .env```
 
-9. ```npm install```
+9. ```php artisan migrate --seed```
 
-10. ```npm run dev```
+10.  ```npm install```
 
-11. ```php artisan queue:work```
+11. ```npm run dev```
+
+12. ```php artisan queue:work```
 
 # Credenciales a llenar en el .env
 
