@@ -267,7 +267,7 @@
     </div>
 
     {{-- Mascotas Similares --}}
-    @if($similars->count() > 3)
+    @if($similars->count() > 4)
     <section class="section wide no-padding">
         <h3 class="text-center font-semibold">
             Tambien podra interesarte...
