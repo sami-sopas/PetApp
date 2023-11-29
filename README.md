@@ -4,29 +4,33 @@ PASOS PARA COMPILAR EL PROGRAMA CON LARAGON
 
 ## Pasos
 
-1. En **C:\laragon\www** hacer un ```git clone https://github.com/sami-sopas/PetApp.git```
 
-2. Moverse a la ruta ```cd PetApp```
+1. En laragon, ir a las configuraciones y cambiar el Hostname a esto: {name}.mx (Esto es para el google login, en caso de que el dominio sea petapp.mx, si no se va usar, se puede usar el .test, no olvidar cambiarlo en el .env)
 
-3.  ```composer install```
+2. En **C:\laragon\www** hacer un ```git clone https://github.com/sami-sopas/PetApp.git```
 
-4. ```cp .env.example .env```
+3. Moverse a la ruta ```cd PetApp```
 
-5. ```php artisan key:generate```
+4.  ```composer install```
 
-6. ```php artisan storage:link```
+5. ```cp .env.example .env```
 
-7. ```php artisan migrate --seed```
+6. ```php artisan key:generate```
 
-8. ```npm install```
+7. ```php artisan storage:link```
 
-9. ```npm run dev```
+8. ```php artisan migrate --seed```
 
-10. ```php artisan queue:work```
+9. ```npm install```
+
+10. ```npm run dev```
+
+11. ```php artisan queue:work```
 
 # Credenciales a llenar en el .env
 
 1. Paypal
 2. Pusher
-3. Base de datos
+3. Google
+4. Base de datos
 

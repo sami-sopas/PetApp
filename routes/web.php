@@ -1,8 +1,14 @@
 <?php
 
+use App\Models\User;
+use App\Livewire\Users;
+use App\Livewire\Chat\Chat;
+use App\Livewire\Chat\Index;
 use App\Livewire\LikeListComponent;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\DomPdfController;
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\LostPetController;
@@ -11,9 +17,6 @@ use App\Http\Controllers\AdoptDogController;
 use App\Http\Controllers\AdoptPetController;
 use App\Http\Controllers\User\PetController;
 use App\Http\Controllers\User\UserController;
-use App\Livewire\Chat\Chat;
-use App\Livewire\Chat\Index;
-use App\Livewire\Users;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,11 +109,35 @@ Route::get('likes',LikeListComponent::class)->name('likelist');
 //Genera PDF
 Route::post('/pdf', [PDFController::class, 'getPdf'])->name('pdf');
 
-//Desmadre
+//Desmadre del chat
 Route::middleware('auth')->group(function (){
     Route::get('/chat',Index::class)->name('chat.index');
     Route::get('/chat/{query}',Chat::class)->name('chat');
     Route::get('/users',Users::class)->name('users');
+});
+
+//Rutas para el login con google
+ 
+Route::get('/google-auth/redirect', function () {
+    return Socialite::driver('google')->redirect();
+});
+ 
+Route::get('/google-auth/callback', function () {
+    $user_google = Socialite::driver('google')->stateless()->user();
+    //dd($user_google); 
+    // $user->token
+    $user = User::updateOrCreate([
+        'google_id' => $user_google->id,
+    ], [
+        'name' => $user_google->name,
+        'email' => $user_google->email,
+        'state_id' => 1,
+        'role' => 'user',
+    ]);
+
+    Auth::login($user);
+
+    return redirect('/');
 });
 
 

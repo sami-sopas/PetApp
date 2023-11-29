@@ -33,6 +33,7 @@ class User extends Authenticatable
         'phone',
         'state',
         'role',
+        'google_id',
     ];
 
     /**

@@ -43,6 +43,7 @@
                                     Iniciar Sesión
                                 </span>
                             </button>
+                            <a href="/google-auth/redirect">Login google</a>
                         </form>
                         <div class="mb-7 mt-3 border-b text-center">
                             <div
