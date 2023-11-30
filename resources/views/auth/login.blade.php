@@ -43,29 +43,21 @@
                                     Iniciar Sesión
                                 </span>
                             </button>
-                            <a href="/google-auth/redirect">Login google</a>
+                            {{-- <a href="/google-auth/redirect">Login google</a> --}}
                         </form>
                         <div class="mb-7 mt-3 border-b text-center">
                             <div
                                 class="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                                ¿No tienes cuenta?
+                                ó inicia sesión con Google
                             </div>
                         </div>
-                        <a type="button" 
-                        href="{{route ('register')}}"
-                                class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                                <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                                    <circle cx="8.5" cy="7" r="4" />
-                                    <path d="M20 8v6M23 11h-6" />
-                                </svg>
-                                <span class="ml-3">
-                                    Regístrate
-                                </span>
-
+                        <div class="flex items-center justify-center">
+                            <a href="/google-auth/redirect" class="px-4 py-2 w-full text-center border flex gap-2 items-center justify-center border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
+                                <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo">
+                                <span>Login with Google</span>
                             </a>
-                            <p class="mt-6 text-xs text-gray-600 text-center">
+                        </div>
+                            {{-- <p class="mt-6 text-xs text-gray-600 text-center">
                                 Acepto los 
                                 <a href="#" class="border-b border-gray-500 border-dotted">
                                     Terminos de servicio
@@ -74,6 +66,13 @@
                                 <a href="#" class="border-b border-gray-500 border-dotted">
                                     Politica de privacidad
                                 </a>
+                            </p> --}}
+                            <p class="mt-6 text-xs text-gray-600 text-center">
+                                ¿No tienes cuenta?
+                                <a href="{{ route('register') }}" class="border-b border-gray-500 border-dotted">
+                                    Registrate aqui
+                                </a>
+
                             </p>
                         </div>
                     </div>
